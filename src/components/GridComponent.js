@@ -2,10 +2,9 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid';
 import CarouselComponent from "./CarouselComponent";
 import MediaCard from "./CardComponent";
-
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -15,23 +14,26 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-export default function FullWidthGrid() {
+function FullWidthGrid() {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
-                <Grid xs={6} md={8}>
+                <Grid item xs={6} md={8}>
                     <Item><CarouselComponent /></Item>
                 </Grid>
-                <Grid xs={6} md={4}>
-                    <Item> <MediaCard /></Item>
+                <Grid item xs={6} md={4}>
+
+                    <Item><MediaCard /></Item>
                 </Grid>
-                <Grid xs={6} md={4}>
+                <Grid item xs={6} md={4}>
                     <Item>xs=6 md=4</Item>
                 </Grid>
-                <Grid xs={6} md={8}>
+                <Grid item xs={6} md={8}>
                     <Item>xs=6 md=8</Item>
                 </Grid>
             </Grid>
         </Box>
     );
 }
+
+export default FullWidthGrid;

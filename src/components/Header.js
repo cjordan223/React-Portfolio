@@ -1,7 +1,8 @@
+//Header.js
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, IconButton, useMediaQuery, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import { Link as RouterLink } from 'react-router-dom'; // Import Link from react-router-dom and rename it to RouterLink to avoid conflict with MUI Link
 
 function Header() {
     const theme = useTheme();
@@ -15,15 +16,15 @@ function Header() {
                         <MenuIcon />
                     </IconButton>
                 )}
-                <Typography variant="h6" style={{ flexGrow: 1 }}>
+                <Typography id="home-button" component={RouterLink} to="/" variant="h6" style={{ flexGrow: 1 }}>
                     My Portfolio
                 </Typography>
                 {!isMobile && (
                     <div>
-                        <Button color="inherit">About</Button>
-                        <Button color="inherit">Projects</Button>
-                        <Button color="inherit">Contact</Button>
-                    </div>
+                        {/* Use RouterLink in the component prop */}
+                        <Button color="inherit" component={RouterLink} to="/projects">Projects</Button>
+                        <Button color="inherit" component={RouterLink} to="/about">About</Button>
+                     </div>
                 )}
             </Toolbar>
         </AppBar>

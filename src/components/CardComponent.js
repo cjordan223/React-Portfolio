@@ -1,3 +1,4 @@
+// CardComponent.js
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -6,13 +7,14 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-function MediaCard() {
+function MediaCard({ sx, imageProps }) {
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ display: 'flex', flexDirection: 'column', height: '100%', ...sx }}>
             <CardMedia
-                sx={{ height: 140 }}
-                image="https://images.pexels.com/photos/584165/pexels-photo-584165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                title="green iguana"
+                component="img"
+                image="https://images.pexels.com/photos/9130779/pexels-photo-9130779.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="green iguana"
+                sx={{ flexGrow: 1, ...imageProps?.sx }}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">

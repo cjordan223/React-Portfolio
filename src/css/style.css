@@ -20,6 +20,16 @@ body, html {
 
 }
 
+.home-button {
+  text-decoration: none;
+  color: inherit;
+
+}
+
+.home-button:hover {
+  text-decoration: none;
+}
+
 #space-guy{
   padding-bottom: 800px;
 }
