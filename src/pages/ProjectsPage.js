@@ -1,13 +1,15 @@
+//ProjectsPage.js
 import React from "react";
-import { Container, Typography, Grid, Card, CardMedia, CardContent, CardActions, Button } from "@mui/material";
-import GridComponent from "../components/GridComponent";
-
+import { Container, Typography } from '@mui/material';
+import CarouselComponent from "../components/Projects/CarouselComponent";
 
 function ProjectsPage() {
     return (
-
-        <GridComponent />
-
+        <Container>
+            <Typography variant="h1">Projects</Typography>
+            <Typography variant="body1">Welcome to my projects page. Here you can explore the projects I've worked on.</Typography>
+            <CarouselComponent />
+        </Container>
     );
 }
 

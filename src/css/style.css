@@ -1,14 +1,19 @@
+/* style.css */
 body, html {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  background-image: url("C:\Users\conne\OneDrive\Desktop\my-portfolio\public\img\pexels-pixabay-355465.jpg");
+  background-image: url("C:\Users\conne\OneDrive\Desktop\Stuff\React Apps\my-portfolio\public\img\pexels-pixabay-355465.jpg");
   background-color: #010101;
    background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: "Roboto", sans-serif;
+
 }
+
+
 
 .transparentAppBar {
   background: transparent;
@@ -16,20 +21,137 @@ body, html {
 }
 
 .App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   margin: 20px;
-
 }
 
+#projectsCarousel {
+
+  padding-top: 70px;
+  margin-bottom: 300px;
+}
 .home-button {
   text-decoration: none;
   color: inherit;
 
 }
 
+.carousel-image {
+  max-height: 500px; /* Adjust based on your preference */
+  object-fit: cover; /* Keeps the aspect ratio of the image */
+}
+
+.custom-caption {
+  top: 0;
+  right: auto; /* Adjust based on your layout */
+  bottom: auto;
+  left: 15%;
+  text-align: left; /* Aligns the text to the right */
+}
+
+
 .home-button:hover {
   text-decoration: none;
 }
 
-#space-guy{
-  padding-bottom: 800px;
+#spacer{
+  padding-bottom: 200px;
+}
+
+.contact-page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Or you can use 'min-height' if you don't want it to be exactly the height of the viewport */
+}
+
+.footer {
+  margin-top: auto; /* This will push the footer to the bottom of the .App container */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Import Roboto */
+.roboto-thin {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.roboto-light {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-black {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.roboto-thin-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.roboto-light-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.roboto-regular-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.roboto-medium-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.roboto-bold-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.roboto-black-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: italic;
 }
