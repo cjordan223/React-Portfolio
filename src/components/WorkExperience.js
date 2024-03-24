@@ -1,6 +1,8 @@
 import React from 'react';
 import {Box, Container, Typography, Grid, Paper, List, ListItem, ListItemText} from '@mui/material';
-import Button from "@mui/material/Button";
+import {useNavigate} from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 
 const resumeUrl = "https://drive.google.com/file/d/1jSbYgRFbPWGRJcpq3LXYVq1LFS7OoBOA/view?usp=drive_link";
 
@@ -35,15 +37,12 @@ const education = [
 ];
 
 function WorkExperience() {
+    const navigate = useNavigate();
+
     return (
 
     <Container maxWidth="md">
-        <Button>
-            <a href={resumeUrl} target="_blank" style={{ textDecoration: 'none', color: 'inherit' }} rel="noreferrer">
-                Download Resume
-            </a>
-        </Button>
-
+<Paper>
         <Box my={4}>
                 {/* Skills Section */}
                 <Paper elevation={3} sx={{ my: 2, p: 2 }}>
@@ -86,7 +85,15 @@ function WorkExperience() {
                     ))}
                 </Paper>
             </Box>
-        </Container>
+
+        <Button variant="outline-primary" onClick={() => navigate('/projects')}>Main Projects Page</Button>{' '}
+        <Button>
+            <a href={resumeUrl} target="_blank" style={{ textDecoration: 'none', color: 'inherit' }} rel="noreferrer">
+                Download Resume
+            </a>
+        </Button>
+</Paper>
+    </Container>
     );
 }
 

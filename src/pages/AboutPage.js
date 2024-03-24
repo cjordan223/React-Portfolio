@@ -1,10 +1,14 @@
 //AboutPage.js
 import React from 'react';
 import { Box, Container, Typography, Grid, Avatar} from '@mui/material';
+import Button from "react-bootstrap/Button";
+import {useNavigate} from "react-router-dom";
 
 
 
 function AboutPage() {
+    const navigate = useNavigate(); // Create the navigate function
+
     return (
         <Container
             maxWidth="md"
@@ -36,9 +40,10 @@ function AboutPage() {
                         <Box display="flex" justifyContent="center">
                             <Avatar
                                 alt="Conner Jordan"
-                                src="C:\Users\conne\Downloads\Amanda_Conner_2024-196.jpg"
+                                src="/img/Amanda_Conner_2024-104.jpg" // Assuming your image is located at public/img/portrait.jpg
                                 sx={{ width: 200, height: 200 }}
                             />
+
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={8}>
@@ -62,8 +67,11 @@ function AboutPage() {
 
                 </Grid>
 
+                <Button variant="outline-primary" onClick={() => navigate('/work-exp')}>Experiences</Button>{' '}
 
             </Box>
+
+
         </Container>
     );
 }

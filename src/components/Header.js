@@ -54,7 +54,7 @@ function Header() {
                             <MenuItem onClick={handleProjectsClose}> <a
                                 href="https://drive.google.com/file/d/1jSbYgRFbPWGRJcpq3LXYVq1LFS7OoBOA/view?usp=drive_link" target="_blank"
                                 style={{textDecoration: 'none', color: 'inherit'}} rel="noreferrer">
-                                Resume
+                                Download Resume
                             </a> </MenuItem>
                         </Menu> <Button color="inherit" component={RouterLink} to="/contact">Contact</Button>
                     </div>

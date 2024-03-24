@@ -7,8 +7,11 @@ function ProjectsPage() {
     return (
         <Container>
             <Typography variant="h1">Projects</Typography>
-            <Typography variant="body1">Welcome to my projects page. Here you can explore the projects I've worked on.</Typography>
-            <CarouselComponent />
+            <br/>
+            <Typography variant="body1">Welcome to my projects page. Here you can explore the projects I've worked
+                on.</Typography>
+            <br/>
+            <CarouselComponent/>
         </Container>
     );
 }

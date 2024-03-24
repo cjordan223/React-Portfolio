@@ -4,7 +4,7 @@ body, html {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-image: url("C:\Users\conne\OneDrive\Desktop\Stuff\React Apps\my-portfolio\public\img\pexels-pixabay-355465.jpg");
+  background-image: url("/public/img/pexel.jpg");
   background-color: #010101;
    background-position: center;
   background-repeat: no-repeat;
