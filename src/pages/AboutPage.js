@@ -7,16 +7,21 @@ import {useNavigate} from "react-router-dom";
 
 
 function AboutPage() {
-    const navigate = useNavigate(); // Create the navigate function
+    const navigate = useNavigate();
 
     return (
         <Container
             maxWidth="md"
             style={{
-                backgroundImage: 'url(/path/to/your/background-image.jpg)',
+                backgroundImage: 'url(https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                minHeight: '100vh',
+                // Adjusted minHeight and added paddingBottom for better control
+                paddingBottom: '10px',
+                paddingTop: '30px',
+                marginBottom: '80px',
+                borderRadius: '22px',
+                color: 'black'
             }}
         >
             <Box
@@ -40,7 +45,7 @@ function AboutPage() {
                         <Box display="flex" justifyContent="center">
                             <Avatar
                                 alt="Conner Jordan"
-                                src="/img/Amanda_Conner_2024-104.jpg" // Assuming your image is located at public/img/portrait.jpg
+                                src="/Amanda_Conner_2024-104.jpg" // Assuming your image is located at public/img/portrait.jpg
                                 sx={{ width: 200, height: 200 }}
                             />
 
@@ -71,8 +76,9 @@ function AboutPage() {
 
             </Box>
 
-
         </Container>
+
+
     );
 }
 

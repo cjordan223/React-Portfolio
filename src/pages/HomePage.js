@@ -7,7 +7,7 @@ import '../css/HomePage.css';
 
 function HomePage() {
     return (
-        <Container maxWidth="lg" style={{ marginLeft: '50px', marginRight: '50px',textAlign: 'center', padding: '100px 0' }}>
+        <Container maxWidth="lg" style={{ textAlign: 'center', padding: '100px 0' }}>
             <Typography variant="h2" gutterBottom>
                 Conner Jordan
             </Typography>

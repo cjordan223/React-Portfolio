@@ -1,25 +1,50 @@
 import React from 'react';
-import {Card, CardContent, Typography, Grid} from '@mui/material';
-import {useNavigate} from "react-router-dom";
+import { Card, CardContent, Typography, Grid, CardMedia } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+
+const projects = [
+    { name: "Sprague Pavers", description: "Description of Sprague Pavers", imageUrl: "/imgs/Pave.png", link: "https://example.com/1" },
+    { name: "Lane's LLC", description: "Description of Lane's LLC", imageUrl: "/imgs/cares.png", link: "https://example.com/2" },
+    { name: "C-Plastic Design", description: "Description of C-Plastic Design", imageUrl: "/imgs/anyway.png", link: "https://example.com/3" },
+    { name: "Amendola Storage", description: "Description of Amendola Storage", imageUrl: "/imgs/store.png", link: "https://example.com/4" },
+    { name: "Lone Oak Baptist", description: "Description of Lone Oak Baptist", imageUrl: "/imgs/hey.png", link: "https://example.com/5" },
+    { name: "Carpentry Solutions", description: "Description of Carpentry Solutions", imageUrl: "/imgs/who.png", link: "https://example.com/6" },
+    // Add more projects as needed
+];
 
 function WebDesign() {
     const navigate = useNavigate();
-    return (
 
+    return (
         <div>
-            <h2>Web Design</h2>
+            <Typography variant="h2" component="h2" gutterBottom>
+                Web Design
+            </Typography>
+            <Typography variant="body1" paragraph>
+                Most of this work was done in 2022-2023, when I was working as a freelancer for Simple.biz. Primary tools were Duda CMS, Adobe Photoshop, Cognito Forms, and Canva Pro for Logos.
+            </Typography>
             <Grid container spacing={2}>
-                {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-                    <Grid item xs={12} sm={6} md={4} key={item}>
-                        <Card>
-                            <CardContent>
-                                <Typography variant="h5" component="h2">
-                                    Project {item}
+                {projects.map((project, index) => (
+                    <Grid item xs={12} sm={6} md={4} key={index}>
+                        <Card sx={{ maxWidth: 345, height: '100%', display: 'flex', flexDirection: 'column' }}>
+                            <CardMedia
+                                component="img"
+                                alt={project.name}
+                                height="140"
+                                image={project.imageUrl}
+                                title={project.name}
+                            />
+                            <CardContent sx={{ flexGrow: 1 }}>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    {project.name}
                                 </Typography>
                                 <Typography color="textSecondary">
-                                    Description of project {item}
+                                    {project.description}
                                 </Typography>
+                            </CardContent>
+                            <CardContent sx={{ flexGrow: 0 }}>
+                                <Button variant="outline-primary" href={project.link} target="_blank">View Project</Button>
                             </CardContent>
                         </Card>
                     </Grid>
@@ -27,11 +52,9 @@ function WebDesign() {
             </Grid>
             <br/><br/>
 
-            <Button variant="outline-primary" onClick={() => navigate('/projects')}>Main Projects Page</Button>{' '}
-
+            <Button variant="outline-primary" onClick={() => navigate('/projects')}>Main Projects Page</Button>
         </div>
-
-);
+    );
 }
 
 export default WebDesign;
