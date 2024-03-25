@@ -8,7 +8,7 @@ import '../css/HomePage.css';
 function HomePage() {
     return (
         <Container maxWidth="lg" style={{ textAlign: 'center', padding: '100px 0' }}>
-            <Typography variant="h2" gutterBottom>
+<Typography variant="h2" gutterBottom>
                 Conner Jordan
             </Typography>
             <Typography variant="h5" paragraph>
