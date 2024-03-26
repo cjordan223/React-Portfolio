@@ -1,8 +1,6 @@
 //Footer.js
 import React from 'react';
 import { Container, Grid, Typography, Link, Box } from '@mui/material';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 function Footer() {
@@ -12,7 +10,7 @@ function Footer() {
                 <Grid container spacing={4} justifyContent="space-between">
                     <Grid item xs={12} sm={4}>
                          <Typography variant="subtitle1" color="textSecondary">
-                            © {new Date().getFullYear()} Conner Jordan
+                            © {new Date().getFullYear()} Conner Jordan. All Rights Reserved.
                         </Typography>
                     </Grid>
                     <Grid item xs={12} sm={8} container justifyContent="flex-end" spacing={2}>

@@ -1,7 +1,9 @@
 //ProjectsPage.js
 import React from "react";
-import {Box, Container, Paper, Typography} from '@mui/material';
+import '../css/ProjectsPage.css';
+import {Box, Button, Container, Grid, Paper, Typography} from '@mui/material';
 import CarouselComponent from "../components/Projects/CarouselComponent";
+import {Link} from "react-router-dom";
 
 function ProjectsPage() {
     return (
@@ -18,6 +20,19 @@ function ProjectsPage() {
             </Paper>
             <br/>
             <CarouselComponent/>
+
+            <Grid container spacing={3} justifyContent="center" style={{marginTop: '40px'}}>
+                <Grid item>
+                    <Button variant="contained" color="primary" component={Link} to="/about">
+                        About
+                    </Button>
+                </Grid>
+                <Grid item>
+                    <Button variant="contained" color="primary" component={Link} to="/contact">
+                        Contact
+                    </Button>
+                </Grid>
+            </Grid>
          </Container>
     );
 }

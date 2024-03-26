@@ -1,0 +1,17 @@
+/* Global card styles */
+.MuiCard-root {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* This helps in pushing the actions to the bottom */
+    height: 100%; /* Full height of the grid cell */
+}
+
+/* Responsive card media */
+.MuiCardMedia-root {
+    aspect-ratio: 16 / 9; /* Replace with your desired aspect ratio */
+}
+
+/* Responsive card content */
+.MuiCardContent-root {
+    flex-grow: 1; /* Ensures that the content takes up the available space */
+}

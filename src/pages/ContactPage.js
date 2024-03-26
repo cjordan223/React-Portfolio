@@ -7,9 +7,12 @@ import {
     Box,
     Typography,
     CircularProgress,
-    Grid
+    Grid,
+    Link,
 } from '@mui/material';
+import { GitHub, LinkedIn, Email } from '@mui/icons-material';
 import '../css/ContactPage.css';
+import {Link as RouterLink} from "react-router-dom";
 
 function ContactForm() {
     const [state, handleSubmit] = useForm("xjvneqbo");
@@ -28,6 +31,17 @@ function ContactForm() {
                     <Typography variant="subtitle1" align="center" gutterBottom>
                         Got a question or proposal, or just want to say hello? Go ahead.
                     </Typography>
+                    <Box display="flex" justifyContent="center" mb={4}>
+                        <Link href="https://github.com/cjordan223" target="_blank" rel="noopener" mx={1}>
+                            <GitHub fontSize="large" />
+                        </Link>
+                        <Link href="https://www.linkedin.com/in/conner-jordan-4b268514a/" target="_blank" rel="noopener" mx={1}>
+                            <LinkedIn fontSize="large" />
+                        </Link>
+                        <Link href="mailto:connercharlesjordan@gmail.com" target="_blank" rel="noopener" mx={1}>
+                            <Email fontSize="large" />
+                        </Link>
+                    </Box>
                     <form onSubmit={handleSubmit}>
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={6}>
@@ -39,6 +53,7 @@ function ContactForm() {
                                     label="Name"
                                     variant="outlined"
                                     margin="normal"
+                                    required
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -50,21 +65,36 @@ function ContactForm() {
                                     label="Email Address"
                                     variant="outlined"
                                     margin="normal"
+                                    required
                                 />
                                 <ValidationError prefix="Email" field="email" errors={state.errors} component="p" />
                             </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    fullWidth
+                                    id="subject"
+                                    name="subject"
+                                    label="Subject"
+                                    variant="outlined"
+                                    margin="normal"
+                                    required
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    fullWidth
+                                    id="message"
+                                    name="message"
+                                    label="Your Message"
+                                    variant="outlined"
+                                    multiline
+                                    rows={6}
+                                    margin="normal"
+                                    required
+                                />
+                                <ValidationError prefix="Message" field="message" errors={state.errors} component="p" />
+                            </Grid>
                         </Grid>
-                        <TextField
-                            fullWidth
-                            id="message"
-                            name="message"
-                            label="Your Message"
-                            variant="outlined"
-                            multiline
-                            rows={4}
-                            margin="normal"
-                        />
-                        <ValidationError prefix="Message" field="message" errors={state.errors} component="p" />
                         <Box mt={2} display="flex" justifyContent="flex-end">
                             <Button
                                 type="submit"
@@ -78,7 +108,15 @@ function ContactForm() {
                         </Box>
                     </form>
                 </Box>
+                <Box display="flex" justifyContent="space-between" mt={2}>
+                    <Button variant="contained" color="primary" component={RouterLink} to="/">
+                        Home
+                    </Button>
+
+                </Box>
             </Container>
+
+
         </div>
     );
 }

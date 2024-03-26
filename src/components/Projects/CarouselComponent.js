@@ -1,13 +1,13 @@
 import React from 'react';
 import { Grid, Card, CardContent, CardMedia, Typography, CardActionArea, CardActions, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
-
+import '../ComponentStyles/CarouselComponent.css';
 function CarouselComponent() {
     return (
         <Grid container spacing={4} justifyContent="center">
             {/* Web Applications Card */}
             <Grid item>
-                <Card sx={{ maxWidth: 345 }}>
+                <Card sx={{ maxWidth: { xs: 345, sm: 345, md: 345, lg: 345, xl: 345 }, minHeight: '100%' }}>
                     <CardActionArea component={Link} to="/webapps">
                         <CardMedia
                             component="img"

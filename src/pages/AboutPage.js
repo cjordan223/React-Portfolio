@@ -59,6 +59,7 @@ function AboutPage() {
 
 
                         <Typography variant="body1" paragraph>
+                            {/* I'm a Senior year student at CSU Monterey finishing my degree in Computer Science, with an emphasis on software development.*/}
                             I am a web developer based in California with a passion for creating intuitive and engaging user experiences. With expertise in front-end technologies like React and Material-UI, I strive to build modern and responsive web applications.
                         </Typography>
                         <Typography variant="body1" paragraph>

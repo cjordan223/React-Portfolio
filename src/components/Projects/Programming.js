@@ -1,44 +1,44 @@
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import Button from "react-bootstrap/Button";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Card from 'react-bootstrap/Card'; // Import Card from react-bootstrap
 
 function Programming() {
     const navigate = useNavigate(); // Create the navigate function
+
+    const fullWidthCardData = {
+        title: 'Data Structures & Algorithms',
+        imageUrl: 'imgs/Screenshot 2024-03-08 at 1.11.29 AM.png', // Example image URL
+        text: 'A repo to some straightforward Java programs outlines some very well known DSA concepts. Theres a brief description of each process in the header of each file. These solutions are basic illustrations of some common problem solving approaches within the field.',
+        url: 'https://github.com/cjordan223/DSA-collection.git'
+    };
+
     return (
         <div>
             <h1> Programming Projects </h1>
             <br/>
 
             <Accordion>
-                <Accordion.Item eventKey="0">
-                    <Accordion.Header>Accordion Item #1</Accordion.Header>
+                  <Accordion.Item eventKey="2">
+                    <Accordion.Header>{fullWidthCardData.title}</Accordion.Header>
                     <Accordion.Body>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                    </Accordion.Body>
-                </Accordion.Item>
-                <Accordion.Item eventKey="1">
-                    <Accordion.Header>Accordion Item #2</Accordion.Header>
-                    <Accordion.Body>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
+                        <Card>
+                            <Card.Img variant="top" src={fullWidthCardData.imageUrl} />
+                            <Card.Body>
+                                <Card.Title>{fullWidthCardData.title}</Card.Title>
+                                <Card.Text>
+                                    {fullWidthCardData.text}
+                                </Card.Text>
+                                <Button variant="primary" href={fullWidthCardData.url} target="_blank">View Project</Button>
+                            </Card.Body>
+                        </Card>
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
+
             <br/><br/>
             <Button variant="outline-primary" onClick={() => navigate('/projects')}>Main Projects Page</Button>{' '}
-
         </div>
     );
 }

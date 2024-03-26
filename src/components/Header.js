@@ -18,7 +18,7 @@ function Header() {
     };
 
     return (
-        <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none' }}>
+        <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none', color: '#0d101f' }}>
             <Toolbar>
                 {isMobile && (
                     <IconButton edge="start" color="inherit" aria-label="menu">
@@ -51,12 +51,8 @@ function Header() {
                         >
                             <MenuItem onClick={handleProjectsClose} component={RouterLink} to="/about"> Bio </MenuItem>
                             <MenuItem onClick={handleProjectsClose} component={RouterLink} to="/work-exp"> Experience</MenuItem>
-                            <MenuItem onClick={handleProjectsClose}> <a
-                                href="https://drive.google.com/file/d/1jSbYgRFbPWGRJcpq3LXYVq1LFS7OoBOA/view?usp=drive_link" target="_blank"
-                                style={{textDecoration: 'none', color: 'inherit'}} rel="noreferrer">
-                                Download Resume
-                            </a> </MenuItem>
-                        </Menu> <Button color="inherit" component={RouterLink} to="/contact">Contact</Button>
+                        </Menu>
+                        <Button color="inherit" component={RouterLink} to="/contact">Contact</Button>
                     </div>
                 )}
             </Toolbar>

@@ -22,7 +22,7 @@ function WebApps() {
             name: "Guessr",
             description: "Not a repo. Simple web app. Its Wordle, basically.",
             image: "https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg",
-            path: "https://connerjordan.com/Guessr/"
+            path: "https://github.com/cjordan223/Guessr"
         },
         {
             name: "Markov Text Generator",

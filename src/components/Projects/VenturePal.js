@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardActionArea, CardContent, CardMedia, Typography, Button, Grid } from '@mui/material';
+import { Typography } from '@mui/material';
 import ProjectTemplate from "./ProjectTemplate";
 
 
