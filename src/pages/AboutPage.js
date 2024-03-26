@@ -45,7 +45,7 @@ function AboutPage() {
                         <Box display="flex" justifyContent="center">
                             <Avatar
                                 alt="Conner Jordan"
-                                src="/Amanda_Conner_2024-104.jpg" // Assuming your image is located at public/img/portrait.jpg
+                                src="/img/Amanda_Conner_2024-104.jpg" // Assuming your image is located at public/img/portrait.jpg
                                 sx={{ width: 200, height: 200 }}
                             />
 

@@ -21,7 +21,7 @@ function HomePage() {
                     </Button>
                 </Grid>
                 <Grid item>
-                    <Button variant="outlined" color="primary" component={Link} to="/about">
+                    <Button variant="contained" color="primary" component={Link} to="/about">
                         Learn About Me
                     </Button>
                 </Grid>

@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
 const projects = [
-    { name: "Sprague Pavers", description: "Description of Sprague Pavers", imageUrl: "/imgs/Pave.png", link: "https://example.com/1" },
-    { name: "Lane's LLC", description: "Description of Lane's LLC", imageUrl: "/imgs/cares.png", link: "https://example.com/2" },
-    { name: "C-Plastic Design", description: "Description of C-Plastic Design", imageUrl: "/imgs/anyway.png", link: "https://example.com/3" },
-    { name: "Amendola Storage", description: "Description of Amendola Storage", imageUrl: "/imgs/store.png", link: "https://example.com/4" },
-    { name: "Lone Oak Baptist", description: "Description of Lone Oak Baptist", imageUrl: "/imgs/hey.png", link: "https://example.com/5" },
-    { name: "Carpentry Solutions", description: "Description of Carpentry Solutions", imageUrl: "/imgs/who.png", link: "https://example.com/6" },
+    { name: "Sprague Pavers", description: "Description of Sprague Pavers", imageUrl: "/img/sprague.png", link: "" },
+    { name: "Lane's LLC", description: "Description of Lane's LLC", imageUrl: "/img/Lanes.png", link: "https://example.com/2" },
+    { name: "C-Plastic Design", description: "Description of C-Plastic Design", imageUrl: "/img/CPlastic.png", link: "https://example.com/3" },
+    { name: "Amendola Storage", description: "Description of Amendola Storage", imageUrl: "/img/Storage.png", link: "https://example.com/4" },
+    { name: "Lone Oak Baptist", description: "Description of Lone Oak Baptist", imageUrl: "/img/LO.png", link: "https://example.com/5" },
+    { name: "Carpentry Solutions", description: "Description of Carpentry Solutions", imageUrl: "/img/carpentry.png", link: "https://example.com/6" },
     // Add more projects as needed
 ];
 
