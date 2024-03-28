@@ -4,14 +4,12 @@ import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
 const projects = [
-    { name: "Sprague Pavers", description: "Description of Sprague Pavers", imageUrl: "/img/sprague.png", link: "" },
-    { name: "Lane's LLC", description: "Description of Lane's LLC", imageUrl: "/img/Lanes.png", link: "https://example.com/2" },
-    { name: "C-Plastic Design", description: "Description of C-Plastic Design", imageUrl: "/img/CPlastic.png", link: "https://example.com/3" },
-    { name: "Amendola Storage", description: "Description of Amendola Storage", imageUrl: "/img/Storage.png", link: "https://example.com/4" },
-    { name: "Lone Oak Baptist", description: "Description of Lone Oak Baptist", imageUrl: "/img/LO.png", link: "https://example.com/5" },
-    { name: "Carpentry Solutions", description: "Description of Carpentry Solutions", imageUrl: "/img/carpentry.png", link: "https://example.com/6" },
-    // Add more projects as needed
-];
+    { name: "Sprague Pavers", description: "Paving Contractor", imageUrl: "/img/sprague.png", link: "https://www.espraguepavingandsons.net/" },
+    { name: "Lane's LLC", description: "General Contractor", imageUrl: "/img/Lanes.png", link: "https://www.lanesconstructionky.com/" },
+    { name: "Amendola Storage", description: "Storage Service", imageUrl: "/img/Storage.png", link: "https://www.amendolastorage.com/" },
+    { name: "Lone Oak Baptist", description: "Baptist Church", imageUrl: "/img/LO.png", link: "https://www.loneoakbaptistsnook.org/" },
+    { name: "Carpentry Solutions", description: "Framing Service", imageUrl: "/img/carpentry.png", link: "https://www.carpentrysolutionsinfo.com/" },
+ ];
 
 function WebDesign() {
     const navigate = useNavigate();
