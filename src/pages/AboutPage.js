@@ -39,15 +39,15 @@ function AboutPage() {
 
                 <Grid container spacing={4}>
                     <Grid item xs={12} md={4}>
-                        <Box paddingTop="90px">
+                        <Box paddingTop="170px">
                             <Avatar
                                 alt="Conner Jordan"
                                 src="/img/Amanda_Conner_2024-104.jpg"
                                 sx={{
 
-                                    width: 'auto', // This will maintain the aspect ratio
-                                    height: 320,   // Adjust height as needed to get the 'hot dog' orientation
-                                    borderRadius: '50px', // Adjust for more or less rounded corners
+                                    width: 'auto',
+                                    height: 320,
+                                    borderRadius: '50px',
                                 }}
                             />
 
@@ -64,7 +64,7 @@ function AboutPage() {
 
 
                         <Typography variant="body1" paragraph>
-                            I built website to host some of my web apps and projects. It was made entirely with React, which I'm hoping this will become more evident as I update the site with new components.  You can find the code for this entire site <a href="https://github.com/cjordan223/React-Portfolio">here</a>, if you're interested.
+                            I built website to host some of my web apps and projects. It was made entirely with React, which I'm hoping this become more evident as I update the site with new components.  You can find the code for this entire site <a href="https://github.com/cjordan223/React-Portfolio">here</a>, if you're interested.
                         </Typography>
 
 
