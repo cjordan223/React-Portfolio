@@ -64,7 +64,7 @@ function AboutPage() {
 
 
                         <Typography variant="body1" paragraph>
-                            I built website to host some of my web apps and projects. It was made entirely with React, which I'm hoping this become more evident as I update the site with new components.  You can find the code for this entire site <a href="https://github.com/cjordan223/React-Portfolio">here</a>, if you're interested.
+                            I built this website to host some of my web apps and projects. It was made entirely with React, which I'm hoping will become more evident as I update the site with new components.  You can find the code for this entire site <a href="https://github.com/cjordan223/React-Portfolio">here</a>, if you're interested.
                         </Typography>
 
 
