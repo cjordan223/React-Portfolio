@@ -47,7 +47,7 @@ function CarouselComponent() {
                                 Programming Projects
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
-                                A collection of basic programming projects highlighting various algorithm and security principles.
+                                A collection of basic programming projects from my DSA class. Not very juicy but it get's it's own section because it doesn't fit anywhere else.
                             </Typography>
                         </CardContent>
                     </CardActionArea>

@@ -14,8 +14,7 @@ function ProjectsPage() {
                     Projects
                 </Typography>
                 <Typography variant="body1" sx={{ color: 'black',fontSize: '1.2rem', maxWidth: '600px', margin: 'auto' }}>
-                    Welcome to my projects page. Here you can explore the projects I've worked on.
-                </Typography>
+Web Applications, Programming Applications, and a sample of websites I made from my time as a freelancer.                </Typography>
             </Box>
             </Paper>
             <br/>

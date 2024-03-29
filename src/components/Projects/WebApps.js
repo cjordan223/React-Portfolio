@@ -10,29 +10,32 @@ function WebApps() {
     const [selectedProject, setSelectedProject] = useState(null);
     const navigate = useNavigate();
 
-    // Updated projects array with your new data
-    const projects = [
+      const projects = [
         {
             name: "Weather Wise",
-            description: "This is an application I built for a web programming class, so this is an entirely client-side application using a free weather API. Before I ever took this class, I built an identical application using Python and Django. This application was a bit more lightweight but honestly more complicated to set up.",
+            description: "This is an application I built for a web programming class. It uses a free API to gather weather data and display it in a user friendly interface. " +
+                "It can take Zip Code, City, County, Coordinates, and other data types as input. Enter 'Admin' and '1234' for username and password if visiting the live site" ,
             image: "https://images.pexels.com/photos/125510/pexels-photo-125510.jpeg",
-            path: "https://github.com/cjordan223/weather-wise.git"
+            path: "https://github.com/cjordan223/WeatherWise-Code",
+            site: "https://cjordan223.github.io/WeatherWise/"
         },
-        {
+    {
             name: "Guessr",
-            description: "Not a repo. Simple web app. Its Wordle, basically.",
+            description: "Simple puzzle game with JS. Its Wordle, basically.",
             image: "https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg",
-            path: "https://github.com/cjordan223/Guessr"
-        },
+            path: "https://github.com/cjordan223/Guessr",
+            site: "https://cjordan223.github.io/Guessr/"
+
+    },
         {
             name: "Markov Text Generator",
-            description: "Chat Bot Impersonator.",
+            description: "Mainly just an exercise to train a simple program to emulate speech.",
             image: "https://images.pexels.com/photos/261763/pexels-photo-261763.jpeg",
             path: "https://github.com/cjordan223/Markov.git"
         },
         {
             name: "Movie App (Group)",
-            description: "Full stack movie application.",
+            description: "Full stack movie application. (Report Only)",
             image: "/img/peak.png", // Make sure this path is correct and accessible
             path: "media/CST 336 FINAL REPORT.pdf"
         },
@@ -83,17 +86,23 @@ function WebApps() {
                     <Modal.Body>
                         <p>{selectedProject.description}</p>
                         <img src={selectedProject.image} alt={selectedProject.name} className="modal-image" />
-                        {/* You can add more content here like a link to the project */}
-                    </Modal.Body>
+                     </Modal.Body>
                     <Modal.Footer>
                         <button className="btn btn-secondary" onClick={closeModal}>
                             Close
                         </button>
                         <a href={selectedProject.path} className="btn bg-dark-subtle" target="_blank" rel="noopener noreferrer">
                             <FaGithub />
-                             Visit Repo
+                            Visit Repo
                         </a>
+                        {/* Conditionally render the Visit Site button */}
+                        {selectedProject.site && (
+                            <a href={selectedProject.site} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                Visit Site
+                            </a>
+                        )}
                     </Modal.Footer>
+
                 </Modal>
             )}
         </div>

@@ -13,10 +13,9 @@ function AboutPage() {
         <Container
             maxWidth="md"
             style={{
-                backgroundImage: 'url(https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)',
+                backgroundColor: 'darkgray' ,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                // Adjusted minHeight and added paddingBottom for better control
                 paddingBottom: '10px',
                 paddingTop: '30px',
                 marginBottom: '80px',
@@ -33,47 +32,60 @@ function AboutPage() {
                     borderRadius: '8px',
                 }}
             >
-                <Typography variant="h2" align="center" gutterBottom>
-                    Conner Jordan
-                </Typography>
+
 
 
 
 
                 <Grid container spacing={4}>
                     <Grid item xs={12} md={4}>
-                        <Box display="flex" justifyContent="center">
+                        <Box paddingTop="90px">
                             <Avatar
                                 alt="Conner Jordan"
-                                src="/img/Amanda_Conner_2024-104.jpg" // Assuming your image is located at public/img/portrait.jpg
-                                sx={{ width: 200, height: 200 }}
+                                src="/img/Amanda_Conner_2024-104.jpg"
+                                sx={{
+
+                                    width: 'auto', // This will maintain the aspect ratio
+                                    height: 320,   // Adjust height as needed to get the 'hot dog' orientation
+                                    borderRadius: '50px', // Adjust for more or less rounded corners
+                                }}
                             />
 
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={8}>
-
+                        <Typography variant="h2">
+                            Conner Jordan
+                        </Typography>
+                        <br/>
                         <Typography variant="h4" gutterBottom>
-                            About Me
+                            Thanks for stopping by!
                         </Typography>
 
 
                         <Typography variant="body1" paragraph>
-                            {/* I'm a Senior year student at CSU Monterey finishing my degree in Computer Science, with an emphasis on software development.*/}
-                            I am a web developer based in California with a passion for creating intuitive and engaging user experiences. With expertise in front-end technologies like React and Material-UI, I strive to build modern and responsive web applications.
+                            I built website to host some of my web apps and projects. It was made entirely with React, which I'm hoping this will become more evident as I update the site with new components.  You can find the code for this entire site <a href="https://github.com/cjordan223/React-Portfolio">here</a>, if you're interested.
                         </Typography>
+
+
                         <Typography variant="body1" paragraph>
-                            Born and raised in the Golden State, I grew up surrounded by the vibrant tech industry. This exposure sparked my interest in programming from a young age. I pursued my passion by studying computer science and honing my skills through various projects and collaborations.
+                            I currently work on the cybersecurity team for Great Wolf Lodge, remotely for their Chicago office. I'm based in San Luis Obispo, CA, where I'm also part of the class of 2024 at Cal State Monterey, completing my B.S. in Software Engineering this winter.
                         </Typography>
+
                         <Typography variant="body1" paragraph>
-                            Throughout my career, I have worked with diverse clients and teams, delivering high-quality web solutions tailored to their specific needs. I am constantly exploring new technologies and staying up-to-date with the latest trends in web development to provide the best possible results.
+                            When I'm not working or studying, I like to go camping every few weeks to decompress. I'm lucky to live in a place where I can do that almost year-round.
                         </Typography>
+
+                        <Typography variant="body1" paragraph>
+                            If you have any questions or want to chat about web development, feel free to reach out!
+                        </Typography>
+
                     </Grid>
 
 
                 </Grid>
 
-                <Button variant="outline-primary" onClick={() => navigate('/work-exp')}>Experiences</Button>{' '}
+                <Button variant="outline-primary" onClick={() => navigate('/contact')}>Contact Me</Button>{' '}
 
             </Box>
 
