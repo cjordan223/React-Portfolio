@@ -109,9 +109,7 @@ function ContactForm() {
                     </form>
                 </Box>
                 <Box display="flex" justifyContent="space-between" mt={2}>
-                    <Button variant="contained" color="primary" component={RouterLink} to="/">
-                        Home
-                    </Button>
+
 
                 </Box>
             </Container>

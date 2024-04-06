@@ -85,7 +85,6 @@ function AboutPage() {
 
                 </Grid>
 
-                <Button variant="outline-primary" onClick={() => navigate('/contact')}>Contact Me</Button>{' '}
 
             </Box>
 

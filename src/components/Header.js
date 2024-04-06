@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Button, IconButton, Menu, MenuItem, Hidden } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink } from 'react-router-dom';
-import { useTheme } from '@mui/material/styles';
 
 function Header() {
-    const theme = useTheme();
     const [anchorEl, setAnchorEl] = useState(null);
+    const [infoAnchorEl, setInfoAnchorEl] = useState(null);
+    const [menuOpen, setMenuOpen] = useState(false);
+
 
     const handleProjectsClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -15,6 +16,19 @@ function Header() {
     const handleProjectsClose = () => {
         setAnchorEl(null);
     };
+
+    const handleInfoMouseEnter = (event) => {
+        setInfoAnchorEl(event.currentTarget);
+        setMenuOpen(true); // Open the menu
+    };
+
+    const handleMenuMouseLeave = () => {
+        setMenuOpen(false); // Delay closing the menu to improve UX
+        setTimeout(() => {
+            if (!menuOpen) setInfoAnchorEl(null);
+        }, 500);
+    };
+
 
     return (
         <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none', color: '#0d101f' }}>
@@ -35,14 +49,23 @@ function Header() {
 
                 <Hidden smDown>
                     <div>
-                        {/* Use RouterLink in the component prop */}
-                        <Button color="inherit" component={RouterLink} to="/projects">Projects </Button>
+                        <Button color="inherit" component={RouterLink} to="/projects">Projects</Button>
 
-                        <Button color="inherit" component={RouterLink} to="/about"> About </Button>
+                        <Button color="inherit" onMouseEnter={handleInfoMouseEnter}>
+                            Info
+                        </Button>
+                        <Menu
+                            anchorEl={infoAnchorEl}
+                            keepMounted
+                            open={Boolean(infoAnchorEl)}
+                            onClose={handleMenuMouseLeave}
+                            MenuListProps={{ onMouseLeave: handleMenuMouseLeave }}
+                        >
+                            <MenuItem component={RouterLink} to="/about">About</MenuItem>
+                            <MenuItem component={RouterLink} to="/work-exp">Experience</MenuItem>
+                        </Menu>
 
-                        <Button color="inherit" component={RouterLink} to="/work-exp"> Experience </Button>
-
-                        <Button color="inherit" component={RouterLink} to="/contact"> Contact </Button>
+                        <Button color="inherit" component={RouterLink} to="/contact">Contact</Button>
                     </div>
                 </Hidden>
 

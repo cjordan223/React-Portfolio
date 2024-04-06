@@ -22,14 +22,10 @@ Web Applications, Programming Applications, and a sample of websites I made from
 
             <Grid container spacing={3} justifyContent="center" style={{marginTop: '40px'}}>
                 <Grid item>
-                    <Button variant="contained" color="primary" component={Link} to="/about">
-                        About
-                    </Button>
+
                 </Grid>
                 <Grid item>
-                    <Button variant="contained" color="primary" component={Link} to="/contact">
-                        Contact
-                    </Button>
+
                 </Grid>
             </Grid>
          </Container>

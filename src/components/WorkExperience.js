@@ -6,6 +6,31 @@ import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
 import CodeIcon from '@mui/icons-material/Code';
 import BuildIcon from '@mui/icons-material/Build';
+import { styled } from '@mui/material/styles';
+import DownloadIcon from '@mui/icons-material/CloudDownload';
+
+
+const StyledPaper = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.grey[200],
+    padding: theme.spacing(4),
+    color: theme.palette.text.primary,
+    marginBottom: theme.spacing(4),
+}));
+
+const TitleBox = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    marginBottom: theme.spacing(2),
+}));
+
+const StyledChip = styled(Chip)(({ theme }) => ({
+    margin: theme.spacing(0.5),
+    '&:hover': {
+        backgroundColor: theme.palette.primary.light,
+        color: 'white',
+    },
+}));
+
 
 
 const resumeUrl = "https://drive.google.com/file/d/1jSbYgRFbPWGRJcpq3LXYVq1LFS7OoBOA/view?usp=drive_link";
@@ -21,19 +46,19 @@ const experiences = [
     {
         title: 'Corporate Cybersecurity Analyst',
         company: 'Great Wolf Lodge, Chicago, Illinois (Remote)',
-        description: 'Performed vulnerability assessments & penetration tests to identify security flaws & mitigate risks. Monitored user permissions, licenses, and access through Active Directory and O365. Utilized tools like Rapid7, FireEye, CrowdStrike, and Carbon Black for threat detection and incident response. Participated in security drills and developed custom scripts for cybersecurity protocols.',
+        description: 'Our department monitors user permissions, licenses, and access through Azure Active Directory and Microsoft Entra, primarily. I The work my team does tends to be pretty dynamic, but our main goal is to keep our user base informed and secure. This often involves trying to make our digital environment as user friendly as possible while maintaining the integrity of our protocols.',
         timeFrame: 'May 2023 – Present',
     },
     {
         title: 'Freelance Web Developer',
         company: 'Simple.biz, Raleigh-Durham-Chapel Hill Area (Remote)',
-        description: 'Collaborated with senior developers to design, develop, and optimize web applications using HTML5, CSS, and JavaScript. Performed compatibility tests across web browsers and applied web accessibility best practices.',
+        description: 'Collaborated with senior developers to design, develop, and optimize web pages using a CMS and a combination of HTML5, CSS, and JavaScript. Our target demographic was small businesses, some of the work is available to review on this site. I learned a lot of great design principles and picked up more than a few valuable development tools as a freelancer here, before I moved on to Great Wolf in Chicago.',
         timeFrame: 'August 2022 – May 2023',
     },
     {
         title: 'Senior Project Manager',
         company: 'Palomar Homes, Paso Robles, CA',
-        description: 'Managed multi-million-dollar projects, overseeing design, property inspections, and compliance with regulatory standards. Coordinated with stakeholders and local authorities to ensure project success.',
+        description: 'Managed property development projects, overseeing design, land inspections, and compliance with regulatory standards. Coordinated with stakeholders and local authorities to ensure project success.',
         timeFrame: 'September 2017 - January 2021',
     }
 ];
@@ -118,25 +143,22 @@ function WorkExperience() {
     const additionalExperiences = [
         {
             title: 'Volunteer Web Developer',
-            company: 'Local Non-Profit Organization',
-            description: 'Designed and developed a responsive website for a local non-profit organization using WordPress and custom HTML/CSS. Collaborated with the organization\'s team to gather requirements and implement desired features.',
-            timeFrame: 'June 2019 - August 2019',
+            company: 'Loaves, Fishes & Computers, Monterey, CA (Remote)',
+            description: 'Create promotional material for the LFC organization, subject matter varies but is typically a tutorial on new tech and software.',
+            timeFrame: 'February 2024-Present',
         },
         // Add more additional experiences as needed
     ];
 
     return (
         <Container maxWidth="md">
-            <Paper elevation={3} sx={{ p: 4, backgroundColor: 'darkgrey', my: 4 }}>
-                <Typography variant="h4" sx={{ color: 'white', mb: 2 }}>
+            <StyledPaper>
+                <Typography variant="h4" component="h1" gutterBottom>
                     My Professional Background
-                </Typography>
-                <Typography variant="body1" sx={{ color: 'white', mb: 4 }}>
-                    {/* ... */}
                 </Typography>
                 <Grid container spacing={4}>
                     <Grid item xs={12} md={6}>
-                        <Typography variant="h5" sx={{ mb: 2 }}>Education</Typography>
+                        <Typography variant="h5" gutterBottom>Education</Typography>
                         <Grid container spacing={2}>
                             {education.map((edu, index) => (
                                 <Grid item xs={12} key={index}>
@@ -144,10 +166,11 @@ function WorkExperience() {
                                 </Grid>
                             ))}
                         </Grid>
+                        <Typography variant="h5" gutterBottom sx={{ mt: 4 }}>Additional Experience</Typography>
                         <AdditionalExperienceSection experiences={additionalExperiences} />
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <Typography variant="h5" sx={{ mb: 2 }}>Professional Experience</Typography>
+                        <Typography variant="h5" gutterBottom>Professional Experience</Typography>
                         <Grid container spacing={2}>
                             {experiences.map((exp, index) => (
                                 <Grid item xs={12} key={index}>
@@ -157,20 +180,30 @@ function WorkExperience() {
                         </Grid>
                     </Grid>
                     <Grid item xs={12}>
-                        <SkillsSection skills={skills} />
+                        <TitleBox>
+                            <CodeIcon color="primary" />
+                            <Typography variant="h5" gutterBottom>Skills</Typography>
+                        </TitleBox>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                            {skills.map(skill => (
+                                <StyledChip key={skill} label={skill} variant="outlined" />
+                            ))}
+                        </Box>
                     </Grid>
                 </Grid>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
-                    <Button variant="outline-primary" onClick={() => navigate('/projects')} style={{ textDecoration: 'none', color: 'white' }}>
-                         Projects
-                    </Button>
-                    <Button variant="outline-primary" style={{ textDecoration: 'none' }}>
-                        <a href={resumeUrl} target="_blank" style={{ textDecoration: 'none', color: 'white' }} rel="noreferrer">
-                            Download Resume
-                        </a>
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        startIcon={<DownloadIcon />}
+                        href={resumeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Download Resume
                     </Button>
                 </Box>
-            </Paper>
+            </StyledPaper>
         </Container>
     );
 }
