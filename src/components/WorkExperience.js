@@ -147,7 +147,7 @@ function WorkExperience() {
             description: 'Create promotional material for the LFC organization, subject matter varies but is typically a tutorial on new tech and software.',
             timeFrame: 'February 2024-Present',
         },
-        // Add more additional experiences as needed
+
     ];
 
     return (

@@ -2,10 +2,10 @@ import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
-import Card from 'react-bootstrap/Card'; // Import Card from react-bootstrap
+import Card from 'react-bootstrap/Card';
 
 function Programming() {
-    const navigate = useNavigate(); // Create the navigate function
+    const navigate = useNavigate();
 
     const fullWidthCardData = {
         title: 'Data Structures & Algorithms',

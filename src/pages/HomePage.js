@@ -3,7 +3,7 @@ import React from 'react';
 import { Container, Typography, Button, Grid, Paper } from '@mui/material';
 import { Link } from 'react-router-dom';
 import '../css/HomePage.css';
-const buttonStyle = { width: '200px' }; // Adjust the width as needed
+const buttonStyle = { width: '200px' };
 
 function HomePage() {
     return (

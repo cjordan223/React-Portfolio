@@ -23,7 +23,7 @@ function Header() {
     };
 
     const handleMenuMouseLeave = () => {
-        setMenuOpen(false); // Delay closing the menu to improve UX
+        setMenuOpen(false);
         setTimeout(() => {
             if (!menuOpen) setInfoAnchorEl(null);
         }, 500);

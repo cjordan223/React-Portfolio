@@ -34,19 +34,12 @@ function WebApps() {
             path: "https://github.com/cjordan223/Markov.git"
         },
         {
-            name: "Movie App (Group)",
-            description: "Full stack movie application. (Report Only)",
-            image: "/img/peak.png", // Make sure this path is correct and accessible
-            path: "media/CST 336 FINAL REPORT.pdf"
-        },
-        {
             name: "UserVault",
             description: "Simple user database web app.",
-            image: "/img/vault.png", // Make sure this path is correct and accessible
+            image: "/img/vault.png",
             path: "https://github.com/cjordan223/UserVault.git"
         },
-        // ... Add more projects as needed
-    ];
+     ];
 
     const openModal = (project) => {
         setSelectedProject(project);

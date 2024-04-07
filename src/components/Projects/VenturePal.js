@@ -6,9 +6,9 @@ import ProjectTemplate from "./ProjectTemplate";
 const VenturePalProject = {
     name: 'VenturePal',
     description: 'Web application for nature enthusiasts to discover and share beautiful nature spots. Users can add, edit, and delete spots, each with a name, description, and image.',
-    image: '/path/to/venturepal/screenshot.jpg', // Replace with the path to your screenshot
+    image: '/path/to/venturepal/screenshot.jpg',
     githubUrl: 'https://github.com/cjordan223/VenturePal',
-    liveUrl: '', // Replace with the live URL if applicable
+    liveUrl: '',
 };
 
 function VenturePalComponent() {

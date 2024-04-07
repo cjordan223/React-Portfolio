@@ -12,7 +12,6 @@ import {
 } from '@mui/material';
 import { GitHub, LinkedIn, Email } from '@mui/icons-material';
 import '../css/ContactPage.css';
-import {Link as RouterLink} from "react-router-dom";
 
 function ContactForm() {
     const [state, handleSubmit] = useForm("xjvneqbo");

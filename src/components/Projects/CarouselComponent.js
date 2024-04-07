@@ -12,7 +12,7 @@ function CarouselComponent() {
                         <CardMedia
                             component="img"
                             height="140"
-                            image="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            image="https://images.pexels.com/photos/97077/pexels-photo-97077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="Web Applications"
                         />
                         <CardContent>
@@ -39,7 +39,7 @@ function CarouselComponent() {
                         <CardMedia
                             component="img"
                             height="140"
-                            image="https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            image="https://images.pexels.com/photos/17485657/pexels-photo-17485657/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-depicts-how-ai-could-adapt-to-an-infinite-amount-of-uses-it-was-created-by-nidia-dias-as-part-of-the-visualising-ai-pr.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="Programming Projects"
                         />
                         <CardContent>
@@ -66,7 +66,7 @@ function CarouselComponent() {
                         <CardMedia
                             component="img"
                             height="140"
-                            image="https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            image="https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="Web Design"
                         />
                         <CardContent>
