@@ -3,9 +3,15 @@ import React from 'react';
 import { Container, Typography, Button, Grid, Paper } from '@mui/material';
 import { Link } from 'react-router-dom';
 import '../css/HomePage.css';
+import { useNavigate } from 'react-router-dom';
+
+
+
 const buttonStyle = { width: '200px' };
 
 function HomePage() {
+    const navigate = useNavigate();
+
     return (
         <Container maxWidth="lg" style={{ textAlign: 'center', padding: '100px 0' }}>
             <Paper elevation={3} style={{
@@ -43,6 +49,13 @@ function HomePage() {
                 <Button variant="outlined" color="secondary" style={{ ...buttonStyle, marginTop: '20px' }} component={Link} to="/about">
                     About
                 </Button>
+                {/*<Button*/}
+                {/*    variant="contained"*/}
+                {/*    color="primary"*/}
+                {/*    onClick={() => navigate('/landing')}*/}
+                {/*>*/}
+                {/*    Go to Landing Page*/}
+                {/*</Button>*/}
 
             </Paper>
             <div id='spacer'></div>

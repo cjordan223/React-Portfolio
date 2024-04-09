@@ -15,6 +15,8 @@ import WorkExperience from "./components/WorkExperience";
 import WebDesign from "./components/Projects/WebDesign";
 import Programming from "./components/Projects/Programming";
 import WebApps from "./components/Projects/WebApps";
+// import LandingPage from "./pages/LandingPage";
+
 
  const theme = createTheme({
     typography: {
@@ -43,6 +45,7 @@ function App() {
                         <Route exact path="/webapps" element={<WebApps />} />
                         <Route exact path="/programming" element={<Programming />} />
                         <Route exact path="/webdesign" element={<WebDesign />} />
+                        {/*<Route path="/landing" element={<LandingPage />} />*/}
 
                     </Routes>
                 </Layout>

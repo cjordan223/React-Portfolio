@@ -46,7 +46,7 @@ const experiences = [
     {
         title: 'Corporate Cybersecurity Analyst',
         company: 'Great Wolf Lodge, Chicago, Illinois (Remote)',
-        description: 'Our department monitors user permissions, licenses, and access through Azure Active Directory and Microsoft Entra, primarily. I The work my team does tends to be pretty dynamic, but our main goal is to keep our user base informed and secure. This often involves trying to make our digital environment as user friendly as possible while maintaining the integrity of our protocols.',
+        description: 'Our department monitors user permissions, licenses, and access through Azure Active Directory and Microsoft Entra, primarily. The work my team does tends to be pretty dynamic, but our main goal is to keep our user base informed and secure. This often involves trying to make our digital environment as user friendly as possible while maintaining the integrity of our protocols.',
         timeFrame: 'May 2023 – Present',
     },
     {

@@ -39,6 +39,13 @@ function WebApps() {
             image: "/img/vault.png",
             path: "https://github.com/cjordan223/UserVault.git"
         },
+          {
+              name: "Currents API",
+              description: "Web interface for currents API, offers the latest news headlines from a multitude of sources.",
+              image: "/img/news.png",
+              path: "https://github.com/cjordan223/gray",
+              site: "https://cjordan223.github.io/gray/"
+          },
      ];
 
     const openModal = (project) => {
