@@ -91,7 +91,7 @@ function WebApps() {
                         <button className="btn btn-secondary" onClick={closeModal}>
                             Close
                         </button>
-                        <a href={selectedProject.path} className="btn bg-dark-subtle" target="_blank" rel="noopener noreferrer">
+                        <a href={selectedProject.path} id="gh-btn" className="btn bg-dark-subtle" target="_blank" rel="noopener noreferrer">
                             <FaGithub />
                             Visit Repo
                         </a>

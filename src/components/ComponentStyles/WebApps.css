@@ -53,3 +53,10 @@
 .modal{
     color: #010101;
 }
+
+#gh-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+}
