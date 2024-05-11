@@ -42,8 +42,9 @@
 }
 
 .modal-image {
-    max-width: 500px; /* Set a max-width for modal images */
-    max-height: 300px; /* Set a max-height for modal images */
+    max-width: 100%;  /* Ensures the image does not exceed the width of its container */
+    max-height: 400px;  /* Sets a maximum height for the image */
+    object-fit: contain;
     width: auto; /* This will ensure the aspect ratio is maintained */
     height: auto; /* This will ensure the aspect ratio is maintained */
     display: block; /* Removes any extra space below the image */

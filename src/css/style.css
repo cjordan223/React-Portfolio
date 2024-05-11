@@ -10,13 +10,16 @@ body, html {
   padding: 0;
   background-image: url("/public/img/pexel.jpg");
   background-color: #101221;
-   background-position: center;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   color: #1e2633 !important;
 
 
+
 }
+
 
 
 

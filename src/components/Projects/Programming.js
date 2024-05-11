@@ -8,17 +8,17 @@ function Programming() {
     const navigate = useNavigate();
 
     const projects = [
+        { title: "Pandas & Numpy",
+            imageUrl: "/img/pandas.jpeg",
+            text: "Some data manipulation with python, collected with a custom python script agent",
+            url: "https://github.com/cjordan223/voyager"
+        },
         {
             title: 'Data Structures & Algorithms',
             imageUrl: './img/DSA.png', // Example image URL
             text: 'A repo to some straightforward Java programs that outline some very well known DSA concepts. Theres a brief description of each process in the header of each file. These solutions are basic illustrations of some common problem solving approaches within the field.',
             url: 'https://github.com/cjordan223/DSA-collection.git'
-        },
-        {
-            title: "Pandas & Numpy",
-            imageUrl: "/img/pandas.jpeg",
-            text: "Some data manipulation with python, collected with a custom python script agent",
-            url: "https://github.com/cjordan223/voyager"
+
         }
     ];
 

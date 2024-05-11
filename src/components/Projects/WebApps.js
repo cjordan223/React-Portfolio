@@ -20,13 +20,20 @@ function WebApps() {
             site: "https://cjordan223.github.io/WeatherWise/"
         },
     {
-            name: "Guessr",
+            name: "Guessing Game",
             description: "Simple puzzle game with JS. Its Wordle, basically.",
             image: "https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg",
             path: "https://github.com/cjordan223/Guessr",
             site: "https://cjordan223.github.io/Guessr/"
 
-    },
+    },{
+              name: "System Monitoring App",
+              description: "The program runs on a postgres server, and collects system information from an agent installed on your device. Some of the data was manipulated with NumPy and Pands and you can see it in my programming section.",
+              image: "/img/postgres.png",
+              path: "https://github.com/cjordan223/FanClub",
+
+
+          },
         {
             name: "Markov Text Generator",
             description: "Mainly just an exercise to train a simple program to emulate speech.",
@@ -34,8 +41,8 @@ function WebApps() {
             path: "https://github.com/cjordan223/Markov.git"
         },
         {
-            name: "UserVault",
-            description: "Simple user database web app.",
+            name: "User Vault",
+            description: "Simple user database web app I built very early on with python.",
             image: "/img/vault.png",
             path: "https://github.com/cjordan223/UserVault.git"
         },
