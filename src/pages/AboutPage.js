@@ -42,7 +42,7 @@ function AboutPage() {
                         <Box paddingTop="170px">
                             <Avatar
                                 alt="Conner Jordan"
-                                src="/img/Amanda_Conner_2024-104.jpg"
+                                src="/img/portrait.jpg"
                                 sx={{
 
                                     width: 'auto',
