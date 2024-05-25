@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
-import '../ComponentStyles/WebApps.css'
+import '../ComponentStyles/WebApps.css';
 import { FaGithub } from "react-icons/fa";
-
 
 function WebApps() {
     const [showModal, setShowModal] = useState(false);
@@ -55,7 +54,6 @@ function WebApps() {
         },
     ];
 
-
     const openModal = (project) => {
         setSelectedProject(project);
         setShowModal(true);
@@ -75,7 +73,6 @@ function WebApps() {
                         <img src={project.image} alt={project.name} className="project-image" />
                         <div className="project-info">
                             <h5>{project.name}</h5>
-                            {/* You can also display a short description here */}
                         </div>
                     </div>
                 ))}
@@ -85,7 +82,6 @@ function WebApps() {
 
             <button className="btn btn-outline-primary" onClick={() => navigate('/projects')}>Main Projects Page</button>
 
-            {/* Modal */}
             {selectedProject && (
                 <Modal show={showModal} onHide={closeModal}>
                     <Modal.Header closeButton>
@@ -96,9 +92,18 @@ function WebApps() {
                         <img src={selectedProject.image} alt={selectedProject.name} className="modal-image" />
                     </Modal.Body>
                     <Modal.Footer>
-                        <button className="btn btn-secondary" onClick={closeModal}>
-                            Close
-                        </button>
+                        <button className="btn btn-secondary" onClick={closeModal}>Close</button>
+                        {selectedProject.path && (
+                            <a href={selectedProject.path} id="gh-btn" className="btn bg-dark-subtle" target="_blank" rel="noopener noreferrer">
+                                <FaGithub />
+                                Visit Repo
+                            </a>
+                        )}
+                        {selectedProject.site && (
+                            <a href={selectedProject.site} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                Visit Site
+                            </a>
+                        )}
                         {selectedProject.oldPath && (
                             <a href={selectedProject.oldPath} id="gh-btn" className="btn bg-dark-subtle" target="_blank" rel="noopener noreferrer">
                                 <FaGithub />
