@@ -3,22 +3,23 @@ import Accordion from 'react-bootstrap/Accordion';
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
+import NotebookViewer from '../NotebookViewer'; // Import the NotebookViewer component
 
 function Programming() {
     const navigate = useNavigate();
 
     const projects = [
-        { title: "Pandas & Numpy",
+        { 
+            title: "Pandas & Numpy",
             imageUrl: "/img/pandas.jpeg",
             text: "Some data manipulation with python, collected with a custom python script agent",
             url: "https://github.com/cjordan223/voyager"
         },
         {
             title: 'Data Structures & Algorithms',
-            imageUrl: './img/DSA.png', // Example image URL
+            imageUrl: './img/DSA.png',
             text: 'A repo to some straightforward Java programs that outline some very well known DSA concepts. Theres a brief description of each process in the header of each file. These solutions are basic illustrations of some common problem solving approaches within the field.',
             url: 'https://github.com/cjordan223/DSA-collection.git'
-
         }
     ];
 
@@ -30,7 +31,7 @@ function Programming() {
 
             <Accordion defaultActiveKey="0">
                 {projects.map((project, index) => (
-                    <Accordion.Item eventKey={index.toString()}>
+                    <Accordion.Item eventKey={index.toString()} key={index}>
                         <Accordion.Header>{project.title}</Accordion.Header>
                         <Accordion.Body>
                             <Card>
@@ -46,6 +47,12 @@ function Programming() {
                         </Accordion.Body>
                     </Accordion.Item>
                 ))}
+                <Accordion.Item eventKey="2">
+                    <Accordion.Header>Notebook Analysis</Accordion.Header>
+                    <Accordion.Body>
+                        <NotebookViewer />
+                    </Accordion.Body>
+                </Accordion.Item>
             </Accordion>
 
             <br/><br/>
