@@ -23,7 +23,7 @@ function Footer() {
                              </Link>
                         </Grid>
                         <Grid item>
-                            <Link href="#" color="inherit">
+                            <Link href="https://www.linkedin.com/in/conner-jordan-4b268514a/" color="inherit">
                                 <LinkedInIcon />
                             </Link>
                         </Grid>
