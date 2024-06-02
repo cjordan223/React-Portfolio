@@ -1,40 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { AppBar, Toolbar, Typography, Button, IconButton, Menu, MenuItem, Hidden } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink } from 'react-router-dom';
 
+// Header.js
+
 function Header() {
-    const [anchorEl, setAnchorEl] = useState(null);
-    const [infoAnchorEl, setInfoAnchorEl] = useState(null);
-    const [menuOpen, setMenuOpen] = useState(false);
+    const [anchorEl, setAnchorEl] = React.useState(null);
 
-
-    const handleProjectsClick = (event) => {
+    const handleMenuClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleProjectsClose = () => {
+    const handleMenuClose = () => {
         setAnchorEl(null);
     };
-
-    const handleInfoMouseEnter = (event) => {
-        setInfoAnchorEl(event.currentTarget);
-        setMenuOpen(true); // Open the menu
-    };
-
-    const handleMenuMouseLeave = () => {
-        setMenuOpen(false);
-        setTimeout(() => {
-            if (!menuOpen) setInfoAnchorEl(null);
-        }, 500);
-    };
-
 
     return (
         <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none', color: '#0d101f' }}>
             <Toolbar>
                 <Hidden mdUp>
-                    <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleProjectsClick}>
+                    <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleMenuClick}>
                         <MenuIcon />
                     </IconButton>
                 </Hidden>
@@ -48,38 +34,23 @@ function Header() {
                 </Typography>
 
                 <Hidden smDown>
-                    <div>
-                        <Button color="inherit" component={RouterLink} to="/projects">Projects</Button>
-
-                        <Button color="inherit" onMouseEnter={handleInfoMouseEnter}>
-                            Info
-                        </Button>
-                        <Menu
-                            anchorEl={infoAnchorEl}
-                            keepMounted
-                            open={Boolean(infoAnchorEl)}
-                            onClose={handleMenuMouseLeave}
-                            MenuListProps={{ onMouseLeave: handleMenuMouseLeave }}
-                        >
-                            <MenuItem component={RouterLink} to="/about">About</MenuItem>
-                            <MenuItem component={RouterLink} to="/work-exp">Experience</MenuItem>
-                        </Menu>
-
-                        <Button color="inherit" component={RouterLink} to="/contact">Contact</Button>
-                    </div>
+                    <Button color="inherit" component={RouterLink} to="/projects">Projects</Button>
+                    <Button color="inherit" component={RouterLink} to="/about">About</Button>
+                    <Button color="inherit" component={RouterLink} to="/work-exp">Experience</Button>
+                    <Button color="inherit" component={RouterLink} to="/contact">Contact</Button>
                 </Hidden>
 
                 <Menu
-                    id="projects-menu"
+                    id="mobile-menu"
                     anchorEl={anchorEl}
                     keepMounted
                     open={Boolean(anchorEl)}
-                    onClose={handleProjectsClose}
+                    onClose={handleMenuClose}
                 >
-                    <MenuItem onClick={handleProjectsClose} component={RouterLink} to="/projects"> Projects </MenuItem>
-                    <MenuItem onClick={handleProjectsClose} component={RouterLink} to="/about"> About </MenuItem>
-                    <MenuItem onClick={handleProjectsClose} component={RouterLink} to="/work-exp"> Experience </MenuItem>
-                    <MenuItem onClick={handleProjectsClose} component={RouterLink} to="/contact"> Contact </MenuItem>
+                    <MenuItem onClick={handleMenuClose} component={RouterLink} to="/projects">Projects</MenuItem>
+                    <MenuItem onClick={handleMenuClose} component={RouterLink} to="/about">About</MenuItem>
+                    <MenuItem onClick={handleMenuClose} component={RouterLink} to="/work-exp">Experience</MenuItem>
+                    <MenuItem onClick={handleMenuClose} component={RouterLink} to="/contact">Contact</MenuItem>
                 </Menu>
             </Toolbar>
         </AppBar>

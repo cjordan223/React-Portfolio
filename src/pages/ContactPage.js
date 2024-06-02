@@ -107,13 +107,7 @@ function ContactForm() {
                         </Box>
                     </form>
                 </Box>
-                <Box display="flex" justifyContent="space-between" mt={2}>
-
-
-                </Box>
             </Container>
-
-
         </div>
     );
 }

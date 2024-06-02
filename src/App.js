@@ -11,7 +11,7 @@ import ContactPage from "./pages/ContactPage"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import VenturePal from "./components/Projects/VenturePal";
 import WeatherAPI from "./components/Projects/WeatherAPI";
-import WorkExperience from "./components/WorkExperience";
+import WorkExperience from "./pages/WorkExperience";
 import WebDesign from "./components/Projects/WebDesign";
 import Programming from "./components/Projects/Programming";
 import WebApps from "./components/Projects/WebApps";
