@@ -3,8 +3,9 @@ import Accordion from 'react-bootstrap/Accordion';
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
-import NotebookViewer from '../NotebookViewer'; // Import the NotebookViewer component
-import NotebookViewer2 from '../NotebookViewer2';
+import NotebookViewer from './Notebooks/NotebookViewer'; 
+import NotebookViewer2 from './Notebooks/NotebookViewer2';
+import NotebookViewer3 from './Notebooks/NotebookViewer3';
 
 function Programming() {
     const navigate = useNavigate();
@@ -58,6 +59,12 @@ function Programming() {
                     <Accordion.Header> Presedential Campaign Data</Accordion.Header>
                     <Accordion.Body>
                         <NotebookViewer2 />
+                    </Accordion.Body>
+                </Accordion.Item>
+                 <Accordion.Item eventKey="4">
+                    <Accordion.Header> Student Housing Data (ML)</Accordion.Header>
+                    <Accordion.Body>
+                        <NotebookViewer3 />
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
