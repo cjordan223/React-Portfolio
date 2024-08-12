@@ -40,16 +40,14 @@ function AboutPage() {
           </Grid>
           <Grid item xs={12} md={8}>
             <Typography variant="h2" gutterBottom>
-              Conner Jordan
+            Welcome to my Server
             </Typography>
-            <Typography variant="h4" gutterBottom>
-              Thanks for stopping by!
-            </Typography>
+       
             <Typography variant="body1" paragraph>
-              I built this website to host some of my web apps and projects. It
+              This space was created to host some of my web apps and projects as I wrap up my degree program. It
               was made entirely with React, which I'm hoping will become more
               evident as I update the site with new components. You can find the
-              code for this entire site{" "}
+              code for the profile front end {" "}
               <a
                 href="https://github.com/cjordan223/React-Portfolio"
                 style={{ color: "#90caf9" }}
@@ -62,12 +60,7 @@ function AboutPage() {
               I currently work on the cybersecurity team for Great Wolf Lodge,
               remotely for their Chicago office. I'm based in San Luis Obispo,
               CA, where I'm also part of the class of 2024 at Cal State
-              Monterey, completing my B.S. in Software Engineering this winter.
-            </Typography>
-            <Typography variant="body1" paragraph>
-              When I'm not working or studying, I like to go camping every few
-              weeks to decompress. I'm lucky to live in a place where I can do
-              that almost year-round.
+              Monterey, completing my B.S. in Software Engineering this winter. I've been lucky to work on a lot of different projects, but most recently I've taken a keen interest in dev ops engineering and cloud deployments, as well as automation scripting and API integration.
             </Typography>
             <Typography variant="body1" paragraph>
               If you have any questions or want to chat about web development,
