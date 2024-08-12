@@ -3,8 +3,6 @@ import { AppBar, Toolbar, Typography, Button, IconButton, Menu, MenuItem, Hidden
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink } from 'react-router-dom';
 
-// Header.js
-
 function Header() {
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -38,6 +36,8 @@ function Header() {
                     <Button color="inherit" component={RouterLink} to="/about">About</Button>
                     <Button color="inherit" component={RouterLink} to="/work-exp">Experience</Button>
                     <Button color="inherit" component={RouterLink} to="/contact">Contact</Button>
+                    {/* Add Cloud Login button */}
+                    <Button color="inherit" component={RouterLink} to="/cloud-login">Cloud Login</Button>
                 </Hidden>
 
                 <Menu
@@ -51,6 +51,7 @@ function Header() {
                     <MenuItem onClick={handleMenuClose} component={RouterLink} to="/about">About</MenuItem>
                     <MenuItem onClick={handleMenuClose} component={RouterLink} to="/work-exp">Experience</MenuItem>
                     <MenuItem onClick={handleMenuClose} component={RouterLink} to="/contact">Contact</MenuItem>
+                    <MenuItem onClick={handleMenuClose} component={RouterLink} to="/cloud-login">Cloud Login</MenuItem>
                 </Menu>
             </Toolbar>
         </AppBar>

@@ -15,7 +15,7 @@ import WorkExperience from "./pages/WorkExperience";
 import WebDesign from "./components/Projects/WebDesign";
 import Programming from "./components/Projects/Programming";
 import WebApps from "./components/Projects/WebApps";
-// import LandingPage from "./pages/LandingPage";
+import CloudLogin from "./pages/CloudLogin";
 
 
  const theme = createTheme({
@@ -45,8 +45,7 @@ function App() {
                         <Route exact path="/webapps" element={<WebApps />} />
                         <Route exact path="/programming" element={<Programming />} />
                         <Route exact path="/webdesign" element={<WebDesign />} />
-                        {/*<Route path="/landing" element={<LandingPage />} />*/}
-
+                        <Route exact path="/cloud-login" element={<CloudLogin />} />
                     </Routes>
                 </Layout>
             </Router>
@@ -55,3 +54,4 @@ function App() {
 }
 
 export default App;
+
