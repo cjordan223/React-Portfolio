@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function CloudLogin() {
-     window.location.href = "https://cloud.connerjordan.com";
+    useEffect(() => {
+        window.location.replace("https://cloud.connerjordan.com");
+    }, []);
+
     return null;
 }
 
 export default CloudLogin;
+
+
+ 
