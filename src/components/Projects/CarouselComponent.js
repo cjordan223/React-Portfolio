@@ -71,10 +71,10 @@ function CarouselComponent() {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
-                                Web Design
+                                Archives
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
-                                Websites I created during my time as a freelance designer.
+                                Shared space older projects and CSUMB Program recap.
                             </Typography>
                         </CardContent>
                     </CardActionArea>
