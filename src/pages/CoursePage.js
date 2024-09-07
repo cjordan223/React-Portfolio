@@ -1,5 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 // Course data array (could also be fetched from an API)
 const courseData = [
@@ -34,6 +36,17 @@ function CoursePage() {
             <p>{course.description}</p>
             <p><strong>Credits:</strong> {course.credits}</p>
             <p><strong>Term:</strong> {course.term}</p>
+
+            {/* Back to Courses Button */}
+            <Button 
+                variant="outlined" 
+                color="secondary" 
+                sx={{ marginTop: '20px' }} 
+                component={Link} 
+                to="/projects"
+            >
+                Back to Courses
+            </Button>
         </div>
     );
 }
