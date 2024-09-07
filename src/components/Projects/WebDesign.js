@@ -10,18 +10,18 @@ const archiveItems = [
     { type: "project", name: "Lone Oak Baptist", description: "Baptist Church", imageUrl: "/img/LO.png", link: "https://www.loneoakbaptistsnook.org/" },
     { type: "project", name: "Carpentry Solutions", description: "Framing Service", imageUrl: "/img/carpentry.png", link: "https://www.carpentrysolutionsinfo.com/" },
 
-    { type: "course", name: "CST 300: Major ProSeminar", description: "Nothing here yet...", imageUrl: "/img/comingsoon.webp", link: "/courses/cst300", term: "Spring 2023 - Term A", credits: 4 },
-    { type: "course", name: "CST 338: Software Design", description: "Nothing here yet...", imageUrl: "/img/comingsoon.webp", link: "/courses/cst338", term: "Spring 2023 - Term B", credits: 4 },
-    { type: "course", name: "CST 363: Database Management", description: "", imageUrl: "/img/comingsoon.webp", link: "/courses/cst363", term: "Summer 2023 - Term A", credits: 4 },
-    { type: "course", name: "CST 334: Operating Systems", description: "CST 237 is a prerequisite", imageUrl: "/img/comingsoon.webp", link: "/courses/cst334", term: "Summer 2023 - Term B", credits: 4 },
-    { type: "course", name: "CST 311: Introduction to Computer Networking", description: "", imageUrl: "/img/comingsoon.webp", link: "/courses/cst311", term: "Fall 2023 - Term A", credits: 4 },
-    { type: "course", name: "CST 336: Internet Programming", description: "", imageUrl: "/img/comingsoon.webp", link: "/courses/cst336", term: "Fall 2023 - Term B", credits: 4 },
-    { type: "course", name: "CST 370: Algorithms", description: "MATH 170 is a prerequisite", imageUrl: "/img/comingsoon.webp", link: "/courses/cst370", term: "Spring 2024 - Term A", credits: 4 },
-    { type: "course", name: "CST 462S: Race, Gender, Class in the Digital World AND CST 328: Digital Art and Design", description: "Doubling up", imageUrl: "/img/comingsoon.webp", link: "/courses/cst462s", term: "Spring 2024 - Term B", credits: 6 },
-    { type: "course", name: "CST 383: Introduction to Data Science", description: "", imageUrl: "/img/comingsoon.webp", link: "/courses/cst383", term: "Summer 2024 - Term A", credits: 4 },
-    { type: "course", name: "CST 438: Software Engineering", description: "CST 338 is a prerequisite", imageUrl: "/img/comingsoon.webp", link: "/courses/cst438", term: "Summer 2024 - Term B", credits: 4 },
-    { type: "course", name: "CST 329: Reasoning with Logic AND CST 489: Capstone Project Planning", description: "Doubling up", imageUrl: "/img/comingsoon.webp", link: "/courses/cst329", term: "Fall 2024 - Term A", credits: 4 },
-    { type: "course", name: "CST 499: Directed Group Capstone", description: "", imageUrl: "/img/comingsoon.webp", link: "/courses/cst499", term: "Fall 2024 - Term B", credits: 4 }
+    { type: "course", name: "CST 300: Major ProSeminar", description: "Nothing here yet...", imageUrl: "/img/comingsoon.webp", link: "/course/cst300", term: "Spring 2023 - Term A", credits: 4 },
+    { type: "course", name: "CST 338: Software Design", description: "Nothing here yet...", imageUrl: "/img/comingsoon.webp", link: "/course/cst338", term: "Spring 2023 - Term B", credits: 4 },
+    { type: "course", name: "CST 363: Database Management", description: "", imageUrl: "/img/comingsoon.webp", link: "/course/cst363", term: "Summer 2023 - Term A", credits: 4 },
+    { type: "course", name: "CST 334: Operating Systems", description: "CST 237 is a prerequisite", imageUrl: "/img/comingsoon.webp", link: "/course/cst334", term: "Summer 2023 - Term B", credits: 4 },
+    { type: "course", name: "CST 311: Introduction to Computer Networking", description: "", imageUrl: "/img/comingsoon.webp", link: "/course/cst311", term: "Fall 2023 - Term A", credits: 4 },
+    { type: "course", name: "CST 336: Internet Programming", description: "", imageUrl: "/img/comingsoon.webp", link: "/course/cst336", term: "Fall 2023 - Term B", credits: 4 },
+    { type: "course", name: "CST 370: Algorithms", description: "MATH 170 is a prerequisite", imageUrl: "/img/comingsoon.webp", link: "/course/cst370", term: "Spring 2024 - Term A", credits: 4 },
+    { type: "course", name: "CST 462S: Race, Gender, Class in the Digital World AND CST 328: Digital Art and Design", description: "Doubling up", imageUrl: "/img/comingsoon.webp", link: "/course/cst462s", term: "Spring 2024 - Term B", credits: 6 },
+    { type: "course", name: "CST 383: Introduction to Data Science", description: "", imageUrl: "/img/comingsoon.webp", link: "/course/cst383", term: "Summer 2024 - Term A", credits: 4 },
+    { type: "course", name: "CST 438: Software Engineering", description: "CST 338 is a prerequisite", imageUrl: "/img/comingsoon.webp", link: "/course/cst438", term: "Summer 2024 - Term B", credits: 4 },
+    { type: "course", name: "CST 329: Reasoning with Logic AND CST 489: Capstone Project Planning", description: "Doubling up", imageUrl: "/img/comingsoon.webp", link: "/course/cst329", term: "Fall 2024 - Term A", credits: 4 },
+    { type: "course", name: "CST 499: Directed Group Capstone", description: "", imageUrl: "/img/comingsoon.webp", link: "/course/cst499", term: "Fall 2024 - Term B", credits: 4 }
 ];
 
 
