@@ -9,11 +9,21 @@ const archiveItems = [
     { type: "project", name: "Amendola Storage", description: "Storage Service", imageUrl: "/img/Storage.png", link: "https://www.amendolastorage.com/" },
     { type: "project", name: "Lone Oak Baptist", description: "Baptist Church", imageUrl: "/img/LO.png", link: "https://www.loneoakbaptistsnook.org/" },
     { type: "project", name: "Carpentry Solutions", description: "Framing Service", imageUrl: "/img/carpentry.png", link: "https://www.carpentrysolutionsinfo.com/" },
-    // Add course information
-    { type: "course", name: "Computer Science 101", description: "Introduction to Computer Science", imageUrl: "/img/cs101.png", link: "/courses/cs101" },
-    { type: "course", name: "Data Structures and Algorithms", description: "Learn about data structures and algorithms.", imageUrl: "/img/dsa.png", link: "/courses/dsa" },
-    // Add more courses as needed
+
+    { type: "course", name: "CST 300: Major ProSeminar", description: "Nothing here yet...", imageUrl: "/img/comingsoon.webp", link: "/courses/cst300", term: "Spring 2023 - Term A", credits: 4 },
+    { type: "course", name: "CST 338: Software Design", description: "Nothing here yet...", imageUrl: "/img/comingsoon.webp", link: "/courses/cst338", term: "Spring 2023 - Term B", credits: 4 },
+    { type: "course", name: "CST 363: Database Management", description: "", imageUrl: "/img/comingsoon.webp", link: "/courses/cst363", term: "Summer 2023 - Term A", credits: 4 },
+    { type: "course", name: "CST 334: Operating Systems", description: "CST 237 is a prerequisite", imageUrl: "/img/comingsoon.webp", link: "/courses/cst334", term: "Summer 2023 - Term B", credits: 4 },
+    { type: "course", name: "CST 311: Introduction to Computer Networking", description: "", imageUrl: "/img/comingsoon.webp", link: "/courses/cst311", term: "Fall 2023 - Term A", credits: 4 },
+    { type: "course", name: "CST 336: Internet Programming", description: "", imageUrl: "/img/comingsoon.webp", link: "/courses/cst336", term: "Fall 2023 - Term B", credits: 4 },
+    { type: "course", name: "CST 370: Algorithms", description: "MATH 170 is a prerequisite", imageUrl: "/img/comingsoon.webp", link: "/courses/cst370", term: "Spring 2024 - Term A", credits: 4 },
+    { type: "course", name: "CST 462S: Race, Gender, Class in the Digital World AND CST 328: Digital Art and Design", description: "Doubling up", imageUrl: "/img/comingsoon.webp", link: "/courses/cst462s", term: "Spring 2024 - Term B", credits: 6 },
+    { type: "course", name: "CST 383: Introduction to Data Science", description: "", imageUrl: "/img/comingsoon.webp", link: "/courses/cst383", term: "Summer 2024 - Term A", credits: 4 },
+    { type: "course", name: "CST 438: Software Engineering", description: "CST 338 is a prerequisite", imageUrl: "/img/comingsoon.webp", link: "/courses/cst438", term: "Summer 2024 - Term B", credits: 4 },
+    { type: "course", name: "CST 329: Reasoning with Logic AND CST 489: Capstone Project Planning", description: "Doubling up", imageUrl: "/img/comingsoon.webp", link: "/courses/cst329", term: "Fall 2024 - Term A", credits: 4 },
+    { type: "course", name: "CST 499: Directed Group Capstone", description: "", imageUrl: "/img/comingsoon.webp", link: "/courses/cst499", term: "Fall 2024 - Term B", credits: 4 }
 ];
+
 
 function Archive() {
     const navigate = useNavigate();
@@ -101,45 +111,47 @@ function Archive() {
                 </Paper>
             )}
 
-            {/* Courses Section is always visible */}
-            <Paper elevation={3} sx={{ padding: '2rem', marginBottom: '2rem' }}>
-                <Typography variant="h4" component="h3" gutterBottom style={{ marginTop: '2rem' }}>
-                    Courses
-                </Typography>
+            {/* Courses Section */}
+            {!showProjects && (
+                <Paper elevation={3} sx={{ padding: '2rem', marginBottom: '2rem' }}>
+                    <Typography variant="h4" component="h3" gutterBottom style={{ marginTop: '2rem' }}>
+                        Courses
+                    </Typography>
 
-                {/* Commenting out the course cards and adding "Coming Soon" text */}
-                <Typography variant="h6" component="p" style={{ marginTop: '1rem' }}>
-                    Coming Soon
-                </Typography>
-                
-                {/* <Grid container spacing={2}>
-                    {archiveItems.filter(item => item.type === "course").map((course, index) => (
-                        <Grid item xs={12} sm={6} md={4} key={index}>
-                            <Card sx={{ maxWidth: 345, height: '100%', display: 'flex', flexDirection: 'column' }}>
-                                <CardMedia
-                                    component="img"
-                                    alt={course.name}
-                                    height="140"
-                                    image={course.imageUrl}
-                                    title={course.name}
-                                />
-                                <CardContent sx={{ flexGrow: 1 }}>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        {course.name}
-                                    </Typography>
-                                    <Typography color="textSecondary">
-                                        {course.description}
-                                    </Typography>
-                                </CardContent>
-                                <CardContent sx={{ flexGrow: 0 }}>
-                                    <Button variant="outline-primary" onClick={() => handleOpenModal(course)}>View Course</Button>
-                                </CardContent>
-                            </Card>
-                        </Grid>
-                    ))}
-                </Grid> */}
-
-            </Paper>
+                    <Grid container spacing={2}>
+                        {archiveItems.filter(item => item.type === "course").map((course, index) => (
+                            <Grid item xs={12} sm={6} md={4} key={index}>
+                                <Card sx={{ maxWidth: 345, height: '100%', display: 'flex', flexDirection: 'column' }}>
+                                    <CardMedia
+                                        component="img"
+                                        alt={course.name}
+                                        height="140"
+                                        image={course.imageUrl}
+                                        title={course.name}
+                                    />
+                                    <CardContent sx={{ flexGrow: 1 }}>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                            {course.name}
+                                        </Typography>
+                                        <Typography color="textSecondary">
+                                            {course.description}
+                                        </Typography>
+                                        <Typography color="textSecondary">
+                                            Credits: {course.credits}
+                                        </Typography>
+                                        <Typography color="textSecondary">
+                                            {course.term}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardContent sx={{ flexGrow: 0 }}>
+                                        <Button variant="outline-primary" onClick={() => handleOpenModal(course)}>View Course</Button>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Paper>
+            )}
 
             <Modal
                 open={openModal}
