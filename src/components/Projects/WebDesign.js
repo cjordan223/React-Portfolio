@@ -1,4 +1,3 @@
-//src/components/Projects/WebDesign.js
 import React, { useState } from 'react';
 import { Card, CardContent, Typography, Grid, CardMedia, Select, MenuItem, FormControl, InputLabel, Modal, Box, Paper } from '@mui/material';
 import { useNavigate } from "react-router-dom";
@@ -11,21 +10,20 @@ const archiveItems = [
     { type: "project", name: "Lone Oak Baptist", description: "Baptist Church", imageUrl: "/img/LO.png", link: "https://www.loneoakbaptistsnook.org/" },
     { type: "project", name: "Carpentry Solutions", description: "Framing Service", imageUrl: "/img/carpentry.png", link: "https://www.carpentrysolutionsinfo.com/" },
     // Updated courses
-    { type: "course", name: "CST 300: Major ProSeminar", description: "Students learn professional writing, presentation, research, and critical-thinking skills...", imageUrl: "/img/comingsoon.webp", link: "/course/cst300", term: "Spring 2023 - Term A", credits: 4 },
-    { type: "course", name: "CST 338: Software Design", description: "Intermediate-level programming course covering techniques for developing large-scale software systems...", imageUrl: "/img/comingsoon.webp", link: "/course/cst338", term: "Spring 2023 - Term B", credits: 4 },
-    { type: "course", name: "CST 363: Database Management", description: "Provides balanced coverage of database use and design, focusing on relational databases...", imageUrl: "/img/comingsoon.webp", link: "/course/cst363", term: "Summer 2023 - Term A", credits: 4 },
-    { type: "course", name: "CST 334: Operating Systems", description: "Learn about the use and design of modern operating systems, focusing on Linux...", imageUrl: "/img/comingsoon.webp", link: "/course/cst334", term: "Summer 2023 - Term B", credits: 4 },
-    { type: "course", name: "CST 311: Introduction to Computer Networking", description: "Survey of Telecomm and Data Comm Technology Fundamentals...", imageUrl: "/img/comingsoon.webp", link: "/course/cst311", term: "Fall 2023 - Term A", credits: 4 },
-    { type: "course", name: "CST 336: Internet Programming", description: "Provides students with dynamic web application development skills...", imageUrl: "/img/webprogramming.jpeg", link: "/course/cst336", term: "Fall 2023 - Term B", credits: 4 },
-    { type: "course", name: "CST 370: Algorithms", description: "Students learn important data structures in computer science...", imageUrl: "/img/comingsoon.webp", link: "/course/cst370", term: "Spring 2024 - Term A", credits: 4 },
-    { type: "course", name: "CST 462S: Race, Gender, Class in the Digital World AND CST 328: Digital Art and Design", description: "Provides students with key knowledge of race, gender, class...", imageUrl: "/img/comingsoon.webp", link: "/course/cst462s", term: "Spring 2024 - Term B", credits: 6 },
-    { type: "course", name: "CST 383: Introduction to Data Science", description: "Overview of modern data science tools and best practices...", imageUrl: "/img/datascience.jpeg", link: "/course/cst383", term: "Summer 2024 - Term A", credits: 4 },
-    { type: "course", name: "CST 438: Software Engineering", description: "CST 338 is a prerequisite. Covers key knowledge of software engineering practices...", imageUrl: "/img/comingsoon.webp", link: "/course/cst438", term: "Summer 2024 - Term B", credits: 4 },
-    { type: "course", name: "CST 329: Reasoning with Logic AND CST 489: Capstone Project Planning", description: "In this course, students learn to develop skill in using logic to describe and assess arguments...", imageUrl: "/img/comingsoon.webp", link: "/course/cst329", term: "Fall 2024 - Term A", credits: 4 },
-    { type: "course", name: "CST 499: Directed Group Capstone", description: "Students create a detailed proposal of a substantial, professional level project...", imageUrl: "/img/comingsoon.webp", link: "/course/cst499", term: "Fall 2024 - Term B", credits: 4 }
+    { type: "course", name: "CST 300: Major ProSeminar", description: "Students learn professional writing, presentation, research, and critical-thinking skills...", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz8bcyP6fWEtvxSXHuxlTGImVBEPtEi7mVyQ&s", link: "/course/cst300", grade: "A" },
+    { type: "course", name: "CST 338: Software Design", description: "Intermediate-level programming course covering techniques for developing large-scale software systems...", imageUrl: "https://www.wedigraf.com/wp-content/uploads/2023/11/software-development-training-uyo-wedigraf-technologies-ltd-akwa-ibom-state.jpg", link: "/course/cst338", grade: "A" },
+    { type: "course", name: "CST 363: Database Management", description: "Provides balanced coverage of database use and design, focusing on relational databases...", imageUrl: "https://assets.datamation.com/uploads/2023/06/dm-top-database-challenges.png", link: "/course/cst363", grade: "A" },
+    { type: "course", name: "CST 334: Operating Systems", description: "Learn about the use and design of modern operating systems, focusing on Linux...", imageUrl: "https://cloudpso.com/wp-content/uploads/2023/02/is-the-operating-system-dead.webp", link: "/course/cst334", grade: "A" },
+    { type: "course", name: "CST 311: Introduction to Computer Networking", description: "Survey of Telecomm and Data Comm Technology Fundamentals...", imageUrl: "https://www.lifewire.com/thmb/TXVRTtkHvRpTjnRObQ3xm2VlsD0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/WirelessNetwork-5994852003f4020011db5333.jpg", link: "/course/cst311", grade: "A" },
+    { type: "course", name: "CST 336: Internet Programming", description: "Provides students with dynamic web application development skills...", imageUrl: "/img/webprogramming.jpeg", link: "/course/cst336", grade: "A" },
+    { type: "course", name: "CST 370: Algorithms", description: "Students learn important data structures in computer science...", imageUrl: "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230807133054/Data-structure-algorithm.png", link: "/course/cst370", grade: "A" },
+    { type: "course", name: "CST 328: Digital Art and Design AND CST 462S: Race, Gender, Class in the Digital World", description: "Provides students with key knowledge of race, gender, class...", imageUrl: "https://yt3.googleusercontent.com/4YAaX7CsQ-paadHsNvC6wdv2nE_7VTKpoNJOTwFhHL4rQqLC8WFe6mNxL-z-e6sfHZbHG-ucPA=s900-c-k-c0x00ffffff-no-rj", link: "/course/cst462s", grade: "A" },
+    { type: "course", name: "CST 383: Introduction to Data Science", description: "Overview of modern data science tools and best practices...", imageUrl: "/img/datascience.jpeg", link: "/course/cst383", grade: "A" },
+    { type: "course", name: "CST 438: Software Engineering", description: "CST 338 is a prerequisite. Covers key knowledge of software engineering practices...", imageUrl: "https://cdn.sanity.io/images/tlr8oxjg/production/8065e9b35afcf58ba7b1b96e1d5be14420d47dec-1456x816.png?w=3840&q=100&fit=clip&auto=format", link: "/course/cst438", grade: "A" },
+    { type: "course", name: "CST 329: Reasoning with Logic ", description: "In this course, students learn to develop skill in using logic to describe and assess arguments...", imageUrl: "/img/comingsoon.webp", link: "/course/cst329", grade: "A" },
+    { type: "course", name: "CST 489: Capstone Project Planning", description: "In this course, students learn to develop skill in using logic to describe and assess arguments...", imageUrl: "/img/comingsoon.webp", link: "/course/cst489", grade: "A" },
+    { type: "course", name: "CST 499: Directed Group Capstone", description: "Students create a detailed proposal of a substantial, professional level project...", imageUrl: "/img/comingsoon.webp", link: "/course/cst499", grade: "A" }
 ];
-
-
 
 function Archive() {
     const navigate = useNavigate();
@@ -63,7 +61,6 @@ function Archive() {
                     This section contains more info about the program I have been in from 2022 to 2024, completing in December of 24. There are also some older web design projects I did many years ago as a freelancer.
                 </Typography>
 
-                {/* Dropdown to select what to show */}
                 <FormControl fullWidth style={{ marginBottom: '1.5rem' }}>
                     <InputLabel id="archive-select-label">Select to View</InputLabel>
                     <Select
@@ -78,7 +75,6 @@ function Archive() {
                 </FormControl>
             </Paper>
 
-            {/* Conditionally render Web Design Projects Section */}
             {showProjects && (
                 <Paper elevation={3} sx={{ padding: '2rem', marginBottom: '2rem' }}>
                     <Typography variant="h4" component="h3" gutterBottom>
@@ -113,13 +109,11 @@ function Archive() {
                 </Paper>
             )}
 
-            {/* Courses Section */}
             {!showProjects && (
                 <Paper elevation={3} sx={{ padding: '2rem', marginBottom: '2rem' }}>
-                    <Typography variant="h4" component="h3" gutterBottom style={{ marginTop: '2rem' }}>
+                    <Typography variant="h4" component="h3" gutterBottom>
                         Courses
                     </Typography>
-
                     <Grid container spacing={2}>
                         {archiveItems.filter(item => item.type === "course").map((course, index) => (
                             <Grid item xs={12} sm={6} md={4} key={index}>
@@ -139,10 +133,7 @@ function Archive() {
                                             {course.description}
                                         </Typography>
                                         <Typography color="textSecondary">
-                                            Credits: {course.credits}
-                                        </Typography>
-                                        <Typography color="textSecondary">
-                                            {course.term}
+                                            Grade: {course.grade}
                                         </Typography>
                                     </CardContent>
                                     <CardContent sx={{ flexGrow: 0 }}>
