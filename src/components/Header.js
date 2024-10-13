@@ -37,7 +37,7 @@ function Header() {
                     <Button color="inherit" component={RouterLink} to="/work-exp">Experience</Button>
                     <Button color="inherit" component={RouterLink} to="/contact">Contact</Button>
                     {/* Add Cloud Login button */}
-                    <Button color="inherit" component={RouterLink} to="/cloud-login">Cloud Login</Button>
+                    {/* <Button color="inherit" component={RouterLink} to="/cloud-login">Cloud Login</Button> */}
                 </Hidden>
 
                 <Menu
