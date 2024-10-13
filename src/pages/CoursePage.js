@@ -1,11 +1,11 @@
 //src/pages/CoursePage.js
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { Carousel } from 'react-responsive-carousel';  // You can use this library or another for the carousel
+import 'react-responsive-carousel/lib/styles/carousel.min.css';  // Carousel styles
 
-// Course data array (could also be fetched from an API)
-// Course data array (could also be fetched from an API)
 const courseData = [
     {
         id: 'cst300',
@@ -14,27 +14,23 @@ const courseData = [
         term: 'Spring 2023 - Term A',
         credits: 4,
         personalNote: 'This class served primarily as an introduction to the program, focusing on planning and preparedness for what would become a very fast-paced and comprehensive journey. We covered essential skills like professional writing, presentation, and research, which laid a strong foundation for the rest of the coursework. One aspect that stood out to me was when I revisited my final ethics paper; it was fascinating to see how artificial intelligence was just starting to gain significant traction in public discussions back then. Now, AI has become an integral part of many industries, and its rapid advancement continues to shape our world.',
-        fileLink: '/public/files/EA_CJFinal.pdf',  // Link to the Ethics Review PDF file
-        fileName: 'Ethics Review',
-         // Display name for the download button
     },
     {
         id: 'cst338',
         name: 'CST 338: Software Design',
         description: 'This is an intermediate-level programming course covering techniques for developing large-scale software systems using object-oriented programming. Coverage includes software development life cycle models, requirements analysis, and graphical user interface development.',
         term: 'Spring 2023 - Term B',
-        personalNote: 'This was the first technical course in the program and it largely served as an introduction to the software development lifecycle and programming best practices. We primarily used Java and IntelliJ IDEA to construct our programs, which helped solidify our understanding of object-oriented programming concepts. The course culminated in a final project developed in Android Studio. For my final project, I undertook a solo effort to build a list-making app with basic CRUD (Create, Read, Update, Delete) functionality, all built in Java for the Android platform. This project allowed me to apply the principles we learned and gave me hands-on experience with mobile app development.',
+        personalNote: 'This was the first technical course in the program and it largely served as an introduction to the software development lifecycle and programming best practices. We primarily used Java and IntelliJ IDEA to construct our programs, which helped solidify our understanding of object-oriented programming concepts. The course culminated in a final project developed in Android Studio. For my final project, I built a list-making app with basic CRUD (Create, Read, Update, Delete) functionality, all built in Java for the Android platform. This project allowed me to apply the principles we learned and gave me hands-on experience with mobile app development.',
         credits: 4,
-        repoLink: 'https://github.com/cjordan223/List_Assist', // Placeholder for the repository link
-        additionalPageLink: '/webapps'
-    }, // Placeholder for the additional page link},
+      
+    },  
     {
         id: 'cst363',
         name: 'CST 363: Database Management',
         description: 'Provides balanced coverage of database use and design, focusing on relational databases. Students will learn to design relational schemas, write SQL queries, access a DB programmatically, and perform database administration.',
         term: 'Summer 2023 - Term A',
         credits: 4,
-        personalNote: 'This course was extremely useful, especially since I was simultaneously working on real-world systems and databases at my job. While I had some familiarity with SQL prior to the course, I gained a much deeper understanding of its utility and the principles of database management. We built a custom schema for a fictional pharmacy service, which involved handling both back-end and front-end web requests for different types of users. This project was particularly significant to me because it was the first one I felt truly proud of and believed deserved its own showcase. It allowed me to apply theoretical concepts to a practical application, reinforcing my learning and boosting my confidence in database design and management.'
+        personalNote: 'This course was extremely useful, especially since I was simultaneously working on real-world systems and databases at my job. While I had some familiarity with SQL prior to the course, I gained a much deeper understanding of its utility and the principles of database management. We built a custom schema for a fictional pharmacy service, which involved handling both back-end and front-end web requests for different types of users. This project was particularly significant to me because it was the first one I felt truly proud of and believed deserved its own showcase. It allowed me to apply theoretical concepts to a practical application, reinforcing my learning and boosting my confidence in database design and management. Below, you will see my team hand built a database schema for this fake pharmacy, we then implemented it in a spring application and compiled our findings.'
     },
     {
         id: 'cst334',
@@ -50,7 +46,7 @@ const courseData = [
         description: 'Survey of Telecomm and Data Comm Technology Fundamentals, Local Area Network, Wide Area Network, Internet and internetworking protocols including TCP/IP, network security and performance, emerging industry trends such as voice over the network and high speed networking.',
         term: 'Fall 2023 - Term A',
         credits: 4,
-        personalNote: 'This course marked the point where I began to notice how closely my day-to-day job and my evening studies aligned. We covered a wide range of concepts, including server and client programming, Python scripting, network security, and the various layers of security protocols. One of the most practical skills I gained was creating security certificates from scratch using the command line. Interestingly, I had to use this exact skill at work just two days after learning it in class when we encountered an expired certificate issue. The course also introduced me to Docker, and under the professor\'s recommendation, I used it for several applications. This not only helped me understand containerization but also made me more comfortable deploying and managing applications in isolated environments. Overall, the course significantly enhanced my understanding of computer networking and its real-world applications.'
+        personalNote: 'This course marked the point where I began to notice how closely my day-to-day job and my evening studies aligned. We covered a wide range of concepts, including server and client programming, Python scripting, network security, and the various layers of security protocols. One of the most practical skills I gained was creating security certificates from scratch using the command line. Interestingly, I had to use this exact skill at work just two days after learning it in class when we encountered an expired certificate issue. The course also introduced me to Docker, and under the professor\'s recommendation, I used it for several applications. This not only helped me understand containerization but also made me more comfortable deploying and managing applications in isolated environments. Overall, the course significantly enhanced my understanding of computer networking and its real-world applications. I also became very familiar with mininet and UTM for creation of virtual environments and machines, where I could test different networks and scenarios. This was a great intro to UTM as I would end up using it extensively for Kali Linux pen testing, which was a very natural transition.'
     },
     {
         id: 'cst336',
@@ -74,7 +70,7 @@ const courseData = [
         description: 'Students learn important data structures in computer science and acquire fundamental algorithm design techniques to efficiently solve various computing problems.',
         term: 'Spring 2024 - Term A',
         credits: 4,
-        personalNote: 'In this course, we explored various data structures and algorithms over eight intensive weeks. We covered different sorting and searching methods, such as quicksort, mergesort, and binary search, as well as more complex algorithms like graph traversal and dynamic programming. To keep track of my progress and have a central place to revisit the material, I created a GitHub repository containing all the problems and solutions we worked on. This repository has been an invaluable resource for me to revisit key algorithm concepts later on, especially when preparing for technical interviews or tackling complex coding challenges. The course significantly improved my problem-solving skills and my understanding of how to write efficient, optimized code.'
+        personalNote: 'In this course, we explored various data structures and algorithms over eight intensive weeks. We covered different sorting and searching methods, such as quicksort, mergesort, and binary search, as well as more complex algorithms like graph traversal and dynamic programming. To keep track of my progress and have a central place to revisit the material, I created a GitHub repository containing all the problems and solutions we worked on. This repository has been an invaluable resource for me to revisit key algorithm concepts later on, especially when preparing for technical interviews or tackling complex coding challenges. The course significantly improved my problem-solving skills and my understanding of how to write efficient, optimized code. DSA has a reputation in my area of study for being extremely important, and I can see why. After taking this course there is a tangible difference in how I internally process problems and approach solutions. This applies not just to SWE but to my career in general.'
     },
     {
         id: 'cst383',
@@ -114,6 +110,8 @@ const courseData = [
 function CoursePage() {
     const { courseId } = useParams();
     const course = courseData.find(course => course.id === courseId);
+    const [showSchema, setShowSchema] = useState(false);  // State for toggling schema visibility
+    const [showRequirements, setShowRequirements] = useState(false);  // State for toggling requirements dropdown
 
     if (!course) {
         return <div>Course not found</div>;
@@ -126,11 +124,10 @@ function CoursePage() {
             margin: 'auto',
             backgroundColor: 'white',
             color: 'black',
-            border: '2px solid blue',
             borderRadius: '8px'
         }}>
             <Typography variant="h4" gutterBottom>{course.name}</Typography>
-            <Typography variant="body1">{course.description}</Typography>
+            <Typography variant="body2">{course.description}</Typography>
             <Typography variant="body2"><strong>Credits:</strong> {course.credits}</Typography>
             <Typography variant="body2"><strong>Term:</strong> {course.term}</Typography>
             <Typography variant="body2"><strong>Grade Earned:</strong> A</Typography>
@@ -139,34 +136,517 @@ function CoursePage() {
             {course.personalNote && (
                 <>
                     <Typography variant="h6" style={{ marginTop: '20px' }}>Personal Reflection</Typography>
-                    <Typography variant="body2" style={{ marginBottom: '20px' }}>{course.personalNote}</Typography>
+                    <Typography variant="body1" style={{ marginBottom: '20px' }}>{course.personalNote}</Typography>
                 </>
             )}
 
-            {/* Repository link button, if applicable */}
-            {course.repoLink && (
-                <Button 
-                    variant="contained" 
-                    color="primary" 
-                    href={course.repoLink} 
-                    style={{ marginTop: '10px' }}
-                >
-                    Visit Repository
-                </Button>
+                            {/* Conditional rendering for CST300 */}
+            {course.id === 'cst300' && (
+                <>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        href="https://drive.google.com/file/d/1GFnGgVgIs6jKuQoQjwnD0zGaYKPJO33-/view?usp=drive_link"
+                        style={{ marginTop: '10px' }}
+                        target="_blank"
+                    >
+                        View Ethics Paper
+                    </Button>
+                    <img src="https://cdn.prod.website-files.com/65e89895c5a4b8d764c0d70e/66477d248e720545e7e3e4a7_40f1c03d-f1ee-4fda-9af8-594e0c35d70c.jpeg" alt="Ethics Paper Image" style={{ width: '100%', height: 'auto', marginTop: '10px' }} />
+                </>
+            )}
+                  {/* Conditional rendering for CST336 (Web Programming) */}
+                  {course.id === 'cst336' && (
+                <>
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                        This was my final project, built with Node.js and Express in 2 hours. It received full marks and all extra credit requirements.
+                    </Typography>
+                    <Button 
+                        variant="contained" 
+                        color="primary" 
+                        href="https://github.com/cjordan223/Web-programming-final"
+                        style={{ marginTop: '10px' }}
+                        target="_blank"
+                    >
+                        View Final Project Repo
+                    </Button>
+
+                    {/* Dropdown for Project Requirements */}
+                    <Button 
+                        variant="contained" 
+                        color="secondary" 
+                        onClick={() => setShowRequirements(!showRequirements)}
+                        style={{ marginTop: '10px' }}
+                    >
+                        {showRequirements ? 'Hide Project Requirements' : 'Show Project Requirements'}
+                    </Button>
+
+                    {showRequirements && (
+  <Typography variant="body2" style={{
+      backgroundColor: '#f5f5f5',
+      padding: '10px',
+      borderRadius: '4px',
+      whiteSpace: 'pre-wrap',
+      marginTop: '10px'
+  }}>
+{`1. The Home page lists all variants retrieved from the database ordered by most recently detected.
+   - 20 pts: Full Marks
+ 
+2. In the Home page, the variant name, description, classification, classification attributes, and variant image are displayed when clicking on a variant.
+   - 30 pts: Full Marks
+ 
+3. In the Home page, the variant information is displayed in a Modal window using a two-column layout.
+   - 15 pts: Full Marks
+ 
+4. The Add Variant page allows users to add a new variant into the database. The values for the "Classification" dropdown menu come from the database.
+   - 30 pts: Full Marks
+ 
+5. The Update Variant page allows users to update the "country_first_detected" and "classification_id" fields. Fields are pre-populated. The Classification values come from the database.
+   - 30 pts: Full Marks
+ 
+6. The Trivia page displays a variant name randomly retrieved from the database, and the Country values come from the database.
+   - 20 pts: Full Marks
+ 
+7. In the Trivia page, the question is graded through a Web API, and color-coded feedback is displayed.
+   - 30 pts: Full Marks
+ 
+8. All pages use Partials to display a header, a banner image, a navigation menu, and a footer.
+   - 15 pts: Full Marks
+ 
+9. Your submission has a nice style using Bootstrap or CSS in an external file with at least 10 properties.
+   - 10 pts: Full Marks
+ 
+10. This rubric is properly included and updated.
+    - 2 pts: Full Marks
+ `}
+  </Typography>
+)}
+
+
+                    {/* Note and Screenshot for Group Project */}
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                        Honorable Mention: This screenshot was taken from our final group project, where we used a movie API to build custom playlists. Users were tracked in a database to persist their data across sessions.
+                    </Typography>
+                    <iframe 
+                        src="https://drive.google.com/file/d/1SwKWffWrrnDgvnezKTod71p6_F_weQGg/preview" 
+                        width="100%" 
+                        height="400px" 
+                        style={{ border: '1px solid #ccc', borderRadius: '4px', marginTop: '10px' }}
+                        title="Group Project Screenshot"
+                    ></iframe>
+                </>
             )}
 
-            {/* Additional page link button, if applicable */}
-            {course.additionalPageLink && (
-                <Button 
-                    variant="contained" 
-                    color="secondary" 
-                    href={course.additionalPageLink} 
-                    style={{ marginTop: '10px' }}
-                >
-                    Visit Additional Page
-                </Button>
+            {/* Conditional rendering for CST363 (Databases) */}
+            {course.id === 'cst363' && (
+                <>
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Database Schema</Typography>
+                    
+                    {/* Dropdown for Database Schema */}
+                    <Button 
+                        variant="contained" 
+                        color="primary" 
+                        onClick={() => setShowSchema(!showSchema)}
+                        style={{ marginBottom: '10px' }}
+                    >
+                        {showSchema ? 'Hide Schema' : 'Show Full Schema'}
+                    </Button>
+
+                    {showSchema && (
+                        <pre style={{
+                            backgroundColor: '#f5f5f5',
+                            padding: '10px',
+                            borderRadius: '4px',
+                            whiteSpace: 'pre-wrap',
+                            maxHeight: '300px',
+                            overflowY: 'scroll'
+                        }}>
+                            <code>
+{`-- This script creates a HospitalDB database and defines several tables: Doctor, Patient, Drug, Pharmacy, and Prescription.
+
+-- Drop the HospitalDB database if it already exists to start fresh.
+DROP DATABASE IF EXISTS HospitalDB;
+
+-- Create the HospitalDB database.
+CREATE DATABASE HospitalDB;
+
+-- Switch to using the HospitalDB database.
+USE HospitalDB;
+
+-- Create the Doctor table.
+-- This table stores information about doctors.
+CREATE TABLE Doctor
+(
+    ID             INT AUTO_INCREMENT PRIMARY KEY,                                    -- Unique identifier for each doctor (auto-incremented).
+    last_name      VARCHAR(50) NOT NULL,                                              -- Last name of the doctor.
+    first_name     VARCHAR(50) NOT NULL,                                              -- First name of the doctor.
+    practice_since INT(4)      NOT NULL CHECK (practice_since BETWEEN 1900 AND 2022), -- Year the doctor started practicing.
+    specialty      VARCHAR(50) NOT NULL,                                              -- Medical specialty of the doctor.
+    ssn            VARCHAR(20) NOT NULL UNIQUE,                                       -- Social Security Number of the doctor.
+    INDEX (ssn)                                                                       -- Indexing the ssn column for efficient queries.
+);
+
+-- Create the Patient table.
+-- This table stores information about patients.
+CREATE TABLE Patient
+(
+    patientId   INT          NOT NULL AUTO_INCREMENT PRIMARY KEY, -- Unique identifier for each patient (auto-incremented).
+    last_name   VARCHAR(255) NOT NULL,                            -- Last name of the patient.
+    first_name  VARCHAR(255) NOT NULL,                            -- First name of the patient.
+    birthdate   DATE         NOT NULL,                            -- Birthdate of the patient.
+    ssn         VARCHAR(20)  NOT NULL UNIQUE,                     -- Social Security Number of the patient.
+    street      VARCHAR(255) NOT NULL,                            -- Street address of the patient.
+    city        VARCHAR(255) NOT NULL,                            -- City of the patient.
+    state       VARCHAR(255) NOT NULL,                            -- State of the patient.
+    zipcode     VARCHAR(10)  NOT NULL,                            -- Zip code of the patient.
+    primaryName VARCHAR(255) NOT NULL,                            -- Primary name of the patient.
+    INDEX (ssn)                                                   -- Indexing the ssn column for efficient queries.
+);
+
+-- Create the Drug table.
+-- This table stores information about drugs.
+CREATE TABLE drug
+(
+    drug_id    int(11)      NOT NULL, -- Unique identifier for each drug.
+    trade_name varchar(100) NOT NULL, -- Trade name of the drug.
+    formula    varchar(200) NOT NULL, -- Chemical formula of the drug.
+    PRIMARY KEY (drug_id)             -- Primary key constraint on the drug_id column.
+);
+
+-- Insert data into the Drug table.
+-- This inserts sample drug records.
+INSERT INTO drug
+VALUES (1, 'Tylenol with Codeine', 'acetaminophen and codeine'),
+       (2, 'Proair Proventil', 'albuterol aerosol'),
+       (3, 'Accuneb', 'albuterol HFA'),
+       (4, 'Fosamax', 'alendronate'),
+       (5, 'Zyloprim', 'allopurinol'),
+       (6, 'Xanax', 'alprazolam'),
+       (7, 'Elavil', 'amitriptyline'),
+       (8, 'Augmentin', 'amoxicillin and clavulanate K+'),
+       (9, 'Amoxil', 'amoxicillin'),
+       (10, 'Adderall XR', 'amphetamine and dextroamphetamine XR'),
+       (11, 'Tenormin', 'atenolol'),
+       (12, 'Lipitor', 'atorvastatin'),
+       (13, 'Zithromax', 'azithromycin'),
+       (14, 'Lotrel', 'benazepril and amlodipine'),
+       (15, 'Soma', 'carisoprodol'),
+       (16, 'Coreg', 'carvedilol'),
+       (17, 'Omnicef', 'cefdinir'),
+       (18, 'Celebrex', 'celecoxib'),
+       (19, 'Keflex', 'cephalexin'),
+       (20, 'Cipro', 'ciprofloxacin'),
+       (21, 'Celexa', 'citalopram'),
+       (22, 'Klonopin', 'clonazepam'),
+       (23, 'Catapres', 'clonidine HCl'),
+       (24, 'Plavix', 'clopidogrel'),
+       (25, 'Premarin', 'conjugated estrogens'),
+       (26, 'Flexeril', 'cyclobenzaprine'),
+       (27, 'Valium', 'diazepam'),
+       (28, 'Voltaren', 'diclofenac sodium'),
+       (29, 'Yaz', 'drospirenone and ethinyl estradiol'),
+       (30, 'Cymbalta', 'Duloxetine'),
+       (31, 'Vibramycin', 'doxycycline hyclate'),
+       (32, 'Vasotec', 'enalapril'),
+       (33, 'Lexapro', 'escitalopram'),
+       (34, 'Nexium', 'esomeprazole'),
+       (35, 'Zetia', 'ezetimibe'),
+       (36, 'Tricor', 'fenofibrate'),
+       (37, 'Allegra', 'fexofenadine'),
+       (38, 'Diflucan', 'fluconozole'),
+       (39, 'Prozac', 'fluoxetine HCl'),
+       (40, 'Advair', 'fluticasone and salmeterol inhaler'),
+       (41, 'Flonase', 'fluticasone nasal spray'),
+       (42, 'Folic Acid', 'folic acid'),
+       (43, 'Lasix', 'furosemide'),
+       (44, 'Neurontin', 'gabapentin'),
+       (45, 'Amaryl', 'glimepiride'),
+       (46, 'Diabeta', 'glyburide'),
+       (47, 'Glucotrol', 'glipizide'),
+       (48, 'Microzide', 'hydrochlorothiazide'),
+       (49, 'Lortab', 'hydrocodone and acetaminophen'),
+       (50, 'Motrin', 'ibuprophen'),
+       (51, 'Lantus', 'insulin glargine'),
+       (52, 'Imdur', 'isosorbide mononitrate'),
+       (53, 'Prevacid', 'lansoprazole'),
+       (54, 'Levaquin', 'levofloxacin'),
+       (55, 'Levoxl', 'levothyroxine sodium'),
+       (56, 'Zestoretic', 'lisinopril and hydrochlorothiazide'),
+       (57, 'Prinivil', 'lisinopril'),
+       (58, 'Ativan', 'lorazepam'),
+       (59, 'Cozaar', 'losartan'),
+       (60, 'Mevacor', 'lovastatin'),
+       (61, 'Mobic', 'meloxicam'),
+       (62, 'Glucophage', 'metformin HCl'),
+       (63, 'Medrol', 'methylprednisone'),
+       (64, 'Toprol', 'metoprolol succinate XL'),
+       (65, 'Lopressor', 'metoprolol tartrate'),
+       (66, 'Nasonex', 'mometasone'),
+       (67, 'Singulair', 'montelukast'),
+       (68, 'Naprosyn', 'naproxen'),
+       (69, 'Prilosec', 'omeprazole'),
+       (70, 'Percocet', 'oxycodone and acetaminophen'),
+       (71, 'Protonix', 'pantoprazole'),
+       (72, 'Paxil', 'paroxetine'),
+       (73, 'Actos', 'pioglitazone'),
+       (74, 'Klor-Con', 'potassium Chloride'),
+       (75, 'Pravachol', 'pravastatin'),
+       (76, 'Deltasone', 'prednisone'),
+       (77, 'Lyrica', 'pregabalin'),
+       (78, 'Phenergan', 'promethazine'),
+       (79, 'Seroquel', 'quetiapine'),
+       (80, 'Zantac', 'ranitidine'),
+       (81, 'Crestor', 'rosuvastatin'),
+       (82, 'Zoloft', 'sertraline HCl'),
+       (83, 'Viagra', 'sildenafil HCl'),
+       (84, 'Vytorin', 'simvastatin and ezetimibe'),
+       (85, 'Zocor', 'simvastatin'),
+       (86, 'Aldactone', 'spironolactone'),
+       (87, 'Bactrim DS', 'sulfamethoxazole and trimethoprim DS'),
+       (88, 'Flomax', 'tamsulosin'),
+       (89, 'Restoril', 'temezepam'),
+       (90, 'Topamax', 'topiramate'),
+       (91, 'Ultram', 'tramadol'),
+       (92, 'Aristocort', 'triamcinolone Ace topical'),
+       (93, 'Desyrel', 'trazodone HCl'),
+       (94, 'Dyazide', 'triamterene and hydrochlorothiazide'),
+       (95, 'Valtrex', 'valaciclovir'),
+       (96, 'Diovan', 'valsartan'),
+       (97, 'Effexor XR', 'venlafaxine XR'),
+       (98, 'Calan SR', 'verapamil SR'),
+       (99, 'Ambien', 'zolpidem');
+
+-- Create the Pharmacy table.
+-- This table stores information about pharmacies.
+CREATE TABLE Pharmacy
+(
+    PharmacyId  INT(8) PRIMARY KEY AUTO_INCREMENT, -- Unique identifier for each pharmacy (auto-incremented).
+    Name        VARCHAR(50) NOT NULL,              -- Name of the pharmacy.
+    Address     VARCHAR(50) NOT NULL,              -- Address of the pharmacy.
+    PhoneNumber VARCHAR(20) NOT NULL,              -- Phone number of the pharmacy.
+    INDEX (Name)                                   -- Indexing the Name column for efficient queries.
+);
+
+-- Insert data into the Pharmacy table.
+-- This inserts sample pharmacy records.
+INSERT INTO Pharmacy (Name, Address, PhoneNumber)
+VALUES ('ABC Pharmacy', '123 Main Street', '555-1234'),
+       ('XYZ Pharmacy', '456 Elm Avenue', '555-5678'),
+       ('123 Pharmacy', '789 Oak Lane', '555-9101'),
+       ('MediCare Pharmacy', '321 Pine Road', '555-1213'),
+       ('QuickMeds', '987 Cedar Street', '555-1415');
+
+-- Create the Prescription table.
+-- This table stores information about prescriptions.
+CREATE TABLE Prescription
+(
+    RXNumber            INT PRIMARY KEY AUTO_INCREMENT,             -- Unique identifier for each prescription (auto-incremented).
+    DrugName            VARCHAR(255) NOT NULL,                      -- Name of the prescribed drug.
+    Quantity            INT          NOT NULL CHECK (Quantity > 0), -- Quantity of the drug prescribed.
+    Patient_SSN         VARCHAR(20)  NOT NULL,                      -- Social Security Number of the patient.
+    PatientFirstName    VARCHAR(255) NOT NULL,                      -- First name of the patient.
+    PatientLastName     VARCHAR(255) NOT NULL,                      -- Last name of the patient.
+    Doctor_SSN          VARCHAR(20)  NOT NULL,                      -- Social Security Number of the doctor.
+    DoctorFirstName     VARCHAR(255) NOT NULL,                      -- First name of the doctor.
+    DoctorLastName      VARCHAR(255) NOT NULL,                      -- Last name of the doctor.
+    PharmacyId          INT(8)      DEFAULT NULL,                   -- Pharmacy identifier for the prescription.
+    PharmacyName        VARCHAR(50) DEFAULT NULL,                   -- Name of the pharmacy where the prescription was filled.
+    PharmacyAddress     VARCHAR(50) DEFAULT NULL,                   -- Address of the pharmacy where the prescription was filled.
+    PharmacyPhoneNumber VARCHAR(20) DEFAULT NULL,                   -- Phone number of the pharmacy where the prescription was filled.
+    DateFilled          DATE        DEFAULT NULL,                   -- Date when the prescription was filled.
+    FOREIGN KEY (Patient_SSN) REFERENCES Patient (ssn),             -- Foreign key constraint referencing the Patient table.
+    FOREIGN KEY (Doctor_SSN) REFERENCES Doctor (ssn),               -- Foreign key constraint referencing the Doctor table.
+    FOREIGN KEY (PharmacyId) REFERENCES Pharmacy (pharmacyid)       -- Foreign key constraint referencing the Pharmacy table.
+);
+
+-- Select all rows from the Doctor table.
+SELECT *
+FROM Doctor;
+
+-- Select all rows from the Patient table.
+SELECT *
+FROM Patient;
+
+-- Select all rows from the Prescription table.
+SELECT *
+FROM Prescription;
+
+-- Select all rows from the Pharmacy table.
+SELECT *
+FROM Pharmacy;
+
+`}
+                            </code>
+                        </pre>
+                    )}
+
+                    {/* Link to Spring Application Repo */}
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                        You can view the Spring application repository where the database was implemented below.
+                    </Typography>
+                    <Button 
+                        variant="contained" 
+                        color="primary" 
+                        href="https://github.com/cjordan223/List_Assist"
+                        style={{ marginTop: '10px' }}
+                        target="_blank"
+                    >
+                        View Spring Application Repo
+                    </Button>
+
+                    {/* Final Submission (Google Doc iframe) */}
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                        Final submission (credit to N. Nawrocki for significant contributions to this document):
+                    </Typography>
+                    <iframe 
+                        src="https://drive.google.com/file/d/1sI1T42AtSuctRomlo6PXTkzmCJCchCZj/preview" 
+                        width="100%" 
+                        height="400px" 
+                        style={{ border: '1px solid #ccc', borderRadius: '4px' }}
+                        title="Final Submission"
+                    ></iframe>
+                </>
+            )}
+                        {/* Conditional rendering for CST370 (Data Structures & Algorithms) */}
+                        {course.id === 'cst370' && (
+                <>
+                    <Typography variant="body1" style={{ marginTop: '20px' }}>
+                        You can view all of the types of problems I worked with in this course on the Programming page under <strong>Data Structures & Algorithms </strong>.
+                    </Typography>
+                  
+                    {/* Link to DSA Collection Repo */}
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                        You can also directly explore the repository here:
+                    </Typography>
+                    <Button 
+                        variant="contained" 
+                        color="primary" 
+                        href="https://github.com/cjordan223/DSA-collection"
+                        style={{ marginTop: '10px' }}
+                        target="_blank"
+                    >
+                        View DSA Collection Repo
+                    </Button>
+                </>
+            )}
+                {/* Conditional rendering for CST462S (Social Media Content and Game Design) */}
+            {course.id === 'cst462s' && (
+                <>
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Custom Learning Content for LFC Social Media</Typography>
+
+                    {/* Carousel of Thumbnails */}
+                    <Carousel showThumbs={true} infiniteLoop={true} autoPlay={true} interval={3000} showStatus={false}>
+                        {Array.from({ length: 15 }, (_, i) => (
+                            <div key={i}>
+                                <img src={`/img/LFC/${i + 1}.png`} alt={`LFC Thumbnail ${i + 1}`} />
+                            </div>
+                        ))}
+                    </Carousel>
+
+                    {/* Video Game Demo */}
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Video Game Demo</Typography>
+                    <iframe 
+                        src="https://drive.google.com/file/d/102L0jtOt3eSYp3nxgkIPZj7cktktVBrh/preview" 
+                        width="100%" 
+                        height="400px" 
+                        style={{ border: '1px solid #ccc', borderRadius: '4px', marginTop: '10px' }}
+                        title="Video Game Demo"
+                    ></iframe>
+
+                    {/* Figma Wireframe Prototype */}
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Figma Wireframe Prototype for Nature App</Typography>
+                    <Typography variant="body2">
+                        This is a complete prototype for a mobile application. Initially, it started as a web app, but the design was refined over 3 weeks to accommodate primarily mobile users.
+                    </Typography>
+                    <Button 
+                        variant="contained" 
+                        color="primary" 
+                        href="https://www.figma.com/proto/xItnBUg3kMMKbM7dCM3bx8/VenturePal?node-id=11-20&starting-point-node-id=2%3A2"
+                        style={{ marginTop: '10px' }}
+                        target="_blank"
+                    >
+                        View Figma Wireframe
+                    </Button>
+                </>
             )}
 
+             {/* Conditional rendering for CST311 (Networking) */}
+            {course.id === 'cst311' && (
+                <>
+                    {/* Link to Network Final Repo for Certificate Creation */}
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                        This repository contains the code for secure certificate creation for client-server communication.
+                    </Typography>
+                    <Button 
+                        variant="contained" 
+                        color="primary" 
+                        href="https://github.com/cjordan223/Network-Final"
+                        style={{ marginTop: '10px' }}
+                        target="_blank"
+                    >
+                        View Network Final Repo
+                    </Button>
+
+                    {/* Embedded PDF */}
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                        You can view the final PDF document below:
+                    </Typography>
+                    <iframe 
+                        src="https://drive.google.com/file/d/1mSvaaPbFl4atX8pfJCquC0R8G8lugdlI/preview" 
+                        width="100%" 
+                        height="400px" 
+                        style={{ border: '1px solid #ccc', borderRadius: '4px' }}
+                        title="CST311 Final PDF"
+                    ></iframe>
+                </>
+            )}
+                        {/* Conditional rendering for CST383 (Data Science) */}
+                        {course.id === 'cst383' && (
+                <>
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                        <strong>I enjoyed compiling Jupyter notebooks so much during this class that I created a page dedicated mostly to them in my Data Structures & Algorithms / Data Analysis section!</strong>
+                    </Typography>
+                    <Button 
+                        variant="contained" 
+                        color="primary" 
+                        href="/programming"
+                        style={{ marginTop: '10px' }}
+                    >
+                        View DSA/DA Section
+                    </Button>
+                </>
+            )}
+
+                        {/* Conditional rendering for CST338 */}
+                        {course.id === 'cst338' && (
+                <>
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                        During this course, I developed 2 simple projects: the Markov Generator and the Guessing Game, both of which are featured in the webapps section. These projects gave me a basic understanding of software application structure.
+                    </Typography>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        href="/webapps"
+                        style={{ marginTop: '10px' }}
+                    >
+                        Learn More About These Projects
+                    </Button>
+
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                        My final project, an Android Studio list-making application, started as a group project. However, after my partner left the program, I completed it solo. The project provided valuable experience in mobile app development.
+                    </Typography>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        href="https://github.com/cjordan223/List_Assist"
+                        style={{ marginTop: '10px' }}
+                        target="_blank"
+                    >
+                        View Final Project Repository
+                    </Button>
+                </>
+            )}
+ 
             <div style={{ marginTop: '20px' }}>
                 <Button 
                     variant="outlined" 
