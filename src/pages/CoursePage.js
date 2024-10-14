@@ -95,7 +95,7 @@ const courseData = [
         description: 'In CST 329, students learn to develop skills in using logic to describe and assess arguments, including writing formulas in propositional and first-order logic, and writing and checking proofs. In CST 489, students begin planning their capstone projects, including topic selection, team formation, and project proposal development.',
         term: 'Fall 2024 - Term A',
         credits: 4,
-        personalNote: 'This course was a fascinating exploration of logic and its applications in computer science. We developed skills in using logic to describe and assess arguments, working with propositional and first-order logic. Writing and checking proofs became a significant part of our assignments, which helped sharpen our analytical thinking. We also learned about three-valued and modal logic, understanding how to choose the appropriate logic for different scenarios and the limitations of logic in capturing human reasoning. Simultaneously, we began planning our capstone projects in CST 489. This involved selecting topics, forming teams, and outlining our project proposals. The combination of logical reasoning and project planning was both challenging and stimulating, setting the stage for our final capstone project. It was exciting to see how the skills we acquired would directly contribute to the success of our capstone.'
+        personalNote: ''
     },
     {
         id: 'cst499',
@@ -103,7 +103,7 @@ const courseData = [
         description: 'Students work in teams to create a substantial, professional-level project from proposal to completion, applying project planning, collaboration, and technical skills required in the industry.',
         term: 'Fall 2024 - Term B',
         credits: 4,
-        personalNote: 'The capstone project was the culmination of everything we had learned throughout the program. Working in a team, we developed a substantial, professional-level project from conception to completion. We applied project planning, collaboration, and technical writing skills, mirroring industry practices. Our team decided to create a web application that addressed a real-world problem, which required us to integrate multiple technologies and coordinate our efforts closely. This experience was incredibly rewarding and provided a taste of what to expect in a professional software development environment. Presenting our final project to faculty and peers was a proud moment, showcasing the skills and knowledge we had acquired during our studies.'
+        personalNote: ''
     }
 ];
 
@@ -152,7 +152,10 @@ function CoursePage() {
                     >
                         View Ethics Paper
                     </Button>
-                    <img src="https://cdn.prod.website-files.com/65e89895c5a4b8d764c0d70e/66477d248e720545e7e3e4a7_40f1c03d-f1ee-4fda-9af8-594e0c35d70c.jpeg" alt="Ethics Paper Image" style={{ width: '100%', height: 'auto', marginTop: '10px' }} />
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                        Generative AI exploded during this time.
+                    </Typography>
+                    <img src="https://cdn.prod.website-files.com/65e89895c5a4b8d764c0d70e/66477d248e720545e7e3e4a7_40f1c03d-f1ee-4fda-9af8-594e0c35d70c.jpeg" alt="Ethics Paper" style={{ width: '100%', height: 'auto', marginTop: '10px' }} />
                 </>
             )}
                   {/* Conditional rendering for CST336 (Web Programming) */}
@@ -240,12 +243,11 @@ function CoursePage() {
             {/* Conditional rendering for CST363 (Databases) */}
             {course.id === 'cst363' && (
                 <>
-                    <Typography variant="h6" style={{ marginTop: '20px' }}>Database Schema</Typography>
                     
                     {/* Dropdown for Database Schema */}
                     <Button 
                         variant="contained" 
-                        color="primary" 
+                        color="secondary" 
                         onClick={() => setShowSchema(!showSchema)}
                         style={{ marginBottom: '10px' }}
                     >
@@ -482,12 +484,11 @@ FROM Pharmacy;
 
                     {/* Link to Spring Application Repo */}
                     <Typography variant="body2" style={{ marginTop: '20px' }}>
-                        You can view the Spring application repository where the database was implemented below.
                     </Typography>
                     <Button 
                         variant="contained" 
                         color="primary" 
-                        href="https://github.com/cjordan223/List_Assist"
+                        href="https://github.com/cjordan223/Database-Final"
                         style={{ marginTop: '10px' }}
                         target="_blank"
                     >
@@ -496,7 +497,7 @@ FROM Pharmacy;
 
                     {/* Final Submission (Google Doc iframe) */}
                     <Typography variant="body2" style={{ marginTop: '20px' }}>
-                        Final submission (credit to N. Nawrocki for significant contributions to this document):
+                        Final Findings
                     </Typography>
                     <iframe 
                         src="https://drive.google.com/file/d/1sI1T42AtSuctRomlo6PXTkzmCJCchCZj/preview" 
@@ -505,13 +506,22 @@ FROM Pharmacy;
                         style={{ border: '1px solid #ccc', borderRadius: '4px' }}
                         title="Final Submission"
                     ></iframe>
+                        <Typography variant="body2" style={{ marginTop: '20px' }}>
+                        (credit to N. Nawrocki for significant contributions to this document)
+                    </Typography>
                 </>
             )}
                         {/* Conditional rendering for CST370 (Data Structures & Algorithms) */}
                         {course.id === 'cst370' && (
                 <>
                     <Typography variant="body1" style={{ marginTop: '20px' }}>
-                        You can view all of the types of problems I worked with in this course on the Programming page under <strong>Data Structures & Algorithms </strong>.
+                        You can view all of the types of problems I worked with in this course on the <a
+        href="/projects"
+        style={{ color: "#90caf9" }}
+    >
+        projects
+    </a>
+    &nbsp; page by going to <strong>Programming Projects > Data Structures & Algorithms </strong>.
                     </Typography>
                   
                     {/* Link to DSA Collection Repo */}
@@ -567,8 +577,11 @@ FROM Pharmacy;
                     >
                         View Figma Wireframe
                     </Button>
-                </>
-            )}
+                    <img src="public/img/StarlitState.jpg" alt="" style={{ width: '100%', height: 'auto', marginTop: '10px' }} />                    
+
+                    </>
+                    
+             )}
 
              {/* Conditional rendering for CST311 (Networking) */}
             {course.id === 'cst311' && (
