@@ -54,14 +54,7 @@ function AboutPage() {
             </Typography>
        
             <Typography variant="body1" paragraph>
-              This space was created to host some of my web apps and projects as I wrap up my degree program. At this time I’ve updated the site to include almost all of my coursework, which can be found in the  {" "}
-              <a
-                href="/webdesign"
-                style={{ color: "#90caf9" }}
-              >
-                archives 
-              </a> 
-              &nbsp;section of this site. I’m completing the remainder of courses this fall (now) and will update with my final capstone project. You can also find the
+              This space was created to host some of my web apps and projects as I wrap up my degree program. At this time I’ve updated the site to include almost all of my coursework, which can be found in the archives section of this site. I’m completing the remainder of courses this fall (now) and will update with my final capstone project. You can also find the
               code for the profile front end below, if you're interested.
             </Typography>
             <Typography variant="body1" paragraph>
