@@ -695,20 +695,17 @@ Final Project                    </Typography>
                         {/* Conditional rendering for CST338 */}
                         {course.id === 'cst338' && (
                 <>
-                    <Typography variant="body2" style={{ marginTop: '20px' }}>
-                        During this course, I developed 2 simple projects: the Markov Generator and the Guessing Game, both of which are featured in the webapps section. These projects gave me a basic understanding of software application structure.
+                    <Typography variant="body1" style={{ marginTop: '20px' }}>
+                        During this course, I developed 2 simple projects: the Markov Generator and the Guessing Game, 
+                        both of which are featured in the <strong>Projects > Web Applications</strong> section. These projects gave me a basic understanding of software application structure.
                     </Typography>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        href="/webapps"
-                        style={{ marginTop: '10px' }}
-                    >
-                        Learn More About These Projects
-                    </Button>
+    
 
-                    <Typography variant="body2" style={{ marginTop: '20px' }}>
-                        My final project, an Android Studio list-making application, started as a group project. However, after my partner left the program, I completed it solo. The project provided valuable experience in mobile app development.
+                    <Typography variant="body1" style={{ marginTop: '20px' }}>
+                        My final project, an Android Studio list-making application,
+                         started as a group project. However, after my partner left the program, I completed it solo.
+                          The project provided valuable experience in mobile app development. 
+                          I would recommend viewing other projects in my archives for a better picture of app development, this was my first attempt.
                     </Typography>
                     <Button
                         variant="contained"

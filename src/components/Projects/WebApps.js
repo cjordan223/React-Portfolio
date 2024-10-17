@@ -1,8 +1,25 @@
-import React from 'react';
-import { Grid, Card, CardActionArea, CardContent, CardMedia, Typography, Button } from '@mui/material';
+import React, { useState } from 'react';
+import { Grid, Card, CardActionArea, CardContent, CardMedia, Typography, Button, Modal, Box } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
 
+ const modalStyle = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  boxShadow: 24,
+  p: 4,
+  borderRadius: 2,
+};
+
+const closeButtonStyle = {
+  position: 'absolute',
+  top: 8,
+  right: 8,
+};
 const projects = [
   {
     name: "Student Portal (Back End)",
@@ -21,7 +38,7 @@ const projects = [
   {
     name: "Weather Wise",
     description: "This is an application I built for a web programming class. It uses a free API to gather weather data and display it in a user-friendly interface. " +
-      "It can take Zip Code, City, County, Coordinates, and other data types as input. Enter 'Admin' and '1234' for username and password if visiting the live site",
+      "It can take Zip Code, City, County, Coordinates, and other data types as input. Enter 'admin' (case sensitive) and '1234' for username and password if visiting the live site",
     image: "https://images.pexels.com/photos/125510/pexels-photo-125510.jpeg",
     path: "https://github.com/cjordan223/WeatherWise-Code",
     site: "https://cjordan223.github.io/WeatherWise/"
@@ -61,6 +78,21 @@ const projects = [
 ];
 
 const ProjectTemplate = () => {
+  const [open, setOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  // Function to open the modal and set the selected project
+  const handleOpen = (project) => {
+    setSelectedProject(project);
+    setOpen(true);
+  };
+
+  // Function to close the modal
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
     <div style={{ flexGrow: 1, padding: '24px' }}>
       <Typography variant="h4" align="center" gutterBottom>
@@ -70,53 +102,86 @@ const ProjectTemplate = () => {
         {projects.map((project, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Card sx={{ maxWidth: 345, boxShadow: 3, borderRadius: 3, transition: 'transform 0.3s', '&:hover': { transform: 'scale(1.05)' } }}>
-  <CardActionArea>
-    <CardMedia
-      component="img"
-      image={project.image}
-      title={project.name}
-      sx={{
-        height: 180,
-        objectFit: 'cover',
-        backgroundPosition: 'center',
-        filter: 'brightness(90%)',
-        transition: '0.3s ease-in-out',
-        '&:hover': {
-          filter: 'brightness(70%)',
-        },
-      }}
-    />
-    <CardContent sx={{ backgroundColor: '#f9f9f9', padding: '16px' }}>
-      <Typography gutterBottom variant="h5" component="h2" sx={{ fontWeight: 'bold', color: '#3f51b5' }}>
-        {project.name}
-      </Typography>
-      <Typography variant="body2" color="textSecondary" component="p" sx={{ marginTop: 1 }}>
-        {project.description}
-      </Typography>
-    </CardContent>
-  </CardActionArea>
-  <CardContent sx={{ display: 'flex', justifyContent: 'space-between', marginTop: 1 }}>
-    {project.path && (
-      <Button size="small" color="primary" href={project.path} target="_blank" startIcon={<GitHubIcon />}>
-        GitHub Repo
-      </Button>
-    )}
-    {project.site && (
-      <Button size="small" color="primary" href={project.site} target="_blank" startIcon={<LaunchIcon />}>
-        Live Demo
-      </Button>
-    )}
-  </CardContent>
-</Card>
-
+              <CardActionArea onClick={() => handleOpen(project)}>
+                <CardMedia
+                  component="img"
+                  image={project.image}
+                  title={project.name}
+                  sx={{
+                    height: 180,
+                    objectFit: 'cover',
+                    backgroundPosition: 'center',
+                    filter: 'brightness(90%)',
+                    transition: '0.3s ease-in-out',
+                    '&:hover': {
+                      filter: 'brightness(70%)',
+                    },
+                  }}
+                />
+                <CardContent sx={{ backgroundColor: '#f9f9f9', padding: '16px' }}>
+                  <Typography gutterBottom variant="h5" component="h2" sx={{ fontWeight: 'bold', color: '#3f51b5' }}>
+                    {project.name}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardContent sx={{ display: 'flex', justifyContent: 'space-between', marginTop: 1 }}>
+                {project.path && (
+                  <Button size="small" color="primary" href={project.path} target="_blank" startIcon={<GitHubIcon />}>
+                    GitHub Repo
+                  </Button>
+                )}
+                {project.site && (
+                  <Button size="small" color="primary" href={project.site} target="_blank" startIcon={<LaunchIcon />}>
+                    Live Demo
+                  </Button>
+                )}
+              </CardContent>
+            </Card>
           </Grid>
         ))}
       </Grid>
-      <div style={{ marginTop: '20px', textAlign: 'center' }}>
-        <Button variant="outlined" color="primary" onClick={() => window.location.href = '/projects'}>
-          Main Projects Page
-        </Button>
-      </div>
+
+      {/* Modal Component for displaying project details */}
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="project-modal-title"
+        aria-describedby="project-modal-description"
+      >
+        <Box sx={modalStyle}>
+          {selectedProject && (
+            <>
+              <Typography id="project-modal-title" variant="h6" component="h2">
+                {selectedProject.name}
+              </Typography>
+              <Typography id="project-modal-description" sx={{ mt: 2 }}>
+                {selectedProject.description}
+              </Typography>
+              <Box sx={{ mt: 2 }}>
+                {selectedProject.path && (
+                  <Button size="small" color="primary" href={selectedProject.path} target="_blank" startIcon={<GitHubIcon />}>
+                    GitHub Repo
+                  </Button>
+                )}
+                {selectedProject.site && (
+                  <Button size="small" color="primary" href={selectedProject.site} target="_blank" startIcon={<LaunchIcon />}>
+                    Live Demo
+                  </Button>
+                )}
+                <Button
+                variant="contained"
+                color="primary"
+                onClick={handleClose}
+                sx={closeButtonStyle}
+              >
+                Close
+              </Button>
+              </Box>
+              
+            </>
+          )}
+        </Box>
+      </Modal>
     </div>
   );
 };
