@@ -3,7 +3,7 @@
 
   
 
-This is my personal portfolio website built with React. It showcases my projects, skills, and experience. The website is designed to provide a comprehensive overview of my work and background in software engineering and cybersecurity.
+This is my personal portfolio website built with React. It showcases my projects, skills, and experience.  
 
   
 
