@@ -1,7 +1,23 @@
 import React from 'react';
 import { Grid, Card, CardActionArea, CardContent, CardMedia, Typography, Button } from '@mui/material';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LaunchIcon from '@mui/icons-material/Launch';
 
 const projects = [
+  {
+    name: "Student Portal (Back End)",
+    description: "3 person project. Runs with the React Front End project to complete a full-service online registrar for students, instructors, and system admins. More info in archives > cst438.",
+    image: "https://code.visualstudio.com/assets/docs/java/java-webapp/run-spring-boot.gif",  // Use a suitable image URL here
+    path: "https://github.com/cjordan223/cst438_Assignment3/",
+   }
+,  
+  {
+    name: "Student Portal (Front End)",
+    description: "3 person project. Runs with the Spring backend project to complete a full-service online registrar for students, instructors, and system admins. More info in archives > cst438.",
+    image: "https://pbs.twimg.com/profile_images/1785867863191932928/EpOqfO6d_400x400.png",  // Use a suitable image URL here
+    path: "https://github.com/cjordan223/cst438_Assignment3/",
+   }
+,  
   {
     name: "Weather Wise",
     description: "This is an application I built for a web programming class. It uses a free API to gather weather data and display it in a user-friendly interface. " +
@@ -53,40 +69,46 @@ const ProjectTemplate = () => {
       <Grid container spacing={3} justifyContent="center">
         {projects.map((project, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card sx={{ maxWidth: 345 }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  image={project.image}
-                  title={project.name}
-                  sx={{
-                    height: 180,
-                    objectFit: 'cover',
-                    backgroundPosition: 'center',
-                  }}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {project.name}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                    {project.description}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardContent sx={{ display: 'flex', justifyContent: 'space-between', marginTop: 1 }}>
-                {project.path && (
-                  <Button size="small" color="primary" href={project.path} target="_blank">
-                    GitHub Repo
-                  </Button>
-                )}
-                {project.site && (
-                  <Button size="small" color="primary" href={project.site} target="_blank">
-                    Live Demo
-                  </Button>
-                )}
-              </CardContent>
-            </Card>
+            <Card sx={{ maxWidth: 345, boxShadow: 3, borderRadius: 3, transition: 'transform 0.3s', '&:hover': { transform: 'scale(1.05)' } }}>
+  <CardActionArea>
+    <CardMedia
+      component="img"
+      image={project.image}
+      title={project.name}
+      sx={{
+        height: 180,
+        objectFit: 'cover',
+        backgroundPosition: 'center',
+        filter: 'brightness(90%)',
+        transition: '0.3s ease-in-out',
+        '&:hover': {
+          filter: 'brightness(70%)',
+        },
+      }}
+    />
+    <CardContent sx={{ backgroundColor: '#f9f9f9', padding: '16px' }}>
+      <Typography gutterBottom variant="h5" component="h2" sx={{ fontWeight: 'bold', color: '#3f51b5' }}>
+        {project.name}
+      </Typography>
+      <Typography variant="body2" color="textSecondary" component="p" sx={{ marginTop: 1 }}>
+        {project.description}
+      </Typography>
+    </CardContent>
+  </CardActionArea>
+  <CardContent sx={{ display: 'flex', justifyContent: 'space-between', marginTop: 1 }}>
+    {project.path && (
+      <Button size="small" color="primary" href={project.path} target="_blank" startIcon={<GitHubIcon />}>
+        GitHub Repo
+      </Button>
+    )}
+    {project.site && (
+      <Button size="small" color="primary" href={project.site} target="_blank" startIcon={<LaunchIcon />}>
+        Live Demo
+      </Button>
+    )}
+  </CardContent>
+</Card>
+
           </Grid>
         ))}
       </Grid>

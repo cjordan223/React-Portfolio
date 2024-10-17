@@ -511,6 +511,54 @@ FROM Pharmacy;
                     </Typography>
                 </>
             )}
+             {/* Conditional rendering for CST438 (Software Engineering) */}
+             {course.id === 'cst438' && (
+                <>
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>
+Final Project                    </Typography>
+                    <p>We developed a full-service registrar system that handled student, admin, and instructor operations, complete with secure data handling and role-based functionality.
+                    We secured the entire application using JWT (JSON Web Token) for sign-on, ensuring user authentication and authorization were fully locked down.
+                        Chromedriver was implemented for Selenium testing to ensure automated testing of UI components.
+                        On the backend, we set up comprehensive unit testing to validate each function and endpoint.
+                        During the final stages, we faced several merge conflicts in Git, which had to be resolved at the last minute, adding to the complexity of the project.
+                        Postman was invaluable for testing and troubleshooting API endpoints that the frontend couldn't see or access, ensuring smooth communication between the front and back end.
+                        
+                    </p>
+
+                    {/* Front End and Back End Repo Links */}
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Repositories:</Typography>
+                    <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+                        <Button 
+                            variant="contained" 
+                            color="primary" 
+                            href="https://github.com/cjordan223/cst438_Assignment3"
+                            target="_blank"
+                            style={{ flex: 1 }}
+                        >
+                            View Front End Repo
+                        </Button>
+                        <Button 
+                            variant="contained" 
+                            color="primary" 
+                            href="https://github.com/cjordan223/CST438-Assignment2/"
+                            target="_blank"
+                            style={{ flex: 1 }}
+                        >
+                            View Back End Repo
+                        </Button>
+                    </div>
+
+                    {/* Embedded SRS Document */}
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>SRS:</Typography>
+                    <iframe 
+                        src="https://drive.google.com/file/d/1b7quP2i_la1p6O8vwE_39JpEkyJJYrwj/preview" 
+                        width="100%" 
+                        height="400px" 
+                        style={{ border: '1px solid #ccc', borderRadius: '4px', marginTop: '10px' }}
+                        title="SRS Document"
+                    ></iframe>
+                </>
+            )}
                         {/* Conditional rendering for CST370 (Data Structures & Algorithms) */}
                         {course.id === 'cst370' && (
                 <>
