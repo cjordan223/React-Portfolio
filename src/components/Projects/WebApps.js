@@ -7,14 +7,14 @@ const projects = [
   {
     name: "Student Portal (Back End)",
     description: "3 person project. Runs with the React Front End project to complete a full-service online registrar for students, instructors, and system admins. More info in archives > cst438.",
-    image: "https://code.visualstudio.com/assets/docs/java/java-webapp/run-spring-boot.gif",  // Use a suitable image URL here
+    image: "https://lh3.googleusercontent.com/proxy/eKBEK2wSlZC1szJe8i6_rkWS5UIH02dHDRJxWxhUmqirbm-G1CbiAYGZ6bf8NxV0FobQzfDBr5ERJfUuSFUf1gKy2M7K",  // Use a suitable image URL here
     path: "https://github.com/cjordan223/cst438_Assignment3/",
    }
 ,  
   {
     name: "Student Portal (Front End)",
     description: "3 person project. Runs with the Spring backend project to complete a full-service online registrar for students, instructors, and system admins. More info in archives > cst438.",
-    image: "https://pbs.twimg.com/profile_images/1785867863191932928/EpOqfO6d_400x400.png",  // Use a suitable image URL here
+    image: "https://cdn.filestackcontent.com/IEMTnwZrR2SJNoRUw6Tq",  // Use a suitable image URL here
     path: "https://github.com/cjordan223/cst438_Assignment3/",
    }
 ,  

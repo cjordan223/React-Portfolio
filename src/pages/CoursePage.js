@@ -97,14 +97,7 @@ const courseData = [
         credits: 4,
         personalNote: ''
     },
-    {
-        id: 'cst499',
-        name: 'CST 499: Directed Group Capstone',
-        description: 'Students work in teams to create a substantial, professional-level project from proposal to completion, applying project planning, collaboration, and technical skills required in the industry.',
-        term: 'Fall 2024 - Term B',
-        credits: 4,
-        personalNote: ''
-    }
+
 ];
 
 function CoursePage() {
@@ -130,7 +123,9 @@ function CoursePage() {
             <Typography variant="body2">{course.description}</Typography>
             <Typography variant="body2"><strong>Credits:</strong> {course.credits}</Typography>
             <Typography variant="body2"><strong>Term:</strong> {course.term}</Typography>
-            <Typography variant="body2"><strong>Grade Earned:</strong> A</Typography>
+            {course.id !== 'cst329' && (
+                <Typography variant="body2"><strong>Grade Earned:</strong> {course.grade}</Typography>
+            )}
 
             {/* Personal note section */}
             {course.personalNote && (
@@ -658,6 +653,25 @@ Final Project                    </Typography>
                         height="400px" 
                         style={{ border: '1px solid #ccc', borderRadius: '4px' }}
                         title="CST311 Final PDF"
+                    ></iframe>
+                </>
+            )}
+
+            {/* Conditional rendering for CST329 (Logic and Capstone Prep) */}
+            {course.id === 'cst329' && (
+                <>
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                        In this class, we focused on propositional and first-order logical proofs. Although there wasn't any programming involved, I believe it was a necessary course. As we completed the final course in the program, we were concurrently enrolled in a capstone preparation class. There, we began developing our capstone projects, finalizing our proposals, and outlining project objectives. Our team decided to create a web extension that can assist in analyzing potentially malicious emails, specifically targeting a subset of emails that use generative AI to create sophisticated spear-phishing attempts. Development on this project has already begun.
+                    </Typography>
+
+                    {/* Embedded Proposal Document */}
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Capstone Project Proposal Document:</Typography>
+                    <iframe 
+                        src="https://drive.google.com/file/d/1yn_T5lA9VhHpSVFNKlHk4O9A4bDxa9qZ/preview" 
+                        width="100%" 
+                        height="400px" 
+                        style={{ border: '1px solid #ccc', borderRadius: '4px', marginTop: '10px' }}
+                        title="Capstone Project Proposal Document"
                     ></iframe>
                 </>
             )}

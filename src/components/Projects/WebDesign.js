@@ -20,8 +20,7 @@ const archiveItems = [
     { type: "course", name: "CST 328: Digital Art and Design AND CST 462S: Race, Gender, Class in the Digital World", description: "Provides students with key knowledge of race, gender, class in the digital landscape.", imageUrl: "https://yt3.googleusercontent.com/4YAaX7CsQ-paadHsNvC6wdv2nE_7VTKpoNJOTwFhHL4rQqLC8WFe6mNxL-z-e6sfHZbHG-ucPA=s900-c-k-c0x00ffffff-no-rj", link: "/course/cst462s", grade: "A" },
     { type: "course", name: "CST 383: Introduction to Data Science", description: "Overview of modern data science tools and best practices.", imageUrl: "/img/datascience.jpeg", link: "/course/cst383", grade: "A" },
     { type: "course", name: "CST 438: Software Engineering", description: "CST 338 is a prerequisite. Covers key knowledge of software engineering practices.", imageUrl: "https://cdn.sanity.io/images/tlr8oxjg/production/8065e9b35afcf58ba7b1b96e1d5be14420d47dec-1456x816.png?w=3840&q=100&fit=clip&auto=format", link: "/course/cst438", grade: "A" },
-    { type: "course", name: "CST 329: Reasoning with Logic / CST 489: Capstone Project Planning ", description: "In this course, students learn to develop skill in using logic to describe and assess arguments.", imageUrl: "/img/comingsoon.webp", link: "/course/cst329", grade: "TBD" },
-    { type: "course", name: "CST 499: Directed Group Capstone", description: "Students create a detailed proposal of a substantial, professional level project.", imageUrl: "/img/comingsoon.webp", link: "/course/cst499", grade: "TBD" }
+    { type: "course", name: "CST 329: Reasoning with Logic / CST 489: Capstone Project Planning ", description: "In this course, students learn to develop skill in using logic to describe and assess arguments.", imageUrl: "https://media.geeksforgeeks.org/wp-content/uploads/20240624022022/Propositional-Logic.webp", link: "/course/cst329", grade: "TBD" },
 ];
 
 function Archive() {
