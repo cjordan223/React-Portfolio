@@ -2,8 +2,7 @@
 # My Portfolio
 
   
-
-This is my personal portfolio website built with React. It showcases my projects, skills, and experience.  
+Code for my portfolio.
 
   
 
