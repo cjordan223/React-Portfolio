@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Grid, Card, CardActionArea, CardContent, CardMedia, Typography, Button, Modal, Box } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
+import { useNavigate } from "react-router-dom";
+
 
  const modalStyle = {
   position: 'absolute',
@@ -93,6 +95,9 @@ const ProjectTemplate = () => {
     setSelectedProject(null);
   };
 
+  const navigate = useNavigate();
+
+
   return (
     <div style={{ flexGrow: 1, padding: '24px' }}>
       <Typography variant="h4" align="center" gutterBottom>
@@ -137,9 +142,16 @@ const ProjectTemplate = () => {
                 )}
               </CardContent>
             </Card>
+            
           </Grid>
+          
         ))}
+        
       </Grid>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+  <Button variant="outlined" onClick={() => navigate('/projects')}>Main Projects Page</Button>
+</div>
+
 
       {/* Modal Component for displaying project details */}
       <Modal
@@ -182,7 +194,10 @@ const ProjectTemplate = () => {
           )}
         </Box>
       </Modal>
+
+
     </div>
+    
   );
 };
 

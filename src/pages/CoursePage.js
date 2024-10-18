@@ -581,6 +581,25 @@ Final Project                    </Typography>
                     </Button>
                 </>
             )}
+                                    {/* Conditional rendering for CST334) */}
+                                    {course.id === 'cst334' && (
+                <>
+                   
+                    {/* Link to DSA Collection Repo */}
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                    <strong> Repository of OS porgramming from this semester: </strong>
+                    </Typography>
+                    <Button 
+                        variant="contained" 
+                        color="primary" 
+                        href="https://github.com/cjordan223/Operating-Systems"
+                        style={{ marginTop: '10px' }}
+                        target="_blank"
+                    >
+                        OS Programming
+                    </Button>
+                </>
+            )}
                 {/* Conditional rendering for CST462S (Social Media Content and Game Design) */}
             {course.id === 'cst462s' && (
                 <>
