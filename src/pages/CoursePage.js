@@ -1,10 +1,12 @@
 //src/pages/CoursePage.js
 import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { Button, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useParams} from 'react-router-dom';
+import { Button, Accordion, AccordionSummary, AccordionDetails, Typography }  from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Carousel } from 'react-responsive-carousel';  // You can use this library or another for the carousel
-import 'react-responsive-carousel/lib/styles/carousel.min.css';  // Carousel styles
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; 
+import NotebookViewer2 from '../components/Projects/Notebooks/NotebookViewer2';
+import NotebookViewer3 from '../components/Projects/Notebooks/NotebookViewer3';
 
 const courseData = [
     {
@@ -113,7 +115,7 @@ function CoursePage() {
     return (
         <div style={{
             padding: '20px',
-            maxWidth: '800px',
+            maxWidth: '900px',
             margin: 'auto',
             backgroundColor: 'white',
             color: 'black',
@@ -124,7 +126,7 @@ function CoursePage() {
             <Typography variant="body2"><strong>Credits:</strong> {course.credits}</Typography>
             <Typography variant="body2"><strong>Term:</strong> {course.term}</Typography>
             {course.id !== 'cst329' && (
-                <Typography variant="body2"><strong>Grade Earned:</strong> {course.grade}</Typography>
+                <Typography variant="body2"><strong>Grade Earned:</strong> A</Typography>
             )}
 
             {/* Personal note section */}
@@ -138,15 +140,13 @@ function CoursePage() {
                             {/* Conditional rendering for CST300 */}
             {course.id === 'cst300' && (
                 <>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        href="https://drive.google.com/file/d/1GFnGgVgIs6jKuQoQjwnD0zGaYKPJO33-/view?usp=drive_link"
-                        style={{ marginTop: '10px' }}
-                        target="_blank"
-                    >
-                        View Ethics Paper
-                    </Button>
+                   <iframe 
+                        src="https://drive.google.com/file/d/1GFnGgVgIs6jKuQoQjwnD0zGaYKPJO33-/preview" 
+                        width="100%" 
+                        height="800px" 
+                        style={{ border: '1px solid #ccc', borderRadius: '4px', marginTop: '10px' }}
+                        title="EA_CJFINAL"
+                    ></iframe>
                     <Typography variant="body2" style={{ marginTop: '20px' }}>
                         Generative AI exploded during this time.
                     </Typography>
@@ -497,7 +497,7 @@ FROM Pharmacy;
                     <iframe 
                         src="https://drive.google.com/file/d/1sI1T42AtSuctRomlo6PXTkzmCJCchCZj/preview" 
                         width="100%" 
-                        height="400px" 
+                        height="900px" 
                         style={{ border: '1px solid #ccc', borderRadius: '4px' }}
                         title="Final Submission"
                     ></iframe>
@@ -548,7 +548,7 @@ Final Project                    </Typography>
                     <iframe 
                         src="https://drive.google.com/file/d/1b7quP2i_la1p6O8vwE_39JpEkyJJYrwj/preview" 
                         width="100%" 
-                        height="400px" 
+                        height="900px" 
                         style={{ border: '1px solid #ccc', borderRadius: '4px', marginTop: '10px' }}
                         title="SRS Document"
                     ></iframe>
@@ -558,13 +558,8 @@ Final Project                    </Typography>
                         {course.id === 'cst370' && (
                 <>
                     <Typography variant="body1" style={{ marginTop: '20px' }}>
-                        You can view all of the types of problems I worked with in this course on the <a
-        href="/projects"
-        style={{ color: "#90caf9" }}
-    >
-        projects
-    </a>
-    &nbsp; page by going to <strong>Programming Projects > Data Structures & Algorithms </strong>.
+                        You can view all of the types of problems I worked with in this course on 
+                        the projects page by going to <strong>Programming Projects > Data Structures & Algorithms </strong>.
                     </Typography>
                   
                     {/* Link to DSA Collection Repo */}
@@ -588,16 +583,20 @@ Final Project                    </Typography>
                     <Typography variant="h6" style={{ marginTop: '20px' }}>Custom Learning Content for LFC Social Media</Typography>
 
                     {/* Carousel of Thumbnails */}
+                    <div style={{ width: '50%', margin: '0 auto' }}> {/* Adjust the width as needed */}
                     <Carousel showThumbs={true} infiniteLoop={true} autoPlay={true} interval={3000} showStatus={false}>
-                        {Array.from({ length: 15 }, (_, i) => (
-                            <div key={i}>
-                                <img src={`/img/LFC/${i + 1}.png`} alt={`LFC Thumbnail ${i + 1}`} />
-                            </div>
-                        ))}
-                    </Carousel>
+                            {Array.from({ length: 15 }, (_, i) => (
+                                <div key={i}>
+                                    <img src={`/img/LFC/${i + 1}.png`} alt={`LFC Thumbnail ${i + 1}`} />
+                                </div>
+                            ))}
+                        </Carousel>
+                    </div>
 
                     {/* Video Game Demo */}
                     <Typography variant="h6" style={{ marginTop: '20px' }}>Video Game Demo</Typography>
+                    <Typography variant="body2">
+I took a basic walking sim package in Unity and imported custom made skyscapes to create a darker vibe, and added some SFX. Added some additional features with Java scripting.                   </Typography>
                     <iframe 
                         src="https://drive.google.com/file/d/102L0jtOt3eSYp3nxgkIPZj7cktktVBrh/preview" 
                         width="100%" 
@@ -650,7 +649,7 @@ Final Project                    </Typography>
                     <iframe 
                         src="https://drive.google.com/file/d/1mSvaaPbFl4atX8pfJCquC0R8G8lugdlI/preview" 
                         width="100%" 
-                        height="400px" 
+                        height="800px" 
                         style={{ border: '1px solid #ccc', borderRadius: '4px' }}
                         title="CST311 Final PDF"
                     ></iframe>
@@ -669,26 +668,51 @@ Final Project                    </Typography>
                     <iframe 
                         src="https://drive.google.com/file/d/1yn_T5lA9VhHpSVFNKlHk4O9A4bDxa9qZ/preview" 
                         width="100%" 
-                        height="400px" 
+                        height="800px" 
                         style={{ border: '1px solid #ccc', borderRadius: '4px', marginTop: '10px' }}
                         title="Capstone Project Proposal Document"
                     ></iframe>
+{/* 
+        Embedded YouTube Video*/}
+   {/*     <Typography variant="h6" style={{ marginTop: '20px' }}>Capstone Project Overview Video:</Typography>
+        <iframe 
+            width="100%" 
+            height="500px" 
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+            title="Capstone Project Overview Video"
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowFullScreen
+            style={{ borderRadius: '4px', marginTop: '10px' }}
+        ></iframe> */}
                 </>
             )}
-                        {/* Conditional rendering for CST383 (Data Science) */}
-                        {course.id === 'cst383' && (
+            {/* Conditional rendering for CST383 (Data Science) */}
+            {course.id === 'cst383' && (
                 <>
                     <Typography variant="body2" style={{ marginTop: '20px' }}>
-                        <strong>I enjoyed compiling Jupyter notebooks so much during this class that I created a page dedicated mostly to them in my Data Structures & Algorithms / Data Analysis section!</strong>
+                        <strong>I enjoyed compiling Jupyter notebooks so much during this class that I created a page dedicated mostly to them in my Data Structures & Algorithms / Data Analysis section! Here's a few:</strong>
                     </Typography>
-                    <Button 
-                        variant="contained" 
-                        color="primary" 
-                        href="/programming"
-                        style={{ marginTop: '10px' }}
-                    >
-                        View DSA/DA Section
-                    </Button>
+                   
+
+                    {/* Additional Notebooks Section using MUI Accordion */}
+                    <Accordion style={{ marginTop: '20px' }}>
+                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                            <Typography>Presidential Campaign Data</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <NotebookViewer2 />
+                        </AccordionDetails>
+                    </Accordion>
+
+                    <Accordion style={{ marginTop: '10px' }}>
+                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                            <Typography>Student Housing Data (ML)</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <NotebookViewer3 />
+                        </AccordionDetails>
+                    </Accordion>
                 </>
             )}
 
