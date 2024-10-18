@@ -587,7 +587,7 @@ Final Project                    </Typography>
                    
                     {/* Link to DSA Collection Repo */}
                     <Typography variant="body2" style={{ marginTop: '20px' }}>
-                    <strong> Repository of OS porgramming from this semester: </strong>
+                    <strong> Repository of OS programming from this semester: </strong>
                     </Typography>
                     <Button 
                         variant="contained" 
