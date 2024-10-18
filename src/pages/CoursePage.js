@@ -148,10 +148,14 @@ function CoursePage() {
                         title="EA_CJFINAL"
                     ></iframe>
                     <Typography variant="body2" style={{ marginTop: '20px' }}>
-                        Generative AI exploded during this time.
+                        Generative AI exploded during this time. 
                     </Typography>
                     <img src="https://cdn.prod.website-files.com/65e89895c5a4b8d764c0d70e/66477d248e720545e7e3e4a7_40f1c03d-f1ee-4fda-9af8-594e0c35d70c.jpeg" alt="Ethics Paper" style={{ width: '100%', height: 'auto', marginTop: '10px' }} />
-                </>
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                    <strong>Source: Synthesia.io</strong>
+                    </Typography>
+
+                    </>
             )}
                   {/* Conditional rendering for CST336 (Web Programming) */}
                   {course.id === 'cst336' && (
