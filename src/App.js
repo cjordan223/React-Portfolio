@@ -7,7 +7,7 @@ import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import VenturePal from "./components/Projects/VenturePal";
 import WeatherAPI from "./components/Projects/WeatherAPI";
 import WorkExperience from "./pages/WorkExperience";
@@ -29,24 +29,24 @@ const theme = createTheme({
     },
 });
 
+
 function App() {
     return (
         <ThemeProvider theme={theme}>
             <Router>
                 <Layout>
                     <Routes>
-                        <Route exact path="/" element={<HomePage />} />
+                        <Route path="/" element={<HomePage />} />
                         <Route path="/projects" element={<ProjectsPage />} />
-                        <Route exact path="/about" element={<AboutPage />} />
-                        <Route exact path="/contact" element={<ContactPage />} />
-                        <Route exact path="/venture-pal" element={<VenturePal />} />
-                        <Route exact path="/weather-api" element={<WeatherAPI />} />
-                        <Route exact path="/work-exp" element={<WorkExperience />} />
-                        <Route exact path="/webapps" element={<WebApps />} />
-                        <Route exact path="/programming" element={<Programming />} />
-                        <Route exact path="/webdesign" element={<WebDesign />} />
-                        <Route exact path="/cloud-login" element={<CloudLogin />} />
-
+                        <Route path="/about" element={<AboutPage />} />
+                        <Route path="/contact" element={<ContactPage />} />
+                        <Route path="/venture-pal" element={<VenturePal />} />
+                        <Route path="/weather-api" element={<WeatherAPI />} />
+                        <Route path="/work-exp" element={<WorkExperience />} />
+                        <Route path="/webapps" element={<WebApps />} />
+                        <Route path="/programming" element={<Programming />} />
+                        <Route path="/webdesign" element={<WebDesign />} />
+                        <Route path="/cloud-login" element={<CloudLogin />} />
                         {/* Dynamic route for course pages */}
                         <Route path="/course/:courseId" element={<CoursePage />} />
                     </Routes>
