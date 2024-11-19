@@ -23,6 +23,7 @@ const closeButtonStyle = {
   right: 8,
 };
 const projects = [
+  
   {
     name: "Student Portal (Back End)",
     description: "3 person project. Runs with the React Front End project to complete a full-service online registrar for students, instructors, and system admins. More info in archives > cst438.",
@@ -33,8 +34,14 @@ const projects = [
   {
     name: "Student Portal (Front End)",
     description: "3 person project. Runs with the Spring backend project to complete a full-service online registrar for students, instructors, and system admins. More info in archives > cst438.",
-    image: "https://cdn.filestackcontent.com/IEMTnwZrR2SJNoRUw6Tq",  // Use a suitable image URL here
+    image: "https://cdn.filestackcontent.com/IEMTnwZrR2SJNoRUw6Tq",   
     path: "https://github.com/cjordan223/cst438_Assignment3/",
+   },
+  {
+    name: "CompTIA+ Flashcards (iOS)",
+    description: "I’m working on my Capstone project and studying for CompTIA, but still want to make time for personal projects, so I created flashcards in Swift to test in the iOS/XCode environment. It was surprisingly easy, with Swift having a lot of similarites to the React component structure.",
+    image: "https://developer.apple.com/swift/images/swift-og.png",   
+    path: "https://github.com/cjordan223/compTIA-flashcards.git",
    }
 ,  
   {
