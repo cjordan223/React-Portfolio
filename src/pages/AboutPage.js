@@ -36,14 +36,14 @@ function AboutPage() {
           borderRadius: "8px",
         }}
       >
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={4} style={{ textAlign: "center" }}>
+<Grid container spacing={4} alignItems="center">
+<Grid item xs={12} md={4} style={{ textAlign: "center" }}>
             <Avatar
               alt="Conner Jordan"
-              src="/img/portrait.jpg"
+              src="/img/Amanda_Conner_2024-104.jpg"
               sx={{
                 width: "auto",
-                height: 320,
+                height: "auto",
                 borderRadius: "50px",
               }}
             />
