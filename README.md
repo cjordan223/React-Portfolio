@@ -6,7 +6,7 @@ Code for my portfolio.
 
   
 
-**If you're here from my portfolio you can go back [now](https://connerjordan.com), or read a little more about the site.** 
+**If you're here from my portfolio you can go back [now](https://connerjordan.com/#/about), or read a little more about the site.** 
 
   
 
