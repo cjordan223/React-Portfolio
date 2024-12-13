@@ -25,6 +25,14 @@ const closeButtonStyle = {
 const projects = [
   
   {
+    name: "PhishFinder",
+    description: "PhishFinder is a web extension designed to enhance email security by identifying and flagging phishing and spearphishing patterns. Built using Vue.js and integrating with Gmail's API through OAuth 2.0, it provides real-time security analysis of incoming emails.",
+    image: "/img/phishfinderlogo.png",
+    path: "https://github.com/cjordan223/PhishFinder",
+    site: "/#/course/cst499",
+    imageHeight: "140px"
+  },
+  {
     name: "Student Portal (Back End)",
     description: "3 person project. Runs with the React Front End project to complete a full-service online registrar for students, instructors, and system admins. More info in archives > cst438.",
     image: "https://lh3.googleusercontent.com/proxy/eKBEK2wSlZC1szJe8i6_rkWS5UIH02dHDRJxWxhUmqirbm-G1CbiAYGZ6bf8NxV0FobQzfDBr5ERJfUuSFUf1gKy2M7K",  // Use a suitable image URL here
@@ -117,13 +125,12 @@ const ProjectTemplate = () => {
               <CardActionArea onClick={() => handleOpen(project)}>
                 <CardMedia
                   component="img"
+                  height={project.name === "PhishFinder" ? "140" : "200"}
                   image={project.image}
-                  title={project.name}
+                  alt={project.name}
                   sx={{
-                    height: 180,
-                    objectFit: 'cover',
-                    backgroundPosition: 'center',
-                    filter: 'brightness(90%)',
+                    objectFit: project.name === "PhishFinder" ? 'contain' : 'cover',
+                    padding: project.name === "PhishFinder" ? '20px' : '0',
                     transition: '0.3s ease-in-out',
                     '&:hover': {
                       filter: 'brightness(70%)',
@@ -137,14 +144,21 @@ const ProjectTemplate = () => {
                 </CardContent>
               </CardActionArea>
               <CardContent sx={{ display: 'flex', justifyContent: 'space-between', marginTop: 1 }}>
-                {project.path && (
+                {project.path && project.name !== "PhishFinder" && (
                   <Button size="small" color="primary" href={project.path} target="_blank" startIcon={<GitHubIcon />}>
                     GitHub Repo
                   </Button>
                 )}
                 {project.site && (
-                  <Button size="small" color="primary" href={project.site} target="_blank" startIcon={<LaunchIcon />}>
-                    Live Demo
+                  <Button 
+                    size="small" 
+                    color="primary" 
+                    href={project.site} 
+                    target={project.name === "PhishFinder" ? "_self" : "_blank"} 
+                    startIcon={<LaunchIcon />}
+                    sx={{ ml: project.name === "PhishFinder" ? 'auto' : 0 }}
+                  >
+                    {project.name === "PhishFinder" ? "Project Details" : "Live Demo"}
                   </Button>
                 )}
               </CardContent>
@@ -183,8 +197,14 @@ const ProjectTemplate = () => {
                   </Button>
                 )}
                 {selectedProject.site && (
-                  <Button size="small" color="primary" href={selectedProject.site} target="_blank" startIcon={<LaunchIcon />}>
-                    Live Demo
+                  <Button 
+                    size="small" 
+                    color="primary" 
+                    href={selectedProject.site} 
+                    target={selectedProject.name === "PhishFinder" ? "_self" : "_blank"} 
+                    startIcon={<LaunchIcon />}
+                  >
+                    {selectedProject.name === "PhishFinder" ? "Project Details" : "Live Demo"}
                   </Button>
                 )}
                 <Button

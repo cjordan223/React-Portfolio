@@ -1,7 +1,7 @@
 //src/pages/CoursePage.js
 import React, { useState } from 'react';
 import { Link, useParams} from 'react-router-dom';
-import { Button, Accordion, AccordionSummary, AccordionDetails, Typography }  from '@mui/material';
+import { Button, Accordion, AccordionSummary, AccordionDetails, Typography, Grid, Card, CardMedia, CardContent, Modal, CardActionArea, Box }  from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Carousel } from 'react-responsive-carousel';  // You can use this library or another for the carousel
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; 
@@ -93,9 +93,17 @@ const courseData = [
     },
     {
         id: 'cst329',
-        name: 'CST 329: Reasoning with Logic AND CST 489: Capstone Project Planning',
+        name: 'CST 329: Reasoning with Logic',
         description: 'In CST 329, students learn to develop skills in using logic to describe and assess arguments, including writing formulas in propositional and first-order logic, and writing and checking proofs. In CST 489, students begin planning their capstone projects, including topic selection, team formation, and project proposal development.',
         term: 'Fall 2024 - Term A',
+        credits: 4,
+        personalNote: ''
+    },
+    {
+        id: 'cst499',
+        name: 'CST 499: Capstone Project',
+        description: 'In this culminating course, students apply their cumulative knowledge to develop a significant software project. Working in teams, students take their projects from proposal to deployment, demonstrating mastery of software engineering principles and practices.',
+        term: 'Fall 2024 - Term B',
         credits: 4,
         personalNote: ''
     },
@@ -107,10 +115,38 @@ function CoursePage() {
     const course = courseData.find(course => course.id === courseId);
     const [showSchema, setShowSchema] = useState(false);  // State for toggling schema visibility
     const [showRequirements, setShowRequirements] = useState(false);  // State for toggling requirements dropdown
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const modalStyle = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '80%',
+        maxWidth: '1200px',
+        bgcolor: 'background.paper',
+        boxShadow: 24,
+        p: 4,
+        borderRadius: 2,
+        outline: 'none',
+        maxHeight: '90vh',
+        overflow: 'auto'
+    };
 
     if (!course) {
         return <div>Course not found</div>;
     }
+
+    const handleOpenModal = (image) => {
+        setSelectedImage(image);
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setSelectedImage(null);
+        setIsModalOpen(false);
+    };
 
     return (
         <div style={{
@@ -606,8 +642,8 @@ Final Project                    </Typography>
                     <Typography variant="h6" style={{ marginTop: '20px' }}>Custom Learning Content for LFC Social Media</Typography>
 
                     {/* Carousel of Thumbnails */}
-                    <div style={{ width: '50%', margin: '0 auto' }}> {/* Adjust the width as needed */}
-                    <Carousel showThumbs={true} infiniteLoop={true} autoPlay={true} interval={3000} showStatus={false}>
+                    <div style={{ width: '50%', margin: '0 auto' }}>
+                        <Carousel showThumbs={true} infiniteLoop={true} autoPlay={true} interval={3000} showStatus={false}>
                             {Array.from({ length: 15 }, (_, i) => (
                                 <div key={i}>
                                     <img src={`/img/LFC/${i + 1}.png`} alt={`LFC Thumbnail ${i + 1}`} />
@@ -619,7 +655,8 @@ Final Project                    </Typography>
                     {/* Video Game Demo */}
                     <Typography variant="h6" style={{ marginTop: '20px' }}>Video Game Demo</Typography>
                     <Typography variant="body2">
-I took a basic walking sim package in Unity and imported custom made skyscapes to create a darker vibe, and added some SFX. Added some additional features with Java scripting.                   </Typography>
+                        I took a basic walking sim package in Unity and imported custom made skyscapes to create a darker vibe, and added some SFX. Added some additional features with Java scripting.
+                    </Typography>
                     <iframe 
                         src="https://drive.google.com/file/d/102L0jtOt3eSYp3nxgkIPZj7cktktVBrh/preview" 
                         width="100%" 
@@ -682,32 +719,42 @@ I took a basic walking sim package in Unity and imported custom made skyscapes t
             {/* Conditional rendering for CST329 (Logic and Capstone Prep) */}
             {course.id === 'cst329' && (
                 <>
-                    <Typography variant="body2" style={{ marginTop: '20px' }}>
-                        In this class, we focused on propositional and first-order logical proofs. Although there wasn't any programming involved, I believe it was a necessary course. As we completed the final course in the program, we were concurrently enrolled in a capstone preparation class. There, we began developing our capstone projects, finalizing our proposals, and outlining project objectives. Our team decided to create a web extension that can assist in analyzing potentially malicious emails, specifically targeting a subset of emails that use generative AI to create sophisticated spear-phishing attempts. Development on this project has already begun.
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Course Focus: Logic and Proofs</Typography>
+                    <Typography variant="body1" style={{ marginTop: '20px' }}>
+                        This course focuses on developing skills in logical reasoning and formal proofs. Key areas include:
+                    </Typography>
+                    <ul style={{ marginLeft: '20px' }}>
+                        <li>Propositional Logic</li>
+                        <li>Predicate Logic</li>
+                        <li>Truth Tables and Logical Equivalences</li>
+                        <li>Methods of Proof (Direct, Contradiction, Induction)</li>
+                        <li>Logical Arguments and Validity</li>
+                    </ul>
+
+                    <Typography variant="body1" style={{ marginTop: '20px' }}>
+                        While completing this course, initial preparation for the capstone project (CST499) was also begun.
                     </Typography>
 
-                    {/* Embedded Proposal Document */}
-                    <Typography variant="h6" style={{ marginTop: '20px' }}>Capstone Project Proposal Document:</Typography>
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Course Documentation:</Typography>
                     <iframe 
-                        src="https://drive.google.com/file/d/1yn_T5lA9VhHpSVFNKlHk4O9A4bDxa9qZ/preview" 
+                        src="https://docs.google.com/document/d/1mWSFZXcWMAQqt7Fc-muRzQ-UYTRrDWfQJ1x2Bg3FD4c/preview" 
                         width="100%" 
                         height="800px" 
                         style={{ border: '1px solid #ccc', borderRadius: '4px', marginTop: '10px' }}
-                        title="Capstone Project Proposal Document"
-                    ></iframe>
-{/* 
-        Embedded YouTube Video*/}
-   {/*     <Typography variant="h6" style={{ marginTop: '20px' }}>Capstone Project Overview Video:</Typography>
-        <iframe 
-            width="100%" 
-            height="500px" 
-            src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
-            title="Capstone Project Overview Video"
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen
-            style={{ borderRadius: '4px', marginTop: '10px' }}
-        ></iframe> */}
+                        title="CST329_Documentation"
+                    />
+
+                    <div style={{ marginTop: '20px' }}>
+                        <Button 
+                            variant="outlined" 
+                            color="secondary" 
+                            fullWidth
+                            component={Link} 
+                            to="/webdesign"
+                        >
+                            Back to Courses
+                        </Button>
+                    </div>
                 </>
             )}
             {/* Conditional rendering for CST383 (Data Science) */}
@@ -766,17 +813,165 @@ I took a basic walking sim package in Unity and imported custom made skyscapes t
                 </>
             )}
  
-            <div style={{ marginTop: '20px' }}>
-                <Button 
-                    variant="outlined" 
-                    color="secondary" 
-                    fullWidth
-                    component={Link} 
-                    to="/webdesign"
-                >
-                    Back to Courses
-                </Button>
-            </div>
+
+            {/* Conditional rendering for CST499 (Capstone Project) */}
+            {course.id === 'cst499' && (
+                <>
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Project Planning Phase (CST 489)</Typography>
+                    <Typography variant="body1" style={{ marginTop: '20px' }}>
+                        The planning phase of this project involved extensive research into email security, phishing detection methods, and API integration possibilities. Key planning deliverables included:
+                    </Typography>
+                    <ul style={{ marginLeft: '20px' }}>
+                        <li>Project proposal and scope definition</li>
+                        <li>Technical requirements documentation</li>
+                        <li>Architecture design and API planning</li>
+                        <li>Security implementation strategy</li>
+                        <li>Development timeline and milestones</li>
+                    </ul>
+
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Proposal Document:</Typography>
+                    <iframe 
+                        src="https://drive.google.com/file/d/1VDNHHpXOp9Nv3nNUGRV2R78K_cW1y69Q/preview" 
+                        width="100%" 
+                        height="800px" 
+                        style={{ border: '1px solid #ccc', borderRadius: '4px', marginTop: '10px' }}
+                        title="Proposal Document"
+                    />
+
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Progress Report:</Typography>
+                    <iframe 
+                        src="https://drive.google.com/file/d/13cXIYbDJu_T3Wk5rtncxNsK8VlNn_TVG/preview" 
+                        width="100%" 
+                        height="800px" 
+                        style={{ border: '1px solid #ccc', borderRadius: '4px', marginTop: '10px' }}
+                        title="Final Report"
+                    />
+
+                    {/* Existing PhishFinder content starts here */}
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>PhishFinder: AI-Enhanced Email Security Extension</Typography>
+                    <Typography variant="body1" style={{ marginTop: '20px' }}>
+                        PhishFinder is a web extension designed to enhance email security by identifying and flagging phishing and spearphishing patterns. Built using Vue.js and integrating with Gmail's API through OAuth 2.0, it provides real-time security analysis of incoming emails.
+                    </Typography>
+
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Key Features:</Typography>
+                    <ul style={{ marginLeft: '20px' }}>
+                        <li>Real-time email security analysis</li>
+                        <li>OAuth 2.0 secure Gmail integration</li>
+                        <li>Dynamic sender profiling using MongoDB</li>
+                        <li>AI-powered content analysis</li>
+                        <li>URL and domain verification</li>
+                        <li>Custom security metrics dashboard</li>
+                    </ul>
+
+                    {/* Screenshot Cards */}
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Application Screenshots:</Typography>
+                    <Grid container spacing={2} style={{ marginTop: '10px' }}>
+                        {[
+                            { id: 1, image: "oauth.png", caption: "OAuth 2.0 Secure Authentication Flow" },
+                            { id: 2, image: "Metrics.png", caption: "Security Metrics Dashboard" },
+                            { id: 3, image: "Analysis2.png", caption: "Advanced Email Analysis" },
+                            { id: 4, image: "Analysis.png", caption: "Threat Detection Interface" },
+                            { id: 5, image: "mirror.png", caption: "Gmail Mirror Integration" },
+                            { id: 6, image: "DB.png", caption: "MongoDB Profile Storage" }
+                        ].map((item) => (
+                            <Grid item xs={12} sm={6} md={4} key={item.id}>
+                                <CardActionArea onClick={() => handleOpenModal(item.image)}>
+                                    <CardMedia
+                                        component="img"
+                                        height="200"
+                                        image={`/img/${item.image}`}
+                                        alt={item.caption}
+                                        sx={{
+                                            objectFit: 'contain',
+                                            padding: '10px'
+                                        }}
+                                    />
+                                </CardActionArea>
+                                <CardContent>
+                                    <Typography variant="body2" color="text.secondary" align="center">
+                                        {item.caption}
+                                    </Typography>
+                                </CardContent>
+                            </Grid>
+                        ))}
+                    </Grid>
+
+                    {/* Repository Links */}
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Project Repositories:</Typography>
+                    <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+                        <Button 
+                            variant="contained" 
+                            color="primary" 
+                            href="https://github.com/cjordan223/PhishFinder"
+                            target="_blank"
+                            style={{ flex: 1 }}
+                        >
+                            Frontend Repository
+                        </Button>
+                        <Button 
+                            variant="contained" 
+                            color="primary" 
+                            href="https://github.com/cjordan223/PhishFinder-Backend"
+                            target="_blank"
+                            style={{ flex: 1 }}
+                        >
+                            Backend Repository
+                        </Button>
+                    </div>
+
+                    {/* Demo Video Section */}
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Project Demo:</Typography>
+                    <iframe 
+                        width="100%" 
+                        height="500px" 
+                        src="https://www.youtube.com/embed/bYpPd5KmwMw?si=KhpazgPYXzEXyt3z" 
+                        title="PhishFinder Demo"
+                        frameBorder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowFullScreen
+                        style={{ borderRadius: '4px', marginTop: '10px' }}
+                    />
+
+                    <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+                        <Button 
+                            variant="outlined" 
+                            color="secondary" 
+                            style={{ flex: 1 }}
+                            component={Link} 
+                            to="/webdesign"
+                        >
+                            Back to Courses
+                        </Button>
+                        <Button 
+                            variant="outlined" 
+                            color="primary" 
+                            style={{ flex: 1 }}
+                            component={Link} 
+                            to="/webapps"
+                        >
+                            Back to Projects
+                        </Button>
+                    </div>
+                </>
+            )}
+
+            <Modal
+                open={isModalOpen}
+                onClose={handleCloseModal}
+                aria-labelledby="image-modal"
+            >
+                <Box sx={modalStyle}>
+                    <img
+                        src={`/img/${selectedImage}`}
+                        alt="Enlarged view"
+                        style={{
+                            width: '100%',
+                            height: 'auto',
+                            objectFit: 'contain'
+                        }}
+                    />
+                </Box>
+            </Modal>
         </div>
     );
 }
