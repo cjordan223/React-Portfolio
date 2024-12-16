@@ -7,6 +7,8 @@ import { Carousel } from 'react-responsive-carousel';  // You can use this libra
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; 
 import NotebookViewer2 from '../components/Projects/Notebooks/NotebookViewer2';
 import NotebookViewer3 from '../components/Projects/Notebooks/NotebookViewer3';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+
 
 const courseData = [
     {
@@ -817,6 +819,16 @@ Final Project                    </Typography>
             {/* Conditional rendering for CST499 (Capstone Project) */}
             {course.id === 'cst499' && (
                 <>
+                                    {/* Existing PhishFinder content starts here */}
+                                    <Typography variant="h6" style={{ marginTop: '20px' }}>PhishFinder: AI-Enhanced Email Security Extension</Typography>
+<Box component="span" sx={{ display: 'inline-flex', alignItems: 'center', padding: '5px 10px', backgroundColor: '#FFD700', borderRadius: '5px', marginTop: '10px' }}>
+    <EmojiEventsIcon sx={{ marginRight: '5px' }} />
+    Winner! Most Innovative Project at the 2024 Capstone Festival, CSU Monterey Bay
+</Box>
+<Typography variant="body1" style={{ marginTop: '20px' }}>
+    PhishFinder is a web extension designed to enhance email security by identifying and flagging phishing and spearphishing patterns. Built using Node.js, Vue.js, Express and MongoDB, and integrating with Gmail's API through OAuth 2.0, it provides real-time security analysis of incoming emails.
+</Typography>
+ 
                     <Typography variant="h6" style={{ marginTop: '20px' }}>Project Planning Phase (CST 489)</Typography>
                     <Typography variant="body1" style={{ marginTop: '20px' }}>
                         The planning phase of this project involved extensive research into email security, phishing detection methods, and API integration possibilities. Key planning deliverables included:
@@ -847,11 +859,6 @@ Final Project                    </Typography>
                         title="Final Report"
                     />
 
-                    {/* Existing PhishFinder content starts here */}
-                    <Typography variant="h6" style={{ marginTop: '20px' }}>PhishFinder: AI-Enhanced Email Security Extension</Typography>
-                    <Typography variant="body1" style={{ marginTop: '20px' }}>
-                        PhishFinder is a web extension designed to enhance email security by identifying and flagging phishing and spearphishing patterns. Built using Vue.js and integrating with Gmail's API through OAuth 2.0, it provides real-time security analysis of incoming emails.
-                    </Typography>
 
                     <Typography variant="h6" style={{ marginTop: '20px' }}>Key Features:</Typography>
                     <ul style={{ marginLeft: '20px' }}>
