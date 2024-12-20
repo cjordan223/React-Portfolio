@@ -1,9 +1,19 @@
 import React from "react";
-import { Box, Container, Typography, Grid, Avatar } from "@mui/material";
+import { Box, Container, Typography, Grid, Avatar, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 function AboutPage() {
   const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    // Navigate to a contact page, or open a mail client
+    navigate("/contact"); // Assuming you have a contact route set up
+  };
+
+  const handleViewCodeClick = () => {
+    // Open the GitHub repository in a new tab
+    window.open("https://github.com/cjordan223/React-Portfolio", "_blank");
+  };
 
   return (
     <Container
@@ -26,14 +36,14 @@ function AboutPage() {
           borderRadius: "8px",
         }}
       >
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={4} style={{ textAlign: "center" }}>
+<Grid container spacing={4} alignItems="center">
+<Grid item xs={12} md={4} style={{ textAlign: "center" }}>
             <Avatar
               alt="Conner Jordan"
-              src="/img/portrait.jpg"
+              src="/img/Amanda_Conner_2024-104.jpg"
               sx={{
                 width: "auto",
-                height: 320,
+                height: "auto",
                 borderRadius: "50px",
               }}
             />
@@ -44,17 +54,8 @@ function AboutPage() {
             </Typography>
        
             <Typography variant="body1" paragraph>
-              This space was created to host some of my web apps and projects as I wrap up my degree program. It
-              was made entirely with React, which I'm hoping will become more
-              evident as I update the site with new components. You can find the
-              code for the profile front end {" "}
-              <a
-                href="https://github.com/cjordan223/React-Portfolio"
-                style={{ color: "#90caf9" }}
-              >
-                here
-              </a>
-              , if you're interested.
+              This space was created to host some of my web apps and projects as I wrap up my degree program. At this time I’ve updated the site to include almost all of my coursework, which can be found in the archives section of this site. I’m completing the remainder of courses this fall (now) and will update with my final capstone project. You can also find the
+              code for the profile front end below, if you're interested.
             </Typography>
             <Typography variant="body1" paragraph>
               I currently work on the cybersecurity team for Great Wolf Lodge,
@@ -66,6 +67,23 @@ function AboutPage() {
               If you have any questions or want to chat about web development,
               feel free to reach out!
             </Typography>
+            <Box mt={3}>
+              <Button 
+                variant="contained" 
+                color="primary" 
+                onClick={handleContactClick} 
+                style={{ marginRight: "10px" }}
+              >
+                Contact Me
+              </Button>
+              <Button 
+                variant="outlined" 
+                color="secondary" 
+                onClick={handleViewCodeClick}
+              >
+                View Code
+              </Button>
+            </Box>
           </Grid>
         </Grid>
       </Box>

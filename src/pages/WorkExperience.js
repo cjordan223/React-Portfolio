@@ -1,10 +1,8 @@
 import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
-import BuildIcon from '@mui/icons-material/Build';
 import DownloadIcon from '@mui/icons-material/CloudDownload';
 import styled from 'styled-components';
 
@@ -142,17 +140,6 @@ const education = [
 ];
 
 function WorkExperience() {
-  const navigate = useNavigate();
-
-  const additionalExperiences = [
-    {
-      title: 'Volunteer Web Developer',
-      company: 'Loaves, Fishes & Computers',
-      location: 'Monterey, CA (Remote)',
-      description: 'Create promotional material for the LFC organization, subject matter varies but is typically a tutorial on new tech and software.',
-      timeFrame: 'February 2024-Present',
-    },
-  ];
 
   return (
     <BackgroundContainer>
@@ -176,16 +163,8 @@ function WorkExperience() {
             <Text>{exp.timeFrame}</Text>
           </Box>
         ))}
-        <SectionTitle>Additional Experience</SectionTitle>
-        {additionalExperiences.map((exp, index) => (
-          <Box mb={4} key={index}>
-            <JobTitle><BuildIcon sx={{ mr: 1 }} /> {exp.title}</JobTitle>
-            <Text>{exp.company}</Text>
-            <Text>{exp.location}</Text>
-            <Text>{exp.description}</Text>
-            <Text>{exp.timeFrame}</Text>
-          </Box>
-        ))}
+   
+        
         <SectionTitle>Skills</SectionTitle>
         <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
           {skills.map((skill, index) => (

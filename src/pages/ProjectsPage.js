@@ -1,9 +1,8 @@
 //ProjectsPage.js
 import React from "react";
 import '../css/ProjectsPage.css';
-import {Box, Button, Container, Grid, Paper, Typography} from '@mui/material';
+import {Box, Container, Grid, Paper, Typography} from '@mui/material';
 import CarouselComponent from "../components/Projects/CarouselComponent";
-import {Link} from "react-router-dom";
 
 function ProjectsPage() {
     return (
@@ -14,7 +13,7 @@ function ProjectsPage() {
                     Projects
                 </Typography>
                 <Typography variant="body1" sx={{ color: 'black',fontSize: '1.2rem', maxWidth: '600px', margin: 'auto' }}>
-Web Applications, Programming Applications, and a sample of websites I made from my time as a freelancer.                </Typography>
+Web Applications, Programming Applications, and an archive of my coursework at CSUMB.              </Typography>
             </Box>
             </Paper>
             <br/>

@@ -10,19 +10,18 @@ const archiveItems = [
     { type: "project", name: "Lone Oak Baptist", description: "Baptist Church", imageUrl: "/img/LO.png", link: "https://www.loneoakbaptistsnook.org/" },
     { type: "project", name: "Carpentry Solutions", description: "Framing Service", imageUrl: "/img/carpentry.png", link: "https://www.carpentrysolutionsinfo.com/" },
     // Updated courses
-    { type: "course", name: "CST 300: Major ProSeminar", description: "Students learn professional writing, presentation, research, and critical-thinking skills...", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz8bcyP6fWEtvxSXHuxlTGImVBEPtEi7mVyQ&s", link: "/course/cst300", grade: "A" },
-    { type: "course", name: "CST 338: Software Design", description: "Intermediate-level programming course covering techniques for developing large-scale software systems...", imageUrl: "https://www.wedigraf.com/wp-content/uploads/2023/11/software-development-training-uyo-wedigraf-technologies-ltd-akwa-ibom-state.jpg", link: "/course/cst338", grade: "A" },
-    { type: "course", name: "CST 363: Database Management", description: "Provides balanced coverage of database use and design, focusing on relational databases...", imageUrl: "https://assets.datamation.com/uploads/2023/06/dm-top-database-challenges.png", link: "/course/cst363", grade: "A" },
-    { type: "course", name: "CST 334: Operating Systems", description: "Learn about the use and design of modern operating systems, focusing on Linux...", imageUrl: "https://cloudpso.com/wp-content/uploads/2023/02/is-the-operating-system-dead.webp", link: "/course/cst334", grade: "A" },
-    { type: "course", name: "CST 311: Introduction to Computer Networking", description: "Survey of Telecomm and Data Comm Technology Fundamentals...", imageUrl: "https://www.lifewire.com/thmb/TXVRTtkHvRpTjnRObQ3xm2VlsD0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/WirelessNetwork-5994852003f4020011db5333.jpg", link: "/course/cst311", grade: "A" },
-    { type: "course", name: "CST 336: Internet Programming", description: "Provides students with dynamic web application development skills...", imageUrl: "/img/webprogramming.jpeg", link: "/course/cst336", grade: "A" },
-    { type: "course", name: "CST 370: Algorithms", description: "Students learn important data structures in computer science...", imageUrl: "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230807133054/Data-structure-algorithm.png", link: "/course/cst370", grade: "A" },
-    { type: "course", name: "CST 328: Digital Art and Design AND CST 462S: Race, Gender, Class in the Digital World", description: "Provides students with key knowledge of race, gender, class...", imageUrl: "https://yt3.googleusercontent.com/4YAaX7CsQ-paadHsNvC6wdv2nE_7VTKpoNJOTwFhHL4rQqLC8WFe6mNxL-z-e6sfHZbHG-ucPA=s900-c-k-c0x00ffffff-no-rj", link: "/course/cst462s", grade: "A" },
-    { type: "course", name: "CST 383: Introduction to Data Science", description: "Overview of modern data science tools and best practices...", imageUrl: "/img/datascience.jpeg", link: "/course/cst383", grade: "A" },
-    { type: "course", name: "CST 438: Software Engineering", description: "CST 338 is a prerequisite. Covers key knowledge of software engineering practices...", imageUrl: "https://cdn.sanity.io/images/tlr8oxjg/production/8065e9b35afcf58ba7b1b96e1d5be14420d47dec-1456x816.png?w=3840&q=100&fit=clip&auto=format", link: "/course/cst438", grade: "A" },
-    { type: "course", name: "CST 329: Reasoning with Logic ", description: "In this course, students learn to develop skill in using logic to describe and assess arguments...", imageUrl: "/img/comingsoon.webp", link: "/course/cst329", grade: "A" },
-    { type: "course", name: "CST 489: Capstone Project Planning", description: "In this course, students learn to develop skill in using logic to describe and assess arguments...", imageUrl: "/img/comingsoon.webp", link: "/course/cst489", grade: "A" },
-    { type: "course", name: "CST 499: Directed Group Capstone", description: "Students create a detailed proposal of a substantial, professional level project...", imageUrl: "/img/comingsoon.webp", link: "/course/cst499", grade: "A" }
+    { type: "course", name: "CST 300: Major ProSeminar", description: "Students learn professional writing, presentation, research, and critical-thinking skills.", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz8bcyP6fWEtvxSXHuxlTGImVBEPtEi7mVyQ&s", link: "/course/cst300", grade: "A" },
+    { type: "course", name: "CST 338: Software Design", description: "Intermediate-level programming course covering techniques for developing large-scale software systems.", imageUrl: "https://www.wedigraf.com/wp-content/uploads/2023/11/software-development-training-uyo-wedigraf-technologies-ltd-akwa-ibom-state.jpg", link: "/course/cst338", grade: "A" },
+    { type: "course", name: "CST 363: Database Management", description: "Provides balanced coverage of database use and design, focusing on relational databases.", imageUrl: "https://assets.datamation.com/uploads/2023/06/dm-top-database-challenges.png", link: "/course/cst363", grade: "A" },
+    { type: "course", name: "CST 334: Operating Systems", description: "Learn about the use and design of modern operating systems, focusing on Linux.", imageUrl: "https://cloudpso.com/wp-content/uploads/2023/02/is-the-operating-system-dead.webp", link: "/course/cst334", grade: "A" },
+    { type: "course", name: "CST 311: Introduction to Computer Networking", description: "Survey of Telecomm and Data Comm Technology Fundamentals.", imageUrl: "https://www.lifewire.com/thmb/TXVRTtkHvRpTjnRObQ3xm2VlsD0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/WirelessNetwork-5994852003f4020011db5333.jpg", link: "/course/cst311", grade: "A" },
+    { type: "course", name: "CST 336: Internet Programming", description: "Provides students with dynamic web application development skills.", imageUrl: "/img/webprogramming.jpeg", link: "/course/cst336", grade: "A" },
+    { type: "course", name: "CST 370: Algorithms", description: "Students learn important data structures in computer science.", imageUrl: "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230807133054/Data-structure-algorithm.png", link: "/course/cst370", grade: "A" },
+    { type: "course", name: "CST 328: Digital Art and Design AND CST 462S: Race, Gender, Class in the Digital World", description: "Provides students with key knowledge of race, gender, class in the digital landscape.", imageUrl: "https://yt3.googleusercontent.com/4YAaX7CsQ-paadHsNvC6wdv2nE_7VTKpoNJOTwFhHL4rQqLC8WFe6mNxL-z-e6sfHZbHG-ucPA=s900-c-k-c0x00ffffff-no-rj", link: "/course/cst462s", grade: "A" },
+    { type: "course", name: "CST 383: Introduction to Data Science", description: "Overview of modern data science tools and best practices.", imageUrl: "/img/datascience.jpeg", link: "/course/cst383", grade: "A" },
+    { type: "course", name: "CST 438: Software Engineering", description: "CST 338 is a prerequisite. Covers key knowledge of software engineering practices.", imageUrl: "https://cdn.sanity.io/images/tlr8oxjg/production/8065e9b35afcf58ba7b1b96e1d5be14420d47dec-1456x816.png?w=3840&q=100&fit=clip&auto=format", link: "/course/cst438", grade: "A" },
+    { type: "course", name: "CST 329: Reasoning with Logic", description: "In this course, students learn to develop skill in using logic to describe and assess arguments.", imageUrl: "https://media.geeksforgeeks.org/wp-content/uploads/20240624022022/Propositional-Logic.webp", link: "/course/cst329", grade: "TBD" },
+    { type: "course", name: "CST 499: Directed Capstone", description: "The culmination of CST 489 planning and development into a significant software project.", imageUrl: "/img/phishfinderlogo.png", link: "/course/cst499", grade: "TBD" },
 ];
 
 function Archive() {
@@ -121,7 +120,7 @@ function Archive() {
                                     <CardMedia
                                         component="img"
                                         alt={course.name}
-                                        height="140"
+                                        height={course.name.includes("CST 499") ? "80" : "140"}
                                         image={course.imageUrl}
                                         title={course.name}
                                     />
@@ -130,7 +129,7 @@ function Archive() {
                                             {course.name}
                                         </Typography>
                                         <Typography color="textSecondary">
-                                            {course.description}
+                                            {/* {course.description} */}
                                         </Typography>
                                         <Typography color="textSecondary">
                                             Grade: {course.grade}

@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Page Not Found</title>
+    <meta http-equiv="refresh" content="0; URL='/'" />
     <script type="text/javascript">
-      // Redirect all 404 requests to the index.html file with the correct path
-      var redirectPath = window.location.pathname;
+      // Get the current path
+      var path = window.location.pathname;
 
-      // Redirecting to the root (/) and then appending the path
-      // This will trigger React Router to handle the routing
-      window.location.replace('/?' + redirectPath);
+      // Redirect to index.html with the original path preserved
+      window.location.href = '/' + '#' + path;
     </script>
   </head>
-  <body>
-    <p>Redirecting...</p>
-  </body>
+  <body></body>
 </html>

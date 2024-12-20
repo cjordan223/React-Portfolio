@@ -1,10 +1,14 @@
 //src/pages/CoursePage.js
 import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { Button, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useParams} from 'react-router-dom';
+import { Button, Accordion, AccordionSummary, AccordionDetails, Typography, Grid, Card, CardMedia, CardContent, Modal, CardActionArea, Box }  from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Carousel } from 'react-responsive-carousel';  // You can use this library or another for the carousel
-import 'react-responsive-carousel/lib/styles/carousel.min.css';  // Carousel styles
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; 
+import NotebookViewer2 from '../components/Projects/Notebooks/NotebookViewer2';
+import NotebookViewer3 from '../components/Projects/Notebooks/NotebookViewer3';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+
 
 const courseData = [
     {
@@ -91,20 +95,21 @@ const courseData = [
     },
     {
         id: 'cst329',
-        name: 'CST 329: Reasoning with Logic AND CST 489: Capstone Project Planning',
+        name: 'CST 329: Reasoning with Logic',
         description: 'In CST 329, students learn to develop skills in using logic to describe and assess arguments, including writing formulas in propositional and first-order logic, and writing and checking proofs. In CST 489, students begin planning their capstone projects, including topic selection, team formation, and project proposal development.',
         term: 'Fall 2024 - Term A',
         credits: 4,
-        personalNote: 'This course was a fascinating exploration of logic and its applications in computer science. We developed skills in using logic to describe and assess arguments, working with propositional and first-order logic. Writing and checking proofs became a significant part of our assignments, which helped sharpen our analytical thinking. We also learned about three-valued and modal logic, understanding how to choose the appropriate logic for different scenarios and the limitations of logic in capturing human reasoning. Simultaneously, we began planning our capstone projects in CST 489. This involved selecting topics, forming teams, and outlining our project proposals. The combination of logical reasoning and project planning was both challenging and stimulating, setting the stage for our final capstone project. It was exciting to see how the skills we acquired would directly contribute to the success of our capstone.'
+        personalNote: ''
     },
     {
         id: 'cst499',
-        name: 'CST 499: Directed Group Capstone',
-        description: 'Students work in teams to create a substantial, professional-level project from proposal to completion, applying project planning, collaboration, and technical skills required in the industry.',
+        name: 'CST 499: Capstone Project',
+        description: 'In this culminating course, students apply their cumulative knowledge to develop a significant software project. Working in teams, students take their projects from proposal to deployment, demonstrating mastery of software engineering principles and practices.',
         term: 'Fall 2024 - Term B',
         credits: 4,
-        personalNote: 'The capstone project was the culmination of everything we had learned throughout the program. Working in a team, we developed a substantial, professional-level project from conception to completion. We applied project planning, collaboration, and technical writing skills, mirroring industry practices. Our team decided to create a web application that addressed a real-world problem, which required us to integrate multiple technologies and coordinate our efforts closely. This experience was incredibly rewarding and provided a taste of what to expect in a professional software development environment. Presenting our final project to faculty and peers was a proud moment, showcasing the skills and knowledge we had acquired during our studies.'
-    }
+        personalNote: ''
+    },
+
 ];
 
 function CoursePage() {
@@ -112,15 +117,43 @@ function CoursePage() {
     const course = courseData.find(course => course.id === courseId);
     const [showSchema, setShowSchema] = useState(false);  // State for toggling schema visibility
     const [showRequirements, setShowRequirements] = useState(false);  // State for toggling requirements dropdown
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const modalStyle = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '80%',
+        maxWidth: '1200px',
+        bgcolor: 'background.paper',
+        boxShadow: 24,
+        p: 4,
+        borderRadius: 2,
+        outline: 'none',
+        maxHeight: '90vh',
+        overflow: 'auto'
+    };
 
     if (!course) {
         return <div>Course not found</div>;
     }
 
+    const handleOpenModal = (image) => {
+        setSelectedImage(image);
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setSelectedImage(null);
+        setIsModalOpen(false);
+    };
+
     return (
         <div style={{
             padding: '20px',
-            maxWidth: '800px',
+            maxWidth: '900px',
             margin: 'auto',
             backgroundColor: 'white',
             color: 'black',
@@ -130,7 +163,9 @@ function CoursePage() {
             <Typography variant="body2">{course.description}</Typography>
             <Typography variant="body2"><strong>Credits:</strong> {course.credits}</Typography>
             <Typography variant="body2"><strong>Term:</strong> {course.term}</Typography>
-            <Typography variant="body2"><strong>Grade Earned:</strong> A</Typography>
+            {course.id !== 'cst329' && (
+                <Typography variant="body2"><strong>Grade Earned:</strong> A</Typography>
+            )}
 
             {/* Personal note section */}
             {course.personalNote && (
@@ -143,17 +178,22 @@ function CoursePage() {
                             {/* Conditional rendering for CST300 */}
             {course.id === 'cst300' && (
                 <>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        href="https://drive.google.com/file/d/1GFnGgVgIs6jKuQoQjwnD0zGaYKPJO33-/view?usp=drive_link"
-                        style={{ marginTop: '10px' }}
-                        target="_blank"
-                    >
-                        View Ethics Paper
-                    </Button>
-                    <img src="https://cdn.prod.website-files.com/65e89895c5a4b8d764c0d70e/66477d248e720545e7e3e4a7_40f1c03d-f1ee-4fda-9af8-594e0c35d70c.jpeg" alt="Ethics Paper Image" style={{ width: '100%', height: 'auto', marginTop: '10px' }} />
-                </>
+                   <iframe 
+                        src="https://drive.google.com/file/d/1GFnGgVgIs6jKuQoQjwnD0zGaYKPJO33-/preview" 
+                        width="100%" 
+                        height="800px" 
+                        style={{ border: '1px solid #ccc', borderRadius: '4px', marginTop: '10px' }}
+                        title="EA_CJFINAL"
+                    ></iframe>
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                        Generative AI exploded during this time. 
+                    </Typography>
+                    <img src="https://cdn.prod.website-files.com/65e89895c5a4b8d764c0d70e/66477d248e720545e7e3e4a7_40f1c03d-f1ee-4fda-9af8-594e0c35d70c.jpeg" alt="Ethics Paper" style={{ width: '100%', height: 'auto', marginTop: '10px' }} />
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                    <strong>Source: Synthesia.io</strong>
+                    </Typography>
+
+                    </>
             )}
                   {/* Conditional rendering for CST336 (Web Programming) */}
                   {course.id === 'cst336' && (
@@ -240,12 +280,11 @@ function CoursePage() {
             {/* Conditional rendering for CST363 (Databases) */}
             {course.id === 'cst363' && (
                 <>
-                    <Typography variant="h6" style={{ marginTop: '20px' }}>Database Schema</Typography>
                     
                     {/* Dropdown for Database Schema */}
                     <Button 
                         variant="contained" 
-                        color="primary" 
+                        color="secondary" 
                         onClick={() => setShowSchema(!showSchema)}
                         style={{ marginBottom: '10px' }}
                     >
@@ -482,12 +521,11 @@ FROM Pharmacy;
 
                     {/* Link to Spring Application Repo */}
                     <Typography variant="body2" style={{ marginTop: '20px' }}>
-                        You can view the Spring application repository where the database was implemented below.
                     </Typography>
                     <Button 
                         variant="contained" 
                         color="primary" 
-                        href="https://github.com/cjordan223/List_Assist"
+                        href="https://github.com/cjordan223/Database-Final"
                         style={{ marginTop: '10px' }}
                         target="_blank"
                     >
@@ -496,14 +534,65 @@ FROM Pharmacy;
 
                     {/* Final Submission (Google Doc iframe) */}
                     <Typography variant="body2" style={{ marginTop: '20px' }}>
-                        Final submission (credit to N. Nawrocki for significant contributions to this document):
+                        Final Findings
                     </Typography>
                     <iframe 
                         src="https://drive.google.com/file/d/1sI1T42AtSuctRomlo6PXTkzmCJCchCZj/preview" 
                         width="100%" 
-                        height="400px" 
+                        height="900px" 
                         style={{ border: '1px solid #ccc', borderRadius: '4px' }}
                         title="Final Submission"
+                    ></iframe>
+                        <Typography variant="body2" style={{ marginTop: '20px' }}>
+                        (credit to N. Nawrocki for significant contributions to this document)
+                    </Typography>
+                </>
+            )}
+             {/* Conditional rendering for CST438 (Software Engineering) */}
+             {course.id === 'cst438' && (
+                <>
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>
+Final Project                    </Typography>
+                    <p>We developed a full-service registrar system that handled student, admin, and instructor operations, complete with secure data handling and role-based functionality.
+                    We secured the entire application using JWT (JSON Web Token) for sign-on, ensuring user authentication and authorization were fully locked down.
+                        Chromedriver was implemented for Selenium testing to ensure automated testing of UI components.
+                        On the backend, we set up comprehensive unit testing to validate each function and endpoint.
+                        During the final stages, we faced several merge conflicts in Git, which had to be resolved at the last minute, adding to the complexity of the project.
+                        Postman was invaluable for testing and troubleshooting API endpoints that the frontend couldn't see or access, ensuring smooth communication between the front and back end.
+                        
+                    </p>
+
+                    {/* Front End and Back End Repo Links */}
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Repositories:</Typography>
+                    <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+                        <Button 
+                            variant="contained" 
+                            color="primary" 
+                            href="https://github.com/cjordan223/cst438_Assignment3"
+                            target="_blank"
+                            style={{ flex: 1 }}
+                        >
+                            View Front End Repo
+                        </Button>
+                        <Button 
+                            variant="contained" 
+                            color="primary" 
+                            href="https://github.com/cjordan223/CST438-Assignment2/"
+                            target="_blank"
+                            style={{ flex: 1 }}
+                        >
+                            View Back End Repo
+                        </Button>
+                    </div>
+
+                    {/* Embedded SRS Document */}
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>SRS:</Typography>
+                    <iframe 
+                        src="https://drive.google.com/file/d/1b7quP2i_la1p6O8vwE_39JpEkyJJYrwj/preview" 
+                        width="100%" 
+                        height="900px" 
+                        style={{ border: '1px solid #ccc', borderRadius: '4px', marginTop: '10px' }}
+                        title="SRS Document"
                     ></iframe>
                 </>
             )}
@@ -511,7 +600,8 @@ FROM Pharmacy;
                         {course.id === 'cst370' && (
                 <>
                     <Typography variant="body1" style={{ marginTop: '20px' }}>
-                        You can view all of the types of problems I worked with in this course on the Programming page under <strong>Data Structures & Algorithms </strong>.
+                        You can view all of the types of problems I worked with in this course on 
+                        the projects page by going to <strong>Programming Projects > Data Structures & Algorithms </strong>.
                     </Typography>
                   
                     {/* Link to DSA Collection Repo */}
@@ -529,22 +619,46 @@ FROM Pharmacy;
                     </Button>
                 </>
             )}
+                                    {/* Conditional rendering for CST334) */}
+                                    {course.id === 'cst334' && (
+                <>
+                   
+                    {/* Link to DSA Collection Repo */}
+                    <Typography variant="body2" style={{ marginTop: '20px' }}>
+                    <strong> Repository of OS programming from this semester: </strong>
+                    </Typography>
+                    <Button 
+                        variant="contained" 
+                        color="primary" 
+                        href="https://github.com/cjordan223/Operating-Systems"
+                        style={{ marginTop: '10px' }}
+                        target="_blank"
+                    >
+                        OS Programming
+                    </Button>
+                </>
+            )}
                 {/* Conditional rendering for CST462S (Social Media Content and Game Design) */}
             {course.id === 'cst462s' && (
                 <>
                     <Typography variant="h6" style={{ marginTop: '20px' }}>Custom Learning Content for LFC Social Media</Typography>
 
                     {/* Carousel of Thumbnails */}
-                    <Carousel showThumbs={true} infiniteLoop={true} autoPlay={true} interval={3000} showStatus={false}>
-                        {Array.from({ length: 15 }, (_, i) => (
-                            <div key={i}>
-                                <img src={`/img/LFC/${i + 1}.png`} alt={`LFC Thumbnail ${i + 1}`} />
-                            </div>
-                        ))}
-                    </Carousel>
+                    <div style={{ width: '50%', margin: '0 auto' }}>
+                        <Carousel showThumbs={true} infiniteLoop={true} autoPlay={true} interval={3000} showStatus={false}>
+                            {Array.from({ length: 15 }, (_, i) => (
+                                <div key={i}>
+                                    <img src={`/img/LFC/${i + 1}.png`} alt={`LFC Thumbnail ${i + 1}`} />
+                                </div>
+                            ))}
+                        </Carousel>
+                    </div>
 
                     {/* Video Game Demo */}
                     <Typography variant="h6" style={{ marginTop: '20px' }}>Video Game Demo</Typography>
+                    <Typography variant="body2">
+                        I took a basic walking sim package in Unity and imported custom made skyscapes to create a darker vibe, and added some SFX. Added some additional features with Java scripting.
+                    </Typography>
                     <iframe 
                         src="https://drive.google.com/file/d/102L0jtOt3eSYp3nxgkIPZj7cktktVBrh/preview" 
                         width="100%" 
@@ -567,8 +681,11 @@ FROM Pharmacy;
                     >
                         View Figma Wireframe
                     </Button>
-                </>
-            )}
+                    <img src="public/img/StarlitState.jpg" alt="" style={{ width: '100%', height: 'auto', marginTop: '10px' }} />                    
+
+                    </>
+                    
+             )}
 
              {/* Conditional rendering for CST311 (Networking) */}
             {course.id === 'cst311' && (
@@ -594,46 +711,97 @@ FROM Pharmacy;
                     <iframe 
                         src="https://drive.google.com/file/d/1mSvaaPbFl4atX8pfJCquC0R8G8lugdlI/preview" 
                         width="100%" 
-                        height="400px" 
+                        height="800px" 
                         style={{ border: '1px solid #ccc', borderRadius: '4px' }}
                         title="CST311 Final PDF"
                     ></iframe>
                 </>
             )}
-                        {/* Conditional rendering for CST383 (Data Science) */}
-                        {course.id === 'cst383' && (
+
+            {/* Conditional rendering for CST329 (Logic and Capstone Prep) */}
+            {course.id === 'cst329' && (
+                <>
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Course Focus: Logic and Proofs</Typography>
+                    <Typography variant="body1" style={{ marginTop: '20px' }}>
+                        This course focuses on developing skills in logical reasoning and formal proofs. Key areas include:
+                    </Typography>
+                    <ul style={{ marginLeft: '20px' }}>
+                        <li>Propositional Logic</li>
+                        <li>Predicate Logic</li>
+                        <li>Truth Tables and Logical Equivalences</li>
+                        <li>Methods of Proof (Direct, Contradiction, Induction)</li>
+                        <li>Logical Arguments and Validity</li>
+                    </ul>
+
+                    <Typography variant="body1" style={{ marginTop: '20px' }}>
+                        While completing this course, initial preparation for the capstone project (CST499) was also begun.
+                    </Typography>
+
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Course Documentation:</Typography>
+                    <iframe 
+                        src="https://docs.google.com/document/d/1mWSFZXcWMAQqt7Fc-muRzQ-UYTRrDWfQJ1x2Bg3FD4c/preview" 
+                        width="100%" 
+                        height="800px" 
+                        style={{ border: '1px solid #ccc', borderRadius: '4px', marginTop: '10px' }}
+                        title="CST329_Documentation"
+                    />
+
+                    <div style={{ marginTop: '20px' }}>
+                        <Button 
+                            variant="outlined" 
+                            color="secondary" 
+                            fullWidth
+                            component={Link} 
+                            to="/webdesign"
+                        >
+                            Back to Courses
+                        </Button>
+                    </div>
+                </>
+            )}
+            {/* Conditional rendering for CST383 (Data Science) */}
+            {course.id === 'cst383' && (
                 <>
                     <Typography variant="body2" style={{ marginTop: '20px' }}>
-                        <strong>I enjoyed compiling Jupyter notebooks so much during this class that I created a page dedicated mostly to them in my Data Structures & Algorithms / Data Analysis section!</strong>
+                        <strong>I enjoyed compiling Jupyter notebooks so much during this class that I created a page dedicated mostly to them in my Data Structures & Algorithms / Data Analysis section! Here's a few:</strong>
                     </Typography>
-                    <Button 
-                        variant="contained" 
-                        color="primary" 
-                        href="/programming"
-                        style={{ marginTop: '10px' }}
-                    >
-                        View DSA/DA Section
-                    </Button>
+                   
+
+                    {/* Additional Notebooks Section using MUI Accordion */}
+                    <Accordion style={{ marginTop: '20px' }}>
+                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                            <Typography>Presidential Campaign Data</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <NotebookViewer2 />
+                        </AccordionDetails>
+                    </Accordion>
+
+                    <Accordion style={{ marginTop: '10px' }}>
+                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                            <Typography>Student Housing Data (ML)</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <NotebookViewer3 />
+                        </AccordionDetails>
+                    </Accordion>
                 </>
             )}
 
                         {/* Conditional rendering for CST338 */}
                         {course.id === 'cst338' && (
                 <>
-                    <Typography variant="body2" style={{ marginTop: '20px' }}>
-                        During this course, I developed 2 simple projects: the Markov Generator and the Guessing Game, both of which are featured in the webapps section. These projects gave me a basic understanding of software application structure.
+                    <Typography variant="body1" style={{ marginTop: '20px' }}>
+                        During this course, I developed 2 simple projects: the Markov Generator and the Guessing Game, 
+                        both of which are featured in the <strong>Projects > Web Applications</strong> section. These projects gave me a basic understanding of software application structure.
                     </Typography>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        href="/webapps"
-                        style={{ marginTop: '10px' }}
-                    >
-                        Learn More About These Projects
-                    </Button>
+    
 
-                    <Typography variant="body2" style={{ marginTop: '20px' }}>
-                        My final project, an Android Studio list-making application, started as a group project. However, after my partner left the program, I completed it solo. The project provided valuable experience in mobile app development.
+                    <Typography variant="body1" style={{ marginTop: '20px' }}>
+                        My final project, an Android Studio list-making application,
+                         started as a group project. However, after my partner left the program, I completed it solo.
+                          The project provided valuable experience in mobile app development. 
+                          I would recommend viewing other projects in my archives for a better picture of app development, this was my first attempt.
                     </Typography>
                     <Button
                         variant="contained"
@@ -647,17 +815,170 @@ FROM Pharmacy;
                 </>
             )}
  
-            <div style={{ marginTop: '20px' }}>
-                <Button 
-                    variant="outlined" 
-                    color="secondary" 
-                    fullWidth
-                    component={Link} 
-                    to="/webdesign"
-                >
-                    Back to Courses
-                </Button>
-            </div>
+
+            {/* Conditional rendering for CST499 (Capstone Project) */}
+            {course.id === 'cst499' && (
+                <>
+                                    {/* Existing PhishFinder content starts here */}
+                                    <Typography variant="h6" style={{ marginTop: '20px' }}>PhishFinder: AI-Enhanced Email Security Extension</Typography>
+<Box component="span" sx={{ display: 'inline-flex', alignItems: 'center', padding: '5px 10px', backgroundColor: '#FFD700', borderRadius: '5px', marginTop: '10px' }}>
+    <EmojiEventsIcon sx={{ marginRight: '5px' }} />
+    Winner! Most Innovative Project at the 2024 Capstone Festival, CSU Monterey Bay
+</Box>
+<Typography variant="body1" style={{ marginTop: '20px' }}>
+    PhishFinder is a web extension designed to enhance email security by identifying and flagging phishing and spearphishing patterns. Built using Node.js, Vue.js, Express and MongoDB, and integrating with Gmail's API through OAuth 2.0, it provides real-time security analysis of incoming emails.
+</Typography>
+ 
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Project Planning Phase (CST 489)</Typography>
+                    <Typography variant="body1" style={{ marginTop: '20px' }}>
+                        The planning phase of this project involved extensive research into email security, phishing detection methods, and API integration possibilities. Key planning deliverables included:
+                    </Typography>
+                    <ul style={{ marginLeft: '20px' }}>
+                        <li>Project proposal and scope definition</li>
+                        <li>Technical requirements documentation</li>
+                        <li>Architecture design and API planning</li>
+                        <li>Security implementation strategy</li>
+                        <li>Development timeline and milestones</li>
+                    </ul>
+
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Proposal Document:</Typography>
+                    <iframe 
+                        src="https://drive.google.com/file/d/1VDNHHpXOp9Nv3nNUGRV2R78K_cW1y69Q/preview" 
+                        width="100%" 
+                        height="800px" 
+                        style={{ border: '1px solid #ccc', borderRadius: '4px', marginTop: '10px' }}
+                        title="Proposal Document"
+                    />
+
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Progress Report:</Typography>
+                    <iframe 
+                        src="https://drive.google.com/file/d/13cXIYbDJu_T3Wk5rtncxNsK8VlNn_TVG/preview" 
+                        width="100%" 
+                        height="800px" 
+                        style={{ border: '1px solid #ccc', borderRadius: '4px', marginTop: '10px' }}
+                        title="Final Report"
+                    />
+
+
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Key Features:</Typography>
+                    <ul style={{ marginLeft: '20px' }}>
+                        <li>Real-time email security analysis</li>
+                        <li>OAuth 2.0 secure Gmail integration</li>
+                        <li>Dynamic sender profiling using MongoDB</li>
+                        <li>AI-powered content analysis</li>
+                        <li>URL and domain verification</li>
+                        <li>Custom security metrics dashboard</li>
+                    </ul>
+
+                    {/* Screenshot Cards */}
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Application Screenshots:</Typography>
+                    <Grid container spacing={2} style={{ marginTop: '10px' }}>
+                        {[
+                            { id: 1, image: "oauth.png", caption: "OAuth 2.0 Secure Authentication Flow" },
+                            { id: 2, image: "Metrics.png", caption: "Security Metrics Dashboard" },
+                            { id: 3, image: "Analysis2.png", caption: "Advanced Email Analysis" },
+                            { id: 4, image: "Analysis.png", caption: "Threat Detection Interface" },
+                            { id: 5, image: "mirror.png", caption: "Gmail Mirror Integration" },
+                            { id: 6, image: "DB.png", caption: "MongoDB Profile Storage" }
+                        ].map((item) => (
+                            <Grid item xs={12} sm={6} md={4} key={item.id}>
+                                <CardActionArea onClick={() => handleOpenModal(item.image)}>
+                                    <CardMedia
+                                        component="img"
+                                        height="200"
+                                        image={`/img/${item.image}`}
+                                        alt={item.caption}
+                                        sx={{
+                                            objectFit: 'contain',
+                                            padding: '10px'
+                                        }}
+                                    />
+                                </CardActionArea>
+                                <CardContent>
+                                    <Typography variant="body2" color="text.secondary" align="center">
+                                        {item.caption}
+                                    </Typography>
+                                </CardContent>
+                            </Grid>
+                        ))}
+                    </Grid>
+
+                    {/* Repository Links */}
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Project Repositories:</Typography>
+                    <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+                        <Button 
+                            variant="contained" 
+                            color="primary" 
+                            href="https://github.com/cjordan223/PhishFinder"
+                            target="_blank"
+                            style={{ flex: 1 }}
+                        >
+                            Frontend Repository
+                        </Button>
+                        <Button 
+                            variant="contained" 
+                            color="primary" 
+                            href="https://github.com/cjordan223/PhishFinder-Backend"
+                            target="_blank"
+                            style={{ flex: 1 }}
+                        >
+                            Backend Repository
+                        </Button>
+                    </div>
+
+                    {/* Demo Video Section */}
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>Project Demo:</Typography>
+                    <iframe 
+                        width="100%" 
+                        height="500px" 
+                        src="https://www.youtube.com/embed/bYpPd5KmwMw?si=KhpazgPYXzEXyt3z" 
+                        title="PhishFinder Demo"
+                        frameBorder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowFullScreen
+                        style={{ borderRadius: '4px', marginTop: '10px' }}
+                    />
+
+                    <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+                        <Button 
+                            variant="outlined" 
+                            color="secondary" 
+                            style={{ flex: 1 }}
+                            component={Link} 
+                            to="/webdesign"
+                        >
+                            Back to Courses
+                        </Button>
+                        <Button 
+                            variant="outlined" 
+                            color="primary" 
+                            style={{ flex: 1 }}
+                            component={Link} 
+                            to="/webapps"
+                        >
+                            Back to Projects
+                        </Button>
+                    </div>
+                </>
+            )}
+
+            <Modal
+                open={isModalOpen}
+                onClose={handleCloseModal}
+                aria-labelledby="image-modal"
+            >
+                <Box sx={modalStyle}>
+                    <img
+                        src={`/img/${selectedImage}`}
+                        alt="Enlarged view"
+                        style={{
+                            width: '100%',
+                            height: 'auto',
+                            objectFit: 'contain'
+                        }}
+                    />
+                </Box>
+            </Modal>
         </div>
     );
 }

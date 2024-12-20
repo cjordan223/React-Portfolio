@@ -4,14 +4,28 @@
     flex-direction: column;
     justify-content: space-between; /* This helps in pushing the actions to the bottom */
     height: 100%; /* Full height of the grid cell */
+    max-width: 400px; /* Set a maximum width for the card */
+    margin: 0 auto; /* Center the card horizontally */
 }
 
 /* Responsive card media */
 .MuiCardMedia-root {
-    aspect-ratio: 16 / 9; /* Replace with your desired aspect ratio */
+    aspect-ratio: 16 / 9;
+    max-height: 200px; /* Set a maximum height for the media */
 }
 
 /* Responsive card content */
 .MuiCardContent-root {
     flex-grow: 1; /* Ensures that the content takes up the available space */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+    .MuiCard-root {
+        max-width: 100%; /* Allow the card to take full width on small screens */
+    }
+
+    .MuiCardMedia-root {
+        max-height: 150px; /* Adjust the media height for small screens */
+    }
 }

@@ -2,6 +2,10 @@
 import React from 'react';
 import { Container, Grid, Typography, Link, Box } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import EmailIcon from '@mui/icons-material/Email';
+
+
 
 function Footer() {
     return (
@@ -15,15 +19,18 @@ function Footer() {
                     </Grid>
                     <Grid item xs={12} sm={8} container justifyContent="flex-end" spacing={2}>
                         <Grid item>
-                            <Link href="#" color="inherit">
-                             </Link>
+                        <Link href="mailto:connerjordan@proton.me" color="inherit">
+                                <EmailIcon />
+                            </Link>
                         </Grid>
                         <Grid item>
-                            <Link href="#" color="inherit">
-                             </Link>
+                        <Link href="https://github.com/cjordan223" color="inherit">
+                                <GitHubIcon />
+                            </Link>
                         </Grid>
                         <Grid item>
                             <Link href="https://www.linkedin.com/in/conner-jordan-4b268514a/" color="inherit">
+
                                 <LinkedInIcon />
                             </Link>
                         </Grid>
