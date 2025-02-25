@@ -1,13 +1,16 @@
 //src/pages/CoursePage.js
 import React, { useState } from 'react';
 import { Link, useParams} from 'react-router-dom';
-import { Button, Accordion, AccordionSummary, AccordionDetails, Typography, Grid, Card, CardMedia, CardContent, Modal, CardActionArea, Box }  from '@mui/material';
+import { Button, Accordion, AccordionSummary, AccordionDetails, Typography, Grid, Card, CardMedia, CardContent, Modal, CardActionArea, Box, Breadcrumbs }  from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Carousel } from 'react-responsive-carousel';  // You can use this library or another for the carousel
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; 
 import NotebookViewer2 from '../components/Projects/Notebooks/NotebookViewer2';
 import NotebookViewer3 from '../components/Projects/Notebooks/NotebookViewer3';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import HomeIcon from '@mui/icons-material/Home';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 
 const courseData = [
@@ -159,6 +162,11 @@ function CoursePage() {
             color: 'black',
             borderRadius: '8px'
         }}>
+            <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb">
+                <Link color="inherit" to="/">Home</Link>
+                <Link color="inherit" to="/projects">Projects</Link>
+                <Typography color="textPrimary">{courseData.name}</Typography>
+            </Breadcrumbs>
             <Typography variant="h4" gutterBottom>{course.name}</Typography>
             <Typography variant="body2">{course.description}</Typography>
             <Typography variant="body2"><strong>Credits:</strong> {course.credits}</Typography>
@@ -979,6 +987,28 @@ Final Project                    </Typography>
                     />
                 </Box>
             </Modal>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2rem', marginBottom: '2rem' }}>
+                <Button 
+                    variant="contained" 
+                    color="primary" 
+                    component={Link} 
+                    to="/projects"
+                    startIcon={<ArrowBackIcon />}
+                >
+                    Back to Projects
+                </Button>
+                
+                <Button 
+                    variant="outlined" 
+                    color="primary" 
+                    component={Link} 
+                    to="/"
+                    startIcon={<HomeIcon />}
+                >
+                    Home
+                </Button>
+            </div>
         </div>
     );
 }

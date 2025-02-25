@@ -24,8 +24,8 @@ function ProjectsPage() {
         0: "Highlighting my most significant and impactful projects, and whatever I'm currently working on!",
         1: "Interactive web applications built with modern frameworks and responsive design principles.",
         2: "Software development projects showcasing algorithms, data structures, and programming concepts.",
-        3: "Past projects and client work that demonstrate my growth and experience as a developer.",
-        4: "Academic coursework from my Computer Science program at CSUMB, showcasing my educational foundation."
+        3: "Past client work as a web designer.",
+        4: "Academic coursework from my Computer Science program at CSUMB. Emphasis was placed on teams and software engineering principals, working within teams throughout the program."
     };
     
     // Updated allProjects array with data from existing components
@@ -50,7 +50,7 @@ function ProjectsPage() {
         },
         {
             name: "Weather Wise",
-            description: "Weather application that uses a free API to gather weather data and display it in a user-friendly interface. Accepts various input formats including Zip Code, City, County, and Coordinates.",
+            description: "Weather application that uses a free API to gather weather data and display it in a user-friendly interface. Accepts various input formats including coordinates. Login: admin / 1234",
             image: "https://images.pexels.com/photos/125510/pexels-photo-125510.jpeg",
             path: "https://github.com/cjordan223/WeatherWise-Code",
             site: "https://cjordan223.github.io/WeatherWise/",
@@ -113,7 +113,7 @@ function ProjectsPage() {
         // Programming Projects
         {
             name: "Pandas & Numpy Data Analysis",
-            description: "Data manipulation with Python, collected with a custom Python script agent. Demonstrates data processing and analysis techniques.",
+            description: "Data manipulation with Python, collected with a custom Python script agent.",
             image: "/img/pandas.jpeg",
             path: "https://github.com/cjordan223/voyager",
             category: "programming",

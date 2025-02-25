@@ -1,25 +1,25 @@
-import React from 'react';
-import { Typography } from '@mui/material';
-import ProjectTemplate from "./ProjectTemplate";
+// import React from 'react';
+// import { Typography } from '@mui/material';
+// import ProjectTemplate from "./ProjectTemplate";
 
 
-const WeatherAPIProject = {
-    name: 'Basic Weather API',
-    description: 'Weather Wise is a dynamic web application designed to provide users with real-time weather information for any specified city around the globe. Leveraging a sleek, user-friendly interface, Weather Wise offers insights into current weather conditions, including temperature, wind speed, and direction, enhancing user experiences with accurate and relevant data visualization.',
-    image: '/path/to/venturepal/screenshot.jpg',
-    githubUrl: 'https://github.com/cjordan223/weather-wise',
-    liveUrl: '',
-};
+// const WeatherAPIProject = {
+//     name: 'Basic Weather API',
+//     description: 'Seems like everyone makes a weather app when they first learn about API programming. I was no exception. Login: Admin / 1234',
+//     image: '/path/to/venturepal/screenshot.jpg',
+//     githubUrl: 'https://github.com/cjordan223/weather-wise',
+//     liveUrl: '',
+// };
 
-function WeatherAPIComponent() {
-    return (
-        <div style={{ padding: 20 }}>
-            <Typography variant="h3" component="h1" gutterBottom>
-                Project Details
-            </Typography>
-            <ProjectTemplate project={WeatherAPIProject} />
-        </div>
-    );
-}
+// function WeatherAPIComponent() {
+//     return (
+//         <div style={{ padding: 20 }}>
+//             <Typography variant="h3" component="h1" gutterBottom>
+//                 Project Details
+//             </Typography>
+//             <ProjectTemplate project={WeatherAPIProject} />
+//         </div>
+//     );
+// }
 
-export default WeatherAPIComponent;
+// export default WeatherAPIComponent;
