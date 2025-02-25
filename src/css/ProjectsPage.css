@@ -1,0 +1,23 @@
+.project-card-container {
+  transition: all 0.3s ease;
+}
+
+.project-tag {
+  display: inline-block;
+  background-color: rgba(25, 118, 210, 0.1);
+  color: #1976d2;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  font-size: 0.75rem;
+}
+
+.tab-panel {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

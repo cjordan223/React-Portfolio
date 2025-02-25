@@ -93,7 +93,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const resumeUrl = "https://drive.google.com/file/d/1jSbYgRFbPWGRJcpq3LXYVq1LFS7OoBOA/view?usp=drive_link";
+const resumeUrl = "https://drive.google.com/file/d/1bd3iNiTS8mho9KJnOhdPW7GPlOj-PlT5/view?usp=sharing";
 
 const skills = [
   'HTML', 'CSS', 'Bootstrap', 'React', 'JavaScript', 'Python', 'Java', 'Android Studio',
