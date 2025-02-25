@@ -3,6 +3,7 @@ import { Grid, Card, CardActionArea, CardContent, CardMedia, Typography, Button,
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
 import { useNavigate } from "react-router-dom";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
  const modalStyle = {
@@ -47,7 +48,7 @@ const projects = [
    },
   {
     name: "CompTIA+ Flashcards (iOS)",
-    description: "I’m working on my Capstone project and studying for CompTIA, but still want to make time for personal projects, so I created flashcards in Swift to test in the iOS/XCode environment. It was surprisingly easy, with Swift having a lot of similarites to the React component structure.",
+    description: "I'm working on my Capstone project and studying for CompTIA, but still want to make time for personal projects, so I created flashcards in Swift to test in the iOS/XCode environment. It was surprisingly easy, with Swift having a lot of similarites to the React component structure.",
     image: "https://developer.apple.com/swift/images/swift-og.png",   
     path: "https://github.com/cjordan223/compTIA-flashcards.git",
    }
@@ -210,10 +211,10 @@ const ProjectTemplate = () => {
                 <Button
                 variant="contained"
                 color="primary"
-                onClick={handleClose}
-                sx={closeButtonStyle}
+                onClick={() => navigate('/projects')}
+                startIcon={<ArrowBackIcon />}
               >
-                Close
+                Back to Projects
               </Button>
               </Box>
               

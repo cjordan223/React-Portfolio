@@ -5,6 +5,10 @@ import { Box, Container, Grid, Paper, Typography, Tabs, Tab, Card, CardMedia, Ca
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
 import SchoolIcon from '@mui/icons-material/School';
+import CodeIcon from '@mui/icons-material/Code';
+import WebIcon from '@mui/icons-material/Web';
+import StarIcon from '@mui/icons-material/Star';
+import ArchiveIcon from '@mui/icons-material/Archive';
 import { Link, useNavigate } from 'react-router-dom';
 
 function ProjectsPage() {
@@ -15,6 +19,15 @@ function ProjectsPage() {
         setTabValue(newValue);
     };
     
+    // Section descriptions
+    const sectionDescriptions = {
+        0: "Highlighting my most significant and impactful projects, and whatever I'm currently working on!",
+        1: "Interactive web applications built with modern frameworks and responsive design principles.",
+        2: "Software development projects showcasing algorithms, data structures, and programming concepts.",
+        3: "Past projects and client work that demonstrate my growth and experience as a developer.",
+        4: "Academic coursework from my Computer Science program at CSUMB, showcasing my educational foundation."
+    };
+    
     // Updated allProjects array with data from existing components
     const allProjects = [
         // Featured projects (your best work)
@@ -23,9 +36,9 @@ function ProjectsPage() {
             description: "Web extension to enhance email security by identifying phishing patterns. Built with Vue.js and integrating with Gmail's API through OAuth 2.0, it provides real-time security analysis of incoming emails.",
             image: "/img/phishfinderlogo.png",
             path: "https://github.com/cjordan223/PhishFinder",
-            site: "/#/course/cst499",
+            site: "/course/cst499",
             category: "featured",
-            tags: ["Vue.js", "OAuth 2.0", "Security", "API Integration"]
+            tags: ["Vue.js", "OAuth 2.0", "API Integration", "Security"]
         },
         {
             name: "Student Portal (Full Stack)",
@@ -99,28 +112,44 @@ function ProjectsPage() {
         
         // Programming Projects
         {
-            name: "Pandas & Numpy",
-            description: "Data manipulation with Python, collected with a custom Python script agent. Demonstrates data science skills and automation capabilities.",
+            name: "Pandas & Numpy Data Analysis",
+            description: "Data manipulation with Python, collected with a custom Python script agent. Demonstrates data processing and analysis techniques.",
             image: "/img/pandas.jpeg",
             path: "https://github.com/cjordan223/voyager",
             category: "programming",
-            tags: ["Python", "Pandas", "NumPy", "Data Science"]
+            tags: ["Python", "Pandas", "NumPy", "Data Analysis"]
+        },
+        {
+            name: "Data Structures & Algorithms",
+            description: "Repository of Java programs illustrating common DSA concepts. Each file includes a description of the algorithm and its implementation approach.",
+            image: "./img/DSA.png",
+            path: "https://github.com/cjordan223/DSA-collection.git",
+            category: "programming",
+            tags: ["Java", "Data Structures", "Algorithms", "Problem Solving"]
+        },
+        {
+            name: "Home Network Analysis",
+            description: "Analysis of home network traffic patterns using Python data science tools. Visualizes network usage and identifies potential security concerns.",
+            image: "https://plus.unsplash.com/premium_photo-1688678097511-74b32529c58c?q=80&w=1989&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            site: "/programming", // This will link to the notebook viewer
+            category: "programming",
+            tags: ["Python", "Network Security", "Data Visualization", "Jupyter"]
+        },
+        {
+            name: "Presidential Campaign Data Analysis",
+            description: "Statistical analysis of presidential campaign data using Python. Examines funding patterns, voter demographics, and campaign effectiveness.",
+            image: "https://plus.unsplash.com/premium_photo-1707819128862-53619e466254?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHBvbGl0aWNhbCUyMGNhbXBhaWdufGVufDB8fDB8fHww",
+            site: "/programming", // This will link to the notebook viewer
+            category: "programming",
+            tags: ["Python", "Political Data", "Statistical Analysis", "Pandas"]
         },
         {
             name: "Student Housing Data (ML)",
-            description: "Machine learning project analyzing student housing data to identify patterns and make predictions.",
-            image: "/img/datascience.jpeg",
-            path: "https://github.com/cjordan223/ML-StudentHousing",
+            description: "Machine learning project analyzing student housing preferences and costs. Uses regression and clustering to identify patterns and make predictions.",
+            image: "https://images.unsplash.com/photo-1515263487990-61b07816b324?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            site: "/programming", // This will link to the notebook viewer
             category: "programming",
-            tags: ["Python", "Machine Learning", "Data Analysis", "Predictive Modeling"]
-        },
-        {
-            name: "List Assist",
-            description: "Android Studio list-making application with basic CRUD functionality, built in Java for the Android platform.",
-            image: "/img/android.jpeg",
-            path: "https://github.com/cjordan223/List_Assist",
-            category: "programming",
-            tags: ["Java", "Android", "Mobile Development", "CRUD"]
+            tags: ["Machine Learning", "Python", "Data Science", "Regression Analysis"]
         },
         
         // Archive Projects
@@ -163,19 +192,17 @@ function ProjectsPage() {
             site: "https://www.carpentrysolutionsinfo.com/",
             category: "archive",
             tags: ["HTML/CSS", "Web Design", "Client Work", "Skilled Trade"]
-        }
-    ];
-    
-    // Add coursework data
-    const coursework = [
+        },
+        
+        // Add coursework data
         {
             name: "CST 499: Directed Capstone",
-            description: "The culmination of CST 489 planning and development into a significant software project. Created PhishFinder, a web extension for email security.",
+            description: "The culmination of CST 489 planning and development into a significant software project. Developed PhishFinder, a web extension for email security.",
             image: "/img/phishfinderlogo.png",
             link: "/course/cst499",
             grade: "A",
             category: "education",
-            tags: ["Capstone", "Security", "Web Development", "Vue.js"]
+            tags: ["Capstone", "Software Development", "Vue.js", "OAuth 2.0"]
         },
         {
             name: "CST 438: Software Engineering",
@@ -270,7 +297,7 @@ function ProjectsPage() {
         {
             name: "CST 462S: Race, Gender, Class in the Digital World",
             description: "Provides students with key knowledge of race, gender, class in the digital landscape. Analyzed social impacts of technology.",
-            image: "https://yt3.googleusercontent.com/4YAaX7CsQ-paadHsNvC6wdv2nE_7VTKpoNJOTwFhHL4rQqLC8WFe6mNxL-z-e6sfHZbHG-ucPA=s900-c-k-c0x00ffffff-no-rj",
+            image: "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             link: "/course/cst462s",
             grade: "A",
             category: "education",
@@ -284,7 +311,7 @@ function ProjectsPage() {
         if (tabValue === 1) return allProjects.filter(p => p.category === "webapps");
         if (tabValue === 2) return allProjects.filter(p => p.category === "programming");
         if (tabValue === 3) return allProjects.filter(p => p.category === "archive");
-        if (tabValue === 4) return coursework;
+        if (tabValue === 4) return allProjects.filter(p => p.category === "education");
         return [];
     };
     
@@ -303,14 +330,29 @@ function ProjectsPage() {
                         value={tabValue} 
                         onChange={handleTabChange} 
                         centered
-                        sx={{ marginBottom: '2rem' }}
+                        sx={{ marginBottom: '1rem' }}
                     >
-                        <Tab label="Featured" />
-                        <Tab label="Web Applications" />
-                        <Tab label="Programming" />
-                        <Tab label="Archive" />
-                        <Tab label="Education" icon={<SchoolIcon />} iconPosition="start" />
+                        <Tab icon={<StarIcon />} iconPosition="start" label="Featured" />
+                        <Tab icon={<WebIcon />} iconPosition="start" label="Web Applications" />
+                        <Tab icon={<CodeIcon />} iconPosition="start" label="Programming" />
+                        <Tab icon={<ArchiveIcon />} iconPosition="start" label="Archive" />
+                        <Tab icon={<SchoolIcon />} iconPosition="start" label="Education" />
                     </Tabs>
+                    
+                    {/* Section description */}
+                    <Typography 
+                        variant="body1" 
+                        sx={{ 
+                            color: 'text.secondary', 
+                            fontSize: '1rem', 
+                            maxWidth: '800px', 
+                            margin: 'auto', 
+                            padding: '0.5rem 1rem 1.5rem',
+                            fontStyle: 'italic'
+                        }}
+                    >
+                        {sectionDescriptions[tabValue]}
+                    </Typography>
                 </Box>
             </Paper>
             
@@ -318,80 +360,160 @@ function ProjectsPage() {
                 {getFilteredProjects().map((project, index) => (
                     <Grid item xs={12} sm={6} md={4} key={index}>
                         <Card sx={{ 
-                            height: '100%', 
                             display: 'flex', 
                             flexDirection: 'column',
-                            transition: 'transform 0.3s ease-in-out',
-                            '&:hover': { transform: 'scale(1.03)' },
-                            boxShadow: '0 8px 16px rgba(0, 0, 0, 0.1)'
+                            height: '480px',
+                            width: '100%',
+                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                            borderRadius: '8px',
+                            overflow: 'hidden',
+                            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                            '&:hover': { 
+                                transform: 'translateY(-5px)',
+                                boxShadow: '0 12px 20px rgba(0, 0, 0, 0.2)'
+                            }
                         }}>
-                            <CardMedia
-                                component="img"
-                                height="200"
-                                image={project.image}
-                                alt={project.name}
-                                sx={{
-                                    objectFit: project.name.includes("PhishFinder") ? 'contain' : 'cover',
-                                    padding: project.name.includes("PhishFinder") ? '20px' : '0'
-                                }}
-                            />
-                            <CardContent sx={{ flexGrow: 1 }}>
-                                <Typography gutterBottom variant="h5" component="h2" sx={{ fontWeight: 'bold' }}>
-                                    {project.name}
-                                </Typography>
+                            {/* Image Section - Fixed Height */}
+                            <Box sx={{ height: '240px', overflow: 'hidden', position: 'relative' }}>
+                                <CardMedia
+                                    component="img"
+                                    image={project.image}
+                                    alt={project.name}
+                                    sx={{
+                                        height: '100%',
+                                        width: '100%',
+                                        objectFit: project.name.includes("PhishFinder") || project.name.includes("Pandas") ? 'contain' : 'cover',
+                                        objectPosition: 'center',
+                                        backgroundColor: project.name.includes("PhishFinder") || project.name.includes("Pandas") ? '#f5f5f5' : 'transparent',
+                                        padding: project.name.includes("PhishFinder") || project.name.includes("Pandas") ? '16px' : '0'
+                                    }}
+                                />
                                 {project.category === "education" && (
                                     <Chip 
                                         label={`Grade: ${project.grade}`} 
                                         color="primary" 
                                         size="small" 
-                                        sx={{ mb: 1 }} 
+                                        sx={{ 
+                                            position: 'absolute',
+                                            top: 8,
+                                            right: 8,
+                                            fontWeight: 'bold'
+                                        }} 
                                     />
                                 )}
-                                <Typography variant="body2" color="text.secondary" paragraph>
+                            </Box>
+                            
+                            {/* Content Section */}
+                            <Box sx={{ 
+                                display: 'flex', 
+                                flexDirection: 'column', 
+                                p: 2,
+                                flexGrow: 1
+                            }}>
+                                {/* Title - Fixed Height */}
+                                <Typography 
+                                    variant="h6" 
+                                    component="h2" 
+                                    sx={{ 
+                                        fontWeight: 'bold',
+                                        mb: 1,
+                                        height: '60px',
+                                        overflow: 'hidden',
+                                        display: '-webkit-box',
+                                        WebkitLineClamp: 2,
+                                        WebkitBoxOrient: 'vertical'
+                                    }}
+                                >
+                                    {project.name}
+                                </Typography>
+                                
+                                {/* Description - Fixed Height */}
+                                <Typography 
+                                    variant="body2" 
+                                    color="text.secondary"
+                                    sx={{
+                                        height: '80px',
+                                        overflow: 'hidden',
+                                        display: '-webkit-box',
+                                        WebkitLineClamp: 4,
+                                        WebkitBoxOrient: 'vertical',
+                                        mb: 2
+                                    }}
+                                >
                                     {project.description}
                                 </Typography>
-                                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, marginTop: 1 }}>
+                                
+                                {/* Tags - Fixed Height */}
+                                <Box sx={{ 
+                                    display: 'flex', 
+                                    flexWrap: 'wrap', 
+                                    gap: 0.5,
+                                    height: '50px',
+                                    overflow: 'hidden',
+                                    mb: 'auto'
+                                }}>
                                     {project.tags && project.tags.map((tag, idx) => (
-                                        <Box key={idx} sx={{ 
-                                            bgcolor: 'rgba(25, 118, 210, 0.1)', 
-                                            color: 'primary.main',
-                                            borderRadius: 1,
-                                            px: 1,
-                                            py: 0.5,
-                                            fontSize: '0.75rem'
-                                        }}>
-                                            {tag}
-                                        </Box>
+                                        <Chip
+                                            key={idx}
+                                            label={tag}
+                                            size="small"
+                                            sx={{ 
+                                                bgcolor: 'rgba(25, 118, 210, 0.1)',
+                                                color: 'primary.main',
+                                                fontSize: '0.7rem',
+                                                height: '22px',
+                                                mb: 0.5
+                                            }}
+                                        />
                                     ))}
                                 </Box>
-                            </CardContent>
-                            <CardActions sx={{ padding: '16px', justifyContent: 'space-between' }}>
-                                {project.path && (
-                                    <Button size="small" color="primary" href={project.path} target="_blank" startIcon={<GitHubIcon />}>
-                                        GitHub
-                                    </Button>
-                                )}
-                                {project.site && (
-                                    <Button 
-                                        size="small" 
-                                        color="primary" 
-                                        href={project.site} 
-                                        target="_blank" 
-                                        startIcon={<LaunchIcon />}
-                                    >
-                                        {project.site.includes("course") ? "Details" : "Live Demo"}
-                                    </Button>
-                                )}
-                                {project.link && (
-                                    <Button 
-                                        size="small" 
-                                        color="primary" 
-                                        onClick={() => navigate(project.link)} 
-                                        startIcon={<SchoolIcon />}
-                                    >
-                                        Course Details
-                                    </Button>
-                                )}
+                            </Box>
+                            
+                            {/* Actions Section - Fixed Height */}
+                            <CardActions sx={{ 
+                                p: 2,
+                                pt: 1,
+                                borderTop: '1px solid rgba(0, 0, 0, 0.08)',
+                                height: '60px',
+                                justifyContent: 'space-between'
+                            }}>
+                                <Box>
+                                    {project.path && (
+                                        <Button 
+                                            size="small" 
+                                            color="primary" 
+                                            href={project.path} 
+                                            target="_blank" 
+                                            startIcon={<GitHubIcon />}
+                                            sx={{ mr: 1 }}
+                                        >
+                                            GitHub
+                                        </Button>
+                                    )}
+                                </Box>
+                                <Box>
+                                    {project.site && (
+                                        <Button 
+                                            size="small" 
+                                            color="primary" 
+                                            href={project.site} 
+                                            target="_blank" 
+                                            startIcon={<LaunchIcon />}
+                                        >
+                                            {project.site.includes("course") ? "Details" : "Demo"}
+                                        </Button>
+                                    )}
+                                    {project.link && (
+                                        <Button 
+                                            size="small" 
+                                            color="primary" 
+                                            onClick={() => navigate(project.link)} 
+                                            startIcon={<SchoolIcon />}
+                                        >
+                                            Details
+                                        </Button>
+                                    )}
+                                </Box>
                             </CardActions>
                         </Card>
                     </Grid>

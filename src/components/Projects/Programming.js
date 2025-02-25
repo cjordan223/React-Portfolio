@@ -6,6 +6,8 @@ import Card from 'react-bootstrap/Card';
 import NotebookViewer from './Notebooks/NotebookViewer'; 
 import NotebookViewer2 from './Notebooks/NotebookViewer2';
 import NotebookViewer3 from './Notebooks/NotebookViewer3';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import HomeIcon from '@mui/icons-material/Home';
 
 function Programming() {
     const navigate = useNavigate();
@@ -70,7 +72,21 @@ function Programming() {
             </Accordion>
 
             <br/><br/>
-            <Button variant="outline-primary" onClick={() => navigate('/projects')}>Main Projects Page</Button>{' '}
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Button 
+                    variant="primary" 
+                    onClick={() => navigate('/projects')}
+                >
+                    Back to Projects
+                </Button>
+                
+                <Button 
+                    variant="outline-primary" 
+                    onClick={() => navigate('/')}
+                >
+                    Home
+                </Button>
+            </div>
         </div>
     );
 }
