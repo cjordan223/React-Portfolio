@@ -760,9 +760,9 @@ Final Project                    </Typography>
                             color="secondary" 
                             fullWidth
                             component={Link} 
-                            to="/webdesign"
+                            to="/projects"
                         >
-                            Back to Courses
+                            Back to Projects
                         </Button>
                     </div>
                 </>
@@ -953,18 +953,20 @@ Final Project                    </Typography>
                             color="secondary" 
                             style={{ flex: 1 }}
                             component={Link} 
-                            to="/webdesign"
+                            to="/projects"
+                            startIcon={<ArrowBackIcon />}
                         >
-                            Back to Courses
+                            Back to Projects
                         </Button>
                         <Button 
                             variant="outlined" 
                             color="primary" 
                             style={{ flex: 1 }}
                             component={Link} 
-                            to="/webapps"
+                            to="/"
+                            startIcon={<HomeIcon />}
                         >
-                            Back to Projects
+                            Home
                         </Button>
                     </div>
                 </>
